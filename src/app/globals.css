@@ -102,17 +102,20 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
 }
 
-@utility container-site {
+.container-site {
   width: 100%;
   max-width: 1200px;
-  margin-inline: auto;
-  padding-inline: 1.5rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-@utility section-spacing {
-  padding-block: 6rem;
-  @variant lg {
-    padding-block: 10rem;
+.section-spacing {
+  padding: 6rem 0;
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding: 10rem 0;
   }
 }
 
