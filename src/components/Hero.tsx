@@ -153,11 +153,11 @@ const Hero = () => {
                     key={c}
                     onClick={() => { setActiveTab(c); setPlaying(null) }}
                     className={`px-4 py-1.5 text-[0.5rem] uppercase tracking-[3px] rounded-sm transition-all duration-700 cursor-pointer ${
-                      activeTab === c ? 'text-gold-shimmer font-medium' : 'text-label hover:text-silver'
+                      activeTab === c ? 'text-gold-static font-semibold' : 'text-label hover:text-silver'
                     }`}
                     style={
                       activeTab === c
-                        ? { background: '#e0c27a0a', border: '1px solid #e0c27a15' }
+                        ? { background: '#e0c27a15', border: '1px solid #e0c27a30' }
                         : { background: 'hsl(0 0% 6%)', border: '1px solid hsl(0 0% 10%)' }
                     }
                   >
