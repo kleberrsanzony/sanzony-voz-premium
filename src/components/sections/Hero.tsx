@@ -73,22 +73,28 @@ export default function Hero() {
 
             <motion.h1 
               variants={headlineVariants}
-              className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8"
+              className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8 flex flex-col gap-1"
             >
-              <motion.span variants={headlineLineVariants} className="block mb-2 text-white">Sua marca não</motion.span>
-              <motion.span variants={headlineLineVariants} className="block mb-2 text-white/90">precisa de uma voz.</motion.span>
-              <motion.span variants={headlineLineVariants} className="block text-gold mt-4">Precisa de presença.</motion.span>
+              <motion.span variants={headlineLineVariants}>
+                Sua marca não
+              </motion.span>
+              <motion.span variants={headlineLineVariants} className="text-muted-foreground font-light">
+                precisa de uma voz.
+              </motion.span>
+              <motion.span variants={headlineLineVariants} className="text-gold mt-2">
+                Precisa de presença.
+              </motion.span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md mb-10">
               Locução premium para campanhas, marcas e projetos que exigem mais do que som.
             </motion.p>
 
-            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-              <Button asChild className="w-full sm:w-auto h-12 xl:h-14 xl:px-10">
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
+              <Button asChild className="w-full sm:w-auto h-14 px-10 shadow-[0_0_40px_rgba(224,194,122,0.2)]">
                 <a href="#demos">Ouvir Demos</a>
               </Button>
-              <Button variant="outline" asChild className="w-full sm:w-auto h-12 xl:h-14 xl:px-10">
+              <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 bg-black/20 backdrop-blur-sm hover:bg-black/50">
                 <a href="#contato">Solicitar Orçamento</a>
               </Button>
             </motion.div>
