@@ -14,50 +14,61 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? 'backdrop-blur-xl border-b border-border-subtle'
-          : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-700 ${
+        scrolled ? 'border-b' : 'border-b border-transparent'
       }`}
-      style={scrolled ? { background: 'oklch(0.145 0 0 / 0.8)' } : undefined}
+      style={
+        scrolled
+          ? { background: 'hsl(0 0% 4% / 0.85)', backdropFilter: 'blur(20px)', borderColor: 'hsl(0 0% 12%)' }
+          : { background: 'transparent' }
+      }
     >
-      <div className="container-site flex items-center justify-between h-16 md:h-20">
-        <a href="#inicio" className="font-display font-bold text-lg md:text-xl tracking-tight text-foreground">
-          Sanzony<span className="text-silver">.Voz</span><span className="text-label text-xs ml-0.5">™</span>
+      <div className="container-site flex items-center justify-between h-20 md:h-24">
+        {/* Logo */}
+        <a href="#inicio" className="font-display font-bold text-xl md:text-2xl tracking-tight text-foreground">
+          Sanzony<span className="text-gold">.</span>Voz<span className="text-gold-subtle text-[0.55rem] font-light ml-1 align-super">™</span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        {/* Desktop nav */}
+        <nav className="hidden lg:flex items-center gap-10">
           {navLinks.map((l) => (
             <a
               key={l.href}
               href={l.href}
-              className="text-[0.65rem] uppercase tracking-[2px] text-muted-foreground hover:text-foreground transition-colors duration-300"
+              className="text-[0.6rem] uppercase tracking-[3px] text-label hover:text-silver transition-colors duration-500"
             >
               {l.label}
             </a>
           ))}
         </nav>
 
-        <a href="#contato" className="hidden md:inline-flex btn-outline text-[0.65rem] py-2.5 px-6">
-          Solicitar Orçamento
+        {/* CTA */}
+        <a href="#contato" className="hidden lg:inline-flex btn-outline text-[0.6rem] py-2.5 px-7">
+          <span>Solicitar Orçamento</span>
         </a>
 
-        <button className="md:hidden text-foreground" onClick={() => setOpen(!open)} aria-label="Menu">
-          {open ? <X size={24} /> : <Menu size={24} />}
+        {/* Mobile toggle */}
+        <button className="lg:hidden text-silver" onClick={() => setOpen(!open)} aria-label="Menu">
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 
+      {/* Mobile menu */}
       {open && (
-        <div className="md:hidden backdrop-blur-xl border-t border-border-subtle" style={{ background: 'oklch(0.145 0 0 / 0.95)' }}>
-          <nav className="container-site py-8 flex flex-col gap-6">
+        <div
+          className="lg:hidden border-t"
+          style={{ background: 'hsl(0 0% 3% / 0.97)', backdropFilter: 'blur(24px)', borderColor: 'hsl(0 0% 12%)' }}
+        >
+          <nav className="container-site py-10 flex flex-col gap-7">
             {navLinks.map((l) => (
               <a key={l.href} href={l.href} onClick={() => setOpen(false)}
-                className="text-sm uppercase tracking-[2px] text-muted-foreground hover:text-foreground transition-colors">
+                className="text-xs uppercase tracking-[3px] text-label hover:text-silver transition-colors">
                 {l.label}
               </a>
             ))}
-            <a href="#contato" className="btn-outline text-xs py-2.5 px-6 w-fit" onClick={() => setOpen(false)}>
-              Solicitar Orçamento
+            <div className="gold-line mt-2" />
+            <a href="#contato" className="btn-outline text-[0.6rem] py-2.5 px-7 w-fit" onClick={() => setOpen(false)}>
+              <span>Solicitar Orçamento</span>
             </a>
           </nav>
         </div>
