@@ -1,0 +1,172 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: hsl(0 0% 2%);
+  --color-background-surface: hsl(0 0% 4%);
+  --color-foreground: hsl(0 0% 92%);
+  --color-card: hsl(0 0% 5%);
+  --color-card-hover: hsl(0 0% 7%);
+  --color-secondary: hsl(0 0% 10%);
+  --color-secondary-foreground: hsl(0 0% 68%);
+  --color-muted: hsl(0 0% 14%);
+  --color-muted-foreground: hsl(0 0% 42%);
+  --color-border: hsl(0 0% 12%);
+  --color-border-subtle: hsl(0 0% 8%);
+  --color-silver: hsl(210 4% 68%);
+  --color-label: hsl(0 0% 48%);
+  --color-elevated: hsl(0 0% 7%);
+  --color-ring: hsl(0 0% 25%);
+
+  --color-gold: #e0c27a;
+  --color-gold-dark: #7a5c2e;
+  --color-gold-mid: #a67c2e;
+  --color-gold-light: #e0c27a;
+  --color-gold-muted: hsl(38 25% 32%);
+
+  --font-display: var(--font-display, "Outfit", sans-serif);
+  --font-body: var(--font-body, "Inter", sans-serif);
+
+  --radius-lg: 0.375rem;
+  --radius-md: 0.25rem;
+  --radius-sm: 0.125rem;
+
+  --animate-fade-up: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+}
+
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  /* Remover scrollbars pesados personalizados, usar scrollbar nativo premium-like */
+  scrollbar-width: thin;
+  scrollbar-color: hsl(0 0% 15%) transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
+::selection {
+  background: #e0c27a33;
+  color: hsl(0 0% 95%);
+}
+
+.text-gold {
+  background: linear-gradient(135deg, #7a5c2e 0%, #e0c27a 35%, #a67c2e 50%, #e0c27a 65%, #7a5c2e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-label {
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  color: #a67c2e;
+}
+
+/* Glass Card */
+.glass-card {
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  background: linear-gradient(135deg, hsl(0 0% 5%), hsl(0 0% 4%));
+  border: 1px solid hsl(0 0% 12%);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card:hover {
+  background: linear-gradient(135deg, hsl(0 0% 6%), hsl(0 0% 5%));
+  border-color: #e0c27a30;
+  transform: translateY(-2px);
+}
+
+.container-site {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.section-spacing {
+  padding: 6rem 0;
+}
+
+@media (min-width: 1024px) {
+  .section-spacing {
+    padding: 10rem 0;
+  }
+}
+
+/* ━━━ Premium Hover & Motion System (Pure CSS) ━━━ */
+
+/* Subtle Atmospheric Background Shift */
+@keyframes ambientGlow {
+  0%, 100% { opacity: 0.05; transform: scale(1); }
+  50% { opacity: 0.1; transform: scale(1.05); }
+}
+.bg-ambient-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at center, rgba(224,194,122,0.15) 0%, transparent 60%);
+  animation: ambientGlow 8s ease-in-out infinite;
+}
+
+/* Premium Card Interactions */
+.luxury-card {
+  position: relative;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s ease;
+}
+
+.luxury-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.05);
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.luxury-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 20px 40px -10px rgba(0,0,0,0.8), 0 0 40px -10px rgba(224,194,122,0.08);
+  background-color: var(--color-card-hover);
+}
+
+.luxury-card:hover::before {
+  opacity: 1;
+  box-shadow: inset 0 1px 1px rgba(224, 194, 122, 0.2);
+}
+
+/* Magnetic Image Lift */
+.magnetic-image-lift {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+}
+.magnetic-image-lift:hover {
+  transform: scale(1.03) translateY(-2px);
+  filter: brightness(1.1) contrast(1.05);
+}

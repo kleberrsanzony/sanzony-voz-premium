@@ -1,0 +1,113 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { heroCategories, heroDemos } from "@/data/content";
+import { DemoPlayer } from "./DemoPlayer";
+import { Button } from "@/components/ui/button";
+
+const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
+const heroContainerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.2, // Small wait for header to start
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 15 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: easePremium } 
+  },
+};
+
+const headlineVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const headlineLineVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: easePremium } },
+};
+
+export default function Hero() {
+  return (
+    <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20">
+      {/* Background simplificado com Ambient Glow */}
+      <div className="absolute inset-0 bg-[#050505]">
+        <div className="bg-ambient-layer" />
+        {/* Linhas verticais */}
+        <div className="absolute top-0 left-[12%] w-px h-full bg-gradient-to-b from-transparent via-[#e0c27a]/5 to-transparent" />
+        <div className="absolute top-0 left-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+        <div className="absolute top-0 left-[70%] w-px h-full bg-gradient-to-b from-transparent via-[#e0c27a]/5 to-transparent" />
+        <div className="absolute top-0 left-[88%] w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
+        {/* Vinheta estática CSS */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_30%,#050505_100%)] pointer-events-none" />
+      </div>
+
+      <motion.div 
+        className="container-site relative z-10 w-full"
+        variants={heroContainerVariants}
+        initial="hidden"
+        animate="visible"
+      >
+        <div className="grid md:grid-cols-12 gap-12 lg:gap-16 items-center mt-[0%]">
+
+          {/* LEFT — HEADLINE */}
+          <div className="md:col-span-7 flex flex-col items-start text-left">
+            <motion.span variants={itemVariants} className="section-label mb-8 block">
+              Locução Premium & Branding Vocal
+            </motion.span>
+
+            <motion.h1 
+              variants={headlineVariants}
+              className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8"
+            >
+              <motion.span variants={headlineLineVariants} className="block mb-2 text-white">Sua marca não</motion.span>
+              <motion.span variants={headlineLineVariants} className="block mb-2 text-white/90">precisa de uma voz.</motion.span>
+              <motion.span variants={headlineLineVariants} className="block text-gold mt-4">Precisa de presença.</motion.span>
+            </motion.h1>
+
+            <motion.p variants={itemVariants} className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md mb-10">
+              Locução premium para campanhas, marcas e projetos que exigem mais do que som.
+            </motion.p>
+
+            <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+              <Button asChild className="w-full sm:w-auto h-12 xl:h-14 xl:px-10">
+                <a href="#demos">Ouvir Demos</a>
+              </Button>
+              <Button variant="outline" asChild className="w-full sm:w-auto h-12 xl:h-14 xl:px-10">
+                <a href="#contato">Solicitar Orçamento</a>
+              </Button>
+            </motion.div>
+          </div>
+
+          {/* RIGHT — Interactive Demo Player (Client Component) */}
+          <motion.div variants={itemVariants} className="md:col-span-5 w-full">
+            <DemoPlayer heroCategories={heroCategories} heroDemos={heroDemos} />
+          </motion.div>
+        </div>
+
+        {/* Scroll indicator CSS puro */}
+        <motion.div variants={itemVariants} className="mt-20 flex justify-center w-full">
+          <div className="flex flex-col items-center gap-3">
+            <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-[#e0c27a] animate-pulse" />
+            <span className="text-[0.60rem] uppercase tracking-[0.4em] text-[#7a5c2e]">Explorar</span>
+          </div>
+        </motion.div>
+      </motion.div>
+    </section>
+  );
+}
