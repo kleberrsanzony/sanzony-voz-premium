@@ -175,16 +175,10 @@ h1, h2, h3, h4, h5, h6 {
   mix-blend-mode: overlay;
 }
 
-/* ━━━ Magnetic & Cursor Hide ━━━ */
+/* ━━━ Magnetic Interaction ━━━ */
 .magnetic-wrap {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@media (min-width: 1024px) {
-  body, a, button, [role="button"] {
-    cursor: none !important;
-  }
 }
 
 /* ━━━ Gold Text (metallic material) ━━━ */

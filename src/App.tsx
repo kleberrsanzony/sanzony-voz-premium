@@ -10,7 +10,6 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
-import CustomCursor from '@/components/CustomCursor'
 import Lenis from 'lenis'
 
 const App = () => {
@@ -37,7 +36,6 @@ const App = () => {
 
   return (
     <div className="grain-overlay">
-      <CustomCursor />
       <Header />
       <Hero />
       <DemoSection />
