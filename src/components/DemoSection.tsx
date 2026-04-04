@@ -12,7 +12,7 @@ const DemoSection = () => {
   return (
     <section id="demos" ref={ref}>
       <div className="section-divider" />
-      <div className="section-spacing pt-12 pb-24">
+      <div className="section-spacing">
         <div className="container-site">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-24">

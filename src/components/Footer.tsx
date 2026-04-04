@@ -5,7 +5,7 @@ import { footerLinks } from '@/data/content'
 const Footer = () => (
   <footer style={{ borderTop: '1px solid hsl(0 0% 6%)' }}>
     <div className="container-site py-24 md:py-32">
-      <div className="grid md:grid-cols-12 gap-12">
+      <div className="grid md:grid-cols-12 gap-12 pt-12">
         {/* Brand */}
         <div className="md:col-span-5">
           <motion.a
@@ -20,7 +20,7 @@ const Footer = () => (
             Locução comercial e publicitária com qualidade broadcast.
             A voz que posiciona marcas no mercado.
           </p>
-          <div className="gold-line mt-10 max-w-[100px]" />
+          <div className="gold-line mt-10 max-w-[500px]" />
         </div>
 
         {/* Nav */}
