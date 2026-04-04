@@ -16,9 +16,9 @@ const StudioSection = () => {
             {/* Left */}
             <div className="md:col-span-6">
               <motion.div
-                initial={{ opacity: 0, x: -40, filter: 'blur(10px)' }}
-                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
-                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, x: -30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-col"
               >
                 <div className="icon-badge mb-6"><Mic size={18} style={{ color: '#e0c27a' }} /></div>
@@ -27,9 +27,9 @@ const StudioSection = () => {
 
               <motion.h2
                 className="mt-8 font-display font-bold text-3xl md:text-4xl lg:text-[3.5rem] tracking-[-0.02em] leading-[1.05] heading-border"
-                initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
-                animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-                transition={{ delay: 0.15, duration: 1.2 }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1, duration: 1 }}
               >
                 Gravado em estúdio profissional<br />
                 <span className="text-gold">com padrão internacional.</span>
@@ -61,9 +61,9 @@ const StudioSection = () => {
             <div className="md:col-span-5 md:col-start-8">
               <motion.div
                 className="glass-card border-gold-glow space-y-0"
-                initial={{ opacity: 0, x: 60, filter: 'blur(12px)' }}
-                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
-                transition={{ delay: 0.3, duration: 1.2 }}
+                initial={{ opacity: 0, x: 30 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
+                transition={{ delay: 0.2, duration: 1 }}
               >
                 {capabilities.map((c, i) => (
                   <motion.div

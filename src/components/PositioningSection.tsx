@@ -10,7 +10,7 @@ const PositioningSection = () => {
   return (
     <section ref={ref}>
       <div className="section-divider" />
-      <div className="section-spacing">
+      <div className="section-spacing pt-24">
         <div className="container-site">
           <div className="max-w-4xl mx-auto text-center mb-24">
             <motion.div
@@ -24,9 +24,9 @@ const PositioningSection = () => {
             </motion.div>
             <motion.h2
               className="mt-8 font-display font-bold text-3xl md:text-5xl lg:text-[4rem] leading-[1.05] tracking-[-0.02em]"
-              initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
-              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-              transition={{ delay: 0.15, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Mais que uma voz.
               <br /><span className="text-gold">Uma assinatura.</span>
@@ -38,9 +38,9 @@ const PositioningSection = () => {
               <motion.div
                 key={p.title}
                 className="glass-card border-gold-glow text-center flex flex-col items-center gap-6 py-12"
-                initial={{ opacity: 0, y: 60, filter: 'blur(6px)' }}
-                animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-                transition={{ duration: 0.9, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4, transition: { duration: 0.5 } }}
                 data-cursor="grow"
               >

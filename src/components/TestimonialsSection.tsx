@@ -24,9 +24,9 @@ const TestimonialsSection = () => {
             </motion.div>
             <motion.h2
               className="mt-8 font-display font-bold text-3xl md:text-5xl tracking-[-0.02em]"
-              initial={{ opacity: 0, y: 50, filter: 'blur(8px)' }}
-              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-              transition={{ delay: 0.1, duration: 1.2 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               O que dizem sobre <span className="text-gold">o trabalho.</span>
             </motion.h2>
@@ -37,9 +37,9 @@ const TestimonialsSection = () => {
               <motion.div
                 key={t.name}
                 className="glass-card border-gold-glow flex flex-col justify-between py-10"
-                initial={{ opacity: 0, y: 60, filter: 'blur(6px)' }}
-                animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-                transition={{ duration: 0.9, delay: 0.18 * i, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, y: 40 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ duration: 0.7, delay: 0.12 * i, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -3, transition: { duration: 0.5 } }}
               >
                 <div>

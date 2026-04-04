@@ -16,12 +16,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 w-full z-50">
       <motion.div
-        className="transition-all duration-700"
         animate={{
-          backgroundColor: scrolled ? 'hsl(0 0% 2% / 0.9)' : 'transparent',
-          backdropFilter: scrolled ? 'blur(24px)' : 'blur(0px)',
-          borderBottom: scrolled ? '1px solid hsl(0 0% 10%)' : '1px solid transparent',
+          backgroundColor: scrolled ? 'hsl(0 0% 2% / 0.85)' : 'transparent',
+          backdropFilter: scrolled ? 'blur(16px)' : 'blur(0px)',
+          borderBottom: scrolled ? '1px solid hsl(0 0% 12%)' : '1px solid transparent',
         }}
+        transition={{ duration: 0.5, ease: 'easeInOut' }}
       >
         <div className="container-site flex items-center justify-between h-20 md:h-24">
           {/* Logo */}

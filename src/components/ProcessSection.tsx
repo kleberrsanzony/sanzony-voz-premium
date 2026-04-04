@@ -24,9 +24,9 @@ const ProcessSection = () => {
             </motion.div>
             <motion.h2
               className="mt-8 font-display font-bold text-3xl md:text-5xl tracking-[-0.02em]"
-              initial={{ opacity: 0, y: 50, filter: 'blur(8px)' }}
-              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-              transition={{ delay: 0.1, duration: 1.2 }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Do briefing à <span className="text-gold">entrega final.</span>
             </motion.h2>

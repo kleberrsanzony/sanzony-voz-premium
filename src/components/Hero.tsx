@@ -157,9 +157,9 @@ const Hero = () => {
           <motion.div className="md:col-span-5" style={{ y: yPlayer }}>
             <motion.div
               className="glass-card border-gold-glow"
-              initial={{ opacity: 0, x: 80, filter: 'blur(12px)' }}
-              animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
-              transition={{ duration: 1.4, delay: 0.9, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               {/* Tabs */}
               <div className="flex flex-wrap gap-2 mb-7">

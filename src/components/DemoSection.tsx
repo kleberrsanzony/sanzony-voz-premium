@@ -12,14 +12,14 @@ const DemoSection = () => {
   return (
     <section id="demos" ref={ref}>
       <div className="section-divider" />
-      <div className="section-spacing">
+      <div className="section-spacing pt-12 pb-24">
         <div className="container-site">
           {/* Header */}
           <div className="max-w-3xl mx-auto text-center mb-24">
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={inView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.8 }}
+              transition={{ duration: 1 }}
               className="flex flex-col items-center"
             >
               <div className="icon-badge"><Headphones size={18} style={{ color: '#e0c27a' }} /></div>
@@ -27,9 +27,9 @@ const DemoSection = () => {
             </motion.div>
             <motion.h2
               className="mt-8 font-display font-bold text-3xl md:text-5xl lg:text-[3.5rem] tracking-[-0.02em]"
-              initial={{ opacity: 0, y: 50, filter: 'blur(8px)' }}
-              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
-              transition={{ delay: 0.15, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
             >
               Ouça a <span className="text-gold">diferença.</span>
             </motion.h2>
@@ -49,9 +49,9 @@ const DemoSection = () => {
               <motion.div
                 key={d.title}
                 className="glass-card border-gold-glow group cursor-pointer active:scale-[0.98] transition-transform"
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.9, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.6, delay: 0.05 * i, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setPlaying(playing === i ? null : i)}
                 whileHover={{ y: -4, transition: { duration: 0.4 } }}
                 data-cursor="play"
