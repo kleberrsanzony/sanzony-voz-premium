@@ -42,6 +42,7 @@ const PositioningSection = () => {
                 animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
                 transition={{ duration: 0.9, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] }}
                 whileHover={{ y: -4, transition: { duration: 0.5 } }}
+                data-cursor="grow"
               >
                 <motion.div className="icon-badge" whileHover={{ scale: 1.1, rotate: 5 }} transition={{ duration: 0.4 }}>
                   <p.icon size={18} style={{ color: '#e0c27a' }} />

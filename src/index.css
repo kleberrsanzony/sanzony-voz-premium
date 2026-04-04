@@ -112,6 +112,26 @@
 /* ━━━ Reset ━━━ */
 * { border-color: var(--color-border); }
 
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
 html {
   scroll-behavior: smooth;
   scrollbar-width: thin;
@@ -138,6 +158,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ━━━ Film Grain Overlay ━━━ */
+.grain-overlay {
+  position: relative;
+  min-height: 100vh;
+}
 .grain-overlay::after {
   content: '';
   position: fixed;
@@ -151,18 +175,16 @@ h1, h2, h3, h4, h5, h6 {
   mix-blend-mode: overlay;
 }
 
-/* ━━━ Cursor Gold Glow ━━━ */
-.cursor-glow {
-  position: fixed;
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #e0c27a08 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 1;
-  transform: translate(-50%, -50%);
-  transition: opacity 0.5s ease;
-  animation: cursor-glow 3s ease-in-out infinite;
+/* ━━━ Magnetic & Cursor Hide ━━━ */
+.magnetic-wrap {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media (min-width: 1024px) {
+  body, a, button, [role="button"] {
+    cursor: none !important;
+  }
 }
 
 /* ━━━ Gold Text (metallic material) ━━━ */
@@ -230,11 +252,14 @@ h1, h2, h3, h4, h5, h6 {
 .glass-card {
   border-radius: var(--radius-lg);
   padding: 2rem;
-  background: hsl(0 0% 4%);
-  border: 1px solid hsl(0 0% 10%);
+  background: linear-gradient(135deg, hsl(0 0% 5%), hsl(0 0% 4%));
+  border: 1px solid hsl(0 0% 12%);
   transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
+  box-shadow: 
+    0 10px 40px -10px rgba(0,0,0,0.5),
+    inset 0 1px 0px 0px rgba(255,255,255,0.03);
 }
 .glass-card::before {
   content: '';
@@ -243,16 +268,20 @@ h1, h2, h3, h4, h5, h6 {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, #e0c27a12, transparent);
+  background: linear-gradient(90deg, transparent, #e0c27a18, transparent);
   transition: all 0.6s ease;
 }
 .glass-card:hover {
-  background: hsl(0 0% 5.5%);
-  border-color: #e0c27a20;
-  transform: translateY(-2px);
+  background: linear-gradient(135deg, hsl(0 0% 6%), hsl(0 0% 5%));
+  border-color: #e0c27a30;
+  transform: translateY(-4px);
+  box-shadow: 
+    0 30px 60px -15px rgba(0,0,0,0.6),
+    0 0 20px -5px #e0c27a08,
+    inset 0 1px 0px 0px rgba(255,255,255,0.05);
 }
 .glass-card:hover::before {
-  background: linear-gradient(90deg, transparent, #e0c27a25, transparent);
+  background: linear-gradient(90deg, transparent, #e0c27a35, transparent);
 }
 
 /* ━━━ Border Gold Glow ━━━ */

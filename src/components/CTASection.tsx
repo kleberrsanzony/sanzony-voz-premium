@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Send, MessageCircle } from 'lucide-react'
+import Magnetic from '@/components/Magnetic'
 
 const CTASection = () => {
   const ref = useRef(null)
@@ -61,26 +62,32 @@ const CTASection = () => {
                 </p>
 
                 <div className="mt-12 flex flex-col gap-4">
-                  <motion.a
-                    href="https://wa.me/5500000000000"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-primary w-fit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <MessageCircle size={15} className="relative z-10" />
-                    <span>WhatsApp Direto</span>
-                  </motion.a>
-                  <motion.a
-                    href="mailto:contato@sanzonyvoz.com.br"
-                    className="btn-outline w-fit"
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    <Send size={15} />
-                    <span>Enviar E-mail</span>
-                  </motion.a>
+                  <Magnetic>
+                    <motion.a
+                      href="https://wa.me/5500000000000"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-primary w-fit"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      data-cursor="grow"
+                    >
+                      <MessageCircle size={15} className="relative z-10" />
+                      <span>WhatsApp Direto</span>
+                    </motion.a>
+                  </Magnetic>
+                  <Magnetic>
+                    <motion.a
+                      href="mailto:contato@sanzonyvoz.com.br"
+                      className="btn-outline w-fit"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      data-cursor="grow"
+                    >
+                      <Send size={15} />
+                      <span>Enviar E-mail</span>
+                    </motion.a>
+                  </Magnetic>
                 </div>
               </motion.div>
             </div>
@@ -148,15 +155,18 @@ const CTASection = () => {
                     placeholder="Descreva brevemente o projeto..."
                   />
                 </div>
-                <motion.button
-                  type="submit"
-                  className="btn-primary w-full"
-                  whileHover={{ scale: 1.01 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  <Send size={14} className="relative z-10" />
-                  <span>Enviar Mensagem</span>
-                </motion.button>
+                <Magnetic>
+                  <motion.button
+                    type="submit"
+                    className="btn-primary w-full"
+                    whileHover={{ scale: 1.01 }}
+                    whileTap={{ scale: 0.98 }}
+                    data-cursor="grow"
+                  >
+                    <Send size={14} className="relative z-10" />
+                    <span>Enviar Mensagem</span>
+                  </motion.button>
+                </Magnetic>
               </motion.form>
             </div>
           </div>

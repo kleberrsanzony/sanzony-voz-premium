@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { Play, Pause } from 'lucide-react'
 import { heroCategories, heroDemos } from '@/data/content'
+import Magnetic from '@/components/Magnetic'
 
 /* ━━━ Organic Gold Curves (SVG) ━━━ */
 const GoldCurves = () => (
@@ -27,25 +28,14 @@ const Hero = () => {
   const filtered = heroDemos.filter((d) => d.category === activeTab)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  // Parallax
+  // Arallax
   const { scrollYProgress } = useScroll({ target: containerRef, offset: ['start start', 'end start'] })
   const yHeadline = useTransform(scrollYProgress, [0, 1], [0, -100])
   const yPlayer = useTransform(scrollYProgress, [0, 1], [0, -50])
   const opacityFade = useTransform(scrollYProgress, [0, 0.6], [1, 0])
 
-  // Cursor glow
-  const [mouse, setMouse] = useState({ x: -500, y: -500 })
-  useEffect(() => {
-    const onMove = (e: MouseEvent) => setMouse({ x: e.clientX, y: e.clientY })
-    window.addEventListener('mousemove', onMove)
-    return () => window.removeEventListener('mousemove', onMove)
-  }, [])
-
   return (
     <section id="inicio" ref={containerRef} className="relative min-h-[110vh] flex items-center overflow-hidden">
-      {/* ━━━ Cursor glow ━━━ */}
-      <div className="cursor-glow hidden md:block" style={{ left: mouse.x, top: mouse.y }} />
-
       {/* ━━━ Abyss background ━━━ */}
       <div className="absolute inset-0" style={{ background: 'hsl(0 0% 2%)' }}>
         {/* Cinematic radials */}
@@ -102,17 +92,38 @@ const Hero = () => {
 
             <motion.h1
               className="mt-10 font-display font-bold text-[2.8rem] md:text-[4rem] lg:text-[5.5rem] leading-[0.95] tracking-[-0.03em]"
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.4, delay: 0.7, ease: [0.16, 1, 0.3, 1] }}
             >
-              <span className="block text-foreground">Sua marca não</span>
-              <span className="block text-foreground">precisa de uma voz.</span>
+              <div className="overflow-hidden">
+                {"Sua marca não".split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block"
+                    initial={{ y: "100%", opacity: 0, filter: 'blur(10px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.8, delay: 0.8 + i * 0.03, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </div>
+              <div className="overflow-hidden">
+                {"precisa de uma voz.".split("").map((char, i) => (
+                  <motion.span
+                    key={i}
+                    className="inline-block"
+                    initial={{ y: "100%", opacity: 0, filter: 'blur(10px)' }}
+                    animate={{ y: 0, opacity: 1, filter: 'blur(0px)' }}
+                    transition={{ duration: 0.8, delay: 1.3 + i * 0.03, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    {char === " " ? "\u00A0" : char}
+                  </motion.span>
+                ))}
+              </div>
               <motion.span
                 className="block text-gold-shimmer mt-2"
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 1.2, delay: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                initial={{ opacity: 0, x: -30, filter: 'blur(10px)' }}
+                animate={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
+                transition={{ duration: 1.2, delay: 2, ease: [0.16, 1, 0.3, 1] }}
               >
                 Precisa de presença.
               </motion.span>
@@ -131,10 +142,14 @@ const Hero = () => {
               className="mt-12 flex flex-wrap gap-5"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 1.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1, delay: 2.2, ease: [0.16, 1, 0.3, 1] }}
             >
-              <a href="#demos" className="btn-primary"><span>Ouvir Demos</span></a>
-              <a href="#contato" className="btn-outline"><span>Solicitar Orçamento</span></a>
+              <Magnetic>
+                <a href="#demos" className="btn-primary" data-cursor="grow"><span>Ouvir Demos</span></a>
+              </Magnetic>
+              <Magnetic>
+                <a href="#contato" className="btn-outline" data-cursor="grow"><span>Solicitar Orçamento</span></a>
+              </Magnetic>
             </motion.div>
           </motion.div>
 
@@ -176,6 +191,7 @@ const Hero = () => {
                     onClick={() => setPlaying(playing === i ? null : i)}
                     whileHover={{ backgroundColor: 'hsl(0 0% 6%)', x: 4 }}
                     transition={{ duration: 0.4 }}
+                    data-cursor="play"
                   >
                     <button className="player-btn player-btn-sm">
                       {playing === i ? <Pause size={11} /> : <Play size={11} className="ml-0.5" />}

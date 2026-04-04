@@ -54,6 +54,7 @@ const DemoSection = () => {
                 transition={{ duration: 0.9, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setPlaying(playing === i ? null : i)}
                 whileHover={{ y: -4, transition: { duration: 0.4 } }}
+                data-cursor="play"
               >
                 <div className="flex items-center gap-4">
                   <motion.button

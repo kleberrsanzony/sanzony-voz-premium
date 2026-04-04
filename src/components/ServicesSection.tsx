@@ -57,6 +57,7 @@ const ServicesSection = () => {
                 animate={inView ? { opacity: 1 } : {}}
                 transition={{ duration: 0.8, delay: 0.08 * i }}
                 whileHover={{ backgroundColor: 'hsl(0 0% 5%)', transition: { duration: 0.5 } }}
+                data-cursor="grow"
               >
                 <motion.div
                   className="icon-badge"

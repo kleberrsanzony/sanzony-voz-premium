@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '@/data/content'
+import Magnetic from '@/components/Magnetic'
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false)
@@ -38,31 +39,34 @@ const Header = () => {
           {/* Desktop nav */}
           <nav className="hidden lg:flex items-center gap-10">
             {navLinks.map((l, i) => (
-              <motion.a
-                key={l.href}
-                href={l.href}
-                className="text-[0.55rem] uppercase tracking-[3.5px] text-label hover:text-silver transition-colors duration-700 relative"
-                whileHover={{ y: -1 }}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 * i + 0.5, duration: 0.6 }}
-              >
-                {l.label}
-              </motion.a>
+              <Magnetic key={l.href}>
+                <motion.a
+                  href={l.href}
+                  className="text-[0.55rem] uppercase tracking-[3.5px] text-label hover:text-silver transition-colors duration-700 relative py-2"
+                  whileHover={{ y: -1 }}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 * i + 0.5, duration: 0.6 }}
+                >
+                  {l.label}
+                </motion.a>
+              </Magnetic>
             ))}
           </nav>
 
           {/* CTA */}
-          <motion.a
-            href="#contato"
-            className="hidden lg:inline-flex btn-outline text-[0.5rem] py-2.5 px-8"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.2 }}
-            whileHover={{ scale: 1.03 }}
-          >
-            <span>Solicitar Orçamento</span>
-          </motion.a>
+          <Magnetic>
+            <motion.a
+              href="#contato"
+              className="hidden lg:inline-flex btn-outline text-[0.5rem] py-2.5 px-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              whileHover={{ scale: 1.03 }}
+            >
+              <span>Solicitar Orçamento</span>
+            </motion.a>
+          </Magnetic>
 
           {/* Mobile toggle */}
           <motion.button

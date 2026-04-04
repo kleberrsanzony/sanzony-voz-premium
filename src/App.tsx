@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import DemoSection from '@/components/DemoSection'
@@ -9,21 +10,47 @@ import TestimonialsSection from '@/components/TestimonialsSection'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
+import CustomCursor from '@/components/CustomCursor'
+import Lenis from 'lenis'
 
-const App = () => (
-  <div className="grain-overlay">
-    <Header />
-    <Hero />
-    <DemoSection />
-    <PositioningSection />
-    <ServicesSection />
-    <ProcessSection />
-    <StudioSection />
-    <TestimonialsSection />
-    <CTASection />
-    <Footer />
-    <WhatsAppButton />
-  </div>
-)
+const App = () => {
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+    })
+
+    function raf(time: number) {
+      lenis.raf(time)
+      requestAnimationFrame(raf)
+    }
+
+    requestAnimationFrame(raf)
+
+    return () => {
+      lenis.destroy()
+    }
+  }, [])
+
+  return (
+    <div className="grain-overlay">
+      <CustomCursor />
+      <Header />
+      <Hero />
+      <DemoSection />
+      <PositioningSection />
+      <ServicesSection />
+      <ProcessSection />
+      <StudioSection />
+      <TestimonialsSection />
+      <CTASection />
+      <Footer />
+      <WhatsAppButton />
+    </div>
+  )
+}
 
 export default App
