@@ -47,14 +47,15 @@ const ProcessSection = () => {
               {steps.map((s, i) => (
                 <motion.div
                   key={s.num}
-                  className="feature-card"
-                  initial={{ opacity: 0, y: 50, filter: 'blur(6px)' }}
-                  animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+                  className="feature-card active:scale-[0.98] transition-transform"
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.9, delay: 0.15 * i, ease: [0.16, 1, 0.3, 1] }}
                 >
                   <motion.div
                     className="icon-badge mb-5"
                     whileHover={{ scale: 1.15, rotate: 10 }}
+                    whileTap={{ scale: 0.9 }}
                     transition={{ type: 'spring', stiffness: 300 }}
                   >
                     <s.icon size={18} style={{ color: '#e0c27a' }} />

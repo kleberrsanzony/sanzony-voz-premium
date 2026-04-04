@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Send, MessageCircle } from 'lucide-react'
-import Magnetic from '@/components/Magnetic'
 
 const CTASection = () => {
   const ref = useRef(null)
@@ -26,8 +25,8 @@ const CTASection = () => {
           <div className="max-w-4xl mx-auto text-center mb-24">
             <motion.h2
               className="font-display font-bold text-3xl md:text-5xl lg:text-[4rem] leading-[1.05] tracking-[-0.02em]"
-              initial={{ opacity: 0, y: 60, filter: 'blur(10px)' }}
-              animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+              initial={{ opacity: 0, y: 60 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1] }}
             >
               Sua marca está pronta<br />
@@ -47,8 +46,8 @@ const CTASection = () => {
             {/* Left */}
             <div className="md:col-span-5">
               <motion.div
-                initial={{ opacity: 0, x: -40, filter: 'blur(8px)' }}
-                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+                initial={{ opacity: 0, x: -40 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.25, duration: 1.2 }}
                 className="flex flex-col"
               >
@@ -56,38 +55,34 @@ const CTASection = () => {
                   <MessageCircle size={18} style={{ color: '#e0c27a' }} />
                 </div>
                 <span className="section-label">Contato Direto</span>
-                <p className="mt-6 text-muted-foreground leading-[2.2] text-sm">
+                <p className="mt-6 text-muted-foreground leading-[2.2] text-sm md:text-base">
                   Conte sobre seu projeto e receba um orçamento personalizado.
                   Atendimento direto, sem intermediários.
                 </p>
 
                 <div className="mt-12 flex flex-col gap-4">
-                  <Magnetic>
-                    <motion.a
-                      href="https://wa.me/5500000000000"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn-primary w-fit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      data-cursor="grow"
-                    >
-                      <MessageCircle size={15} className="relative z-10" />
-                      <span>WhatsApp Direto</span>
-                    </motion.a>
-                  </Magnetic>
-                  <Magnetic>
-                    <motion.a
-                      href="mailto:contato@sanzonyvoz.com.br"
-                      className="btn-outline w-fit"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      data-cursor="grow"
-                    >
-                      <Send size={15} />
-                      <span>Enviar E-mail</span>
-                    </motion.a>
-                  </Magnetic>
+                  <motion.a
+                    href="https://wa.me/5500000000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-primary w-fit py-4 px-10"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.95 }}
+                    data-cursor="grow"
+                  >
+                    <MessageCircle size={15} className="relative z-10" />
+                    <span>WhatsApp Direto</span>
+                  </motion.a>
+                  <motion.a
+                    href="mailto:contato@sanzonyvoz.com.br"
+                    className="btn-outline w-fit py-4 px-10"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.95 }}
+                    data-cursor="grow"
+                  >
+                    <Send size={15} />
+                    <span>Enviar E-mail</span>
+                  </motion.a>
                 </div>
               </motion.div>
             </div>
@@ -97,40 +92,40 @@ const CTASection = () => {
               <motion.form
                 onSubmit={handleSubmit}
                 className="glass-card border-gold-glow space-y-7"
-                initial={{ opacity: 0, x: 60, filter: 'blur(12px)' }}
-                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+                initial={{ opacity: 0, x: 60 }}
+                animate={inView ? { opacity: 1, x: 0 } : {}}
                 transition={{ delay: 0.3, duration: 1.2 }}
               >
                 <div className="grid grid-cols-2 gap-6">
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3">Nome</label>
+                    <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3 ml-1">Nome</label>
                     <input
                       type="text"
                       value={form.name}
                       onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      className="input-field"
+                      className="input-field py-4"
                       placeholder="Seu nome"
                       required
                     />
                   </div>
                   <div className="col-span-2 sm:col-span-1">
-                    <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3">E-mail</label>
+                    <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3 ml-1">E-mail</label>
                     <input
                       type="email"
                       value={form.email}
                       onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      className="input-field"
+                      className="input-field py-4"
                       placeholder="seu@email.com"
                       required
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3">Tipo de Projeto</label>
+                  <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3 ml-1">Tipo de Projeto</label>
                   <select
                     value={form.project}
                     onChange={(e) => setForm({ ...form, project: e.target.value })}
-                    className="input-field"
+                    className="input-field py-4 appearance-none cursor-pointer"
                     required
                   >
                     <option value="">Selecione...</option>
@@ -146,27 +141,25 @@ const CTASection = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3">Mensagem</label>
+                  <label className="text-[0.5rem] text-label uppercase tracking-[3px] block mb-3 ml-1">Mensagem</label>
                   <textarea
                     value={form.message}
                     onChange={(e) => setForm({ ...form, message: e.target.value })}
                     rows={4}
-                    className="input-field resize-none"
+                    className="input-field py-4 resize-none"
                     placeholder="Descreva brevemente o projeto..."
                   />
                 </div>
-                <Magnetic>
-                  <motion.button
-                    type="submit"
-                    className="btn-primary w-full"
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.98 }}
-                    data-cursor="grow"
-                  >
-                    <Send size={14} className="relative z-10" />
-                    <span>Enviar Mensagem</span>
-                  </motion.button>
-                </Magnetic>
+                <motion.button
+                  type="submit"
+                  className="btn-primary w-full py-6"
+                  whileHover={{ scale: 1.01 }}
+                  whileTap={{ scale: 0.95 }}
+                  data-cursor="grow"
+                >
+                  <Send size={15} className="relative z-10" />
+                  <span>Enviar Mensagem</span>
+                </motion.button>
               </motion.form>
             </div>
           </div>

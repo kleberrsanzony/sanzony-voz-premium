@@ -9,7 +9,6 @@ import StudioSection from '@/components/StudioSection'
 import TestimonialsSection from '@/components/TestimonialsSection'
 import CTASection from '@/components/CTASection'
 import Footer from '@/components/Footer'
-import WhatsAppButton from '@/components/WhatsAppButton'
 import Lenis from 'lenis'
 
 const App = () => {
@@ -46,7 +45,6 @@ const App = () => {
       <TestimonialsSection />
       <CTASection />
       <Footer />
-      <WhatsAppButton />
     </div>
   )
 }

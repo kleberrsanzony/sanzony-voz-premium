@@ -48,9 +48,9 @@ const DemoSection = () => {
             {gridDemos.map((d, i) => (
               <motion.div
                 key={d.title}
-                className="glass-card border-gold-glow group cursor-pointer"
-                initial={{ opacity: 0, y: 50, filter: 'blur(6px)' }}
-                animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+                className="glass-card border-gold-glow group cursor-pointer active:scale-[0.98] transition-transform"
+                initial={{ opacity: 0, y: 50 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.9, delay: 0.1 * i, ease: [0.16, 1, 0.3, 1] }}
                 onClick={() => setPlaying(playing === i ? null : i)}
                 whileHover={{ y: -4, transition: { duration: 0.4 } }}
@@ -59,9 +59,9 @@ const DemoSection = () => {
                 <div className="flex items-center gap-4">
                   <motion.button
                     className="player-btn player-btn-sm"
-                    whileTap={{ scale: 0.92 }}
+                    whileTap={{ scale: 0.9 }}
                   >
-                    {playing === i ? <Pause size={11} /> : <Play size={11} className="ml-0.5" />}
+                    {playing === i ? <Pause size={12} /> : <Play size={12} className="ml-0.5" />}
                   </motion.button>
                   <div className="flex-1 min-w-0">
                     <h4 className="font-display font-medium text-sm tracking-wide">{d.title}</h4>
