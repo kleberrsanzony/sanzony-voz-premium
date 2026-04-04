@@ -4,8 +4,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function ProcessSection() {
   return (
-    <section id="processo" className="bg-[#030303]">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <section id="processo" className="bg-black">
       <div className="section-spacing">
         <div className="container-site">
           <Reveal>

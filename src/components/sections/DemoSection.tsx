@@ -7,7 +7,6 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 export default function DemoSection() {
   return (
     <section id="demos">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
       <div className="section-spacing">
         <div className="container-site">
           <Reveal delay={0.1}>

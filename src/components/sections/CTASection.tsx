@@ -3,11 +3,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function CTASection() {
   return (
-    <section id="contato" className="relative">
-      <div className="absolute inset-0 bg-[#e0c27a]" />
-      <div className="absolute inset-0 bg-black/90 backdrop-blur-md" />
-      <div className="w-full h-px relative z-10 bg-gradient-to-r from-transparent via-[#e0c27a]/50 to-transparent" />
-      
+    <section id="contato" className="relative bg-black">
       <div className="section-spacing relative z-10">
         <div className="container-site">
           <StaggerGroup className="max-w-4xl mx-auto text-center flex flex-col items-center" staggerDelay={0.1}>

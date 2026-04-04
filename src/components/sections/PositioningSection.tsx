@@ -5,7 +5,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function PositioningSection() {
   return (
-    <section id="posicionamento" className="bg-[#030303] py-32 mb-1">
+    <section id="posicionamento" className="bg-black py-32 mb-1">
       <div className="container-site">
         <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 items-center lg:items-start">
           <div className="lg:col-span-5 flex flex-col pr-8 text-center lg:text-left items-center lg:items-start">

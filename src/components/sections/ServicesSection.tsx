@@ -5,8 +5,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function ServicesSection() {
   return (
-    <section id="servicos">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+    <section id="servicos" className="bg-black">
       <div className="section-spacing">
         <div className="container-site">
           <Reveal>

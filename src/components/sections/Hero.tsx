@@ -20,10 +20,10 @@ const heroContainerVariants = {
 
 const itemVariants = {
   hidden: { opacity: 0, y: 15 },
-  visible: { 
-    opacity: 1, 
-    y: 0, 
-    transition: { duration: 0.8, ease: easePremium } 
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: easePremium }
   },
 };
 
@@ -46,18 +46,8 @@ export default function Hero() {
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20">
       {/* Background simplificado com Ambient Glow */}
-      <div className="absolute inset-0 bg-[#050505]">
-        <div className="bg-ambient-layer" />
-        {/* Linhas verticais */}
-        <div className="absolute top-0 left-[12%] w-px h-full bg-gradient-to-b from-transparent via-[#e0c27a]/5 to-transparent" />
-        <div className="absolute top-0 left-[30%] w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
-        <div className="absolute top-0 left-[70%] w-px h-full bg-gradient-to-b from-transparent via-[#e0c27a]/5 to-transparent" />
-        <div className="absolute top-0 left-[88%] w-px h-full bg-gradient-to-b from-transparent via-white/5 to-transparent" />
-        {/* Vinheta estática CSS */}
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_70%_70%_at_50%_50%,transparent_30%,#050505_100%)] pointer-events-none" />
-      </div>
 
-      <motion.div 
+      <motion.div
         className="container-site relative z-10 w-full"
         variants={heroContainerVariants}
         initial="hidden"
@@ -71,7 +61,7 @@ export default function Hero() {
               Locução Premium & Branding Vocal
             </motion.span>
 
-            <motion.h1 
+            <motion.h1
               variants={headlineVariants}
               className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8 flex flex-col gap-1"
             >

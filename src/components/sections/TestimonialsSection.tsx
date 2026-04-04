@@ -5,7 +5,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function TestimonialsSection() {
   return (
-    <section id="depoimentos" className="bg-[#030303]">
+    <section id="depoimentos" className="bg-black">
       <div className="section-spacing">
         <div className="container-site">
           <Reveal>

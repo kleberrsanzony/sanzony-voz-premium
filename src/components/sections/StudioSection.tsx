@@ -5,9 +5,8 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 
 export default function StudioSection() {
   return (
-    <section id="estudio" className="relative overflow-hidden">
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-[#e0c27a]/20 to-transparent" />
-      <div className="section-spacing bg-[radial-gradient(ellipse_at_top,#1a1405_0%,#050505_70%)]">
+    <section id="estudio" className="relative overflow-hidden bg-black">
+      <div className="section-spacing">
         <div className="container-site relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             
