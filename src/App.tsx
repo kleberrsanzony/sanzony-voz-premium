@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 import WhatsAppButton from '@/components/WhatsAppButton'
 
 const App = () => (
-  <>
+  <div className="grain-overlay">
     <Header />
     <Hero />
     <DemoSection />
@@ -23,7 +23,7 @@ const App = () => (
     <CTASection />
     <Footer />
     <WhatsAppButton />
-  </>
+  </div>
 )
 
 export default App

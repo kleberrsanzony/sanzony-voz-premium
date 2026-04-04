@@ -5,36 +5,41 @@ import { capabilities } from '@/data/content'
 
 const StudioSection = () => {
   const ref = useRef(null)
-  const inView = useInView(ref, { once: true, margin: '-100px' })
+  const inView = useInView(ref, { once: true, margin: '-120px' })
 
   return (
     <section id="estudio" ref={ref}>
       <div className="section-divider" />
       <div className="section-spacing">
         <div className="container-site">
-          <div className="grid md:grid-cols-12 gap-12 lg:gap-20 items-center">
-            {/* Left — text */}
-            <div className="md:col-span-7">
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={inView ? { opacity: 1, y: 0 } : {}} className="flex flex-col">
-                <div className="icon-badge mb-5"><Mic size={18} style={{ color: 'hsl(42 45% 65%)' }} /></div>
+          <div className="grid md:grid-cols-12 gap-12 lg:gap-24 items-center">
+            {/* Left */}
+            <div className="md:col-span-6">
+              <motion.div
+                initial={{ opacity: 0, x: -40, filter: 'blur(10px)' }}
+                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                className="flex flex-col"
+              >
+                <div className="icon-badge mb-6"><Mic size={18} style={{ color: '#e0c27a' }} /></div>
                 <span className="section-label">Estúdio</span>
               </motion.div>
 
               <motion.h2
-                className="mt-6 font-display font-bold text-3xl md:text-4xl lg:text-5xl tracking-tight heading-border"
-                initial={{ opacity: 0, y: 30 }}
-                animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.1, duration: 0.9 }}
+                className="mt-8 font-display font-bold text-3xl md:text-4xl lg:text-[3.5rem] tracking-[-0.02em] leading-[1.05] heading-border"
+                initial={{ opacity: 0, y: 60, filter: 'blur(8px)' }}
+                animate={inView ? { opacity: 1, y: 0, filter: 'blur(0px)' } : {}}
+                transition={{ delay: 0.15, duration: 1.2 }}
               >
                 Gravado em estúdio profissional<br />
                 <span className="text-gold">com padrão internacional.</span>
               </motion.h2>
 
               <motion.p
-                className="mt-8 text-muted-foreground leading-[1.9] text-sm md:text-base"
-                initial={{ opacity: 0, y: 20 }}
+                className="mt-10 text-muted-foreground leading-[2.2] text-sm md:text-base"
+                initial={{ opacity: 0, y: 30 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.25 }}
+                transition={{ delay: 0.35, duration: 1 }}
               >
                 Ambiente acústico dedicado, equipamentos de referência e workflow
                 otimizado para entregar áudio broadcast-ready. Cada projeto é tratado
@@ -42,33 +47,42 @@ const StudioSection = () => {
               </motion.p>
 
               <motion.p
-                className="mt-5 text-silver text-sm font-display italic tracking-wide"
+                className="mt-6 text-sm font-display italic tracking-wide"
+                style={{ color: '#a67c2e' }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={inView ? { opacity: 1, y: 0 } : {}}
-                transition={{ delay: 0.35 }}
+                transition={{ delay: 0.5, duration: 1 }}
               >
-                O resultado é uma voz que não apenas comunica — posiciona.
+                "O resultado é uma voz que não apenas comunica — posiciona."
               </motion.p>
             </div>
 
             {/* Right — capabilities */}
-            <div className="md:col-span-4 md:col-start-9">
+            <div className="md:col-span-5 md:col-start-8">
               <motion.div
                 className="glass-card border-gold-glow space-y-0"
-                initial={{ opacity: 0, x: 30 }}
-                animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: 0.3, duration: 0.9 }}
+                initial={{ opacity: 0, x: 60, filter: 'blur(12px)' }}
+                animate={inView ? { opacity: 1, x: 0, filter: 'blur(0px)' } : {}}
+                transition={{ delay: 0.3, duration: 1.2 }}
               >
                 {capabilities.map((c, i) => (
-                  <div key={c.title} className={`flex items-start gap-4 py-6 ${i > 0 ? 'border-t' : ''}`} style={i > 0 ? { borderColor: 'hsl(0 0% 12%)' } : undefined}>
-                    <div className="icon-badge shrink-0 mt-0.5">
-                      <c.icon size={16} style={{ color: 'hsl(42 45% 65%)' }} />
-                    </div>
+                  <motion.div
+                    key={c.title}
+                    className={`flex items-start gap-4 py-7 ${i > 0 ? 'border-t' : ''}`}
+                    style={i > 0 ? { borderColor: 'hsl(0 0% 8%)' } : undefined}
+                    whileHover={{ x: 6, transition: { duration: 0.4 } }}
+                  >
+                    <motion.div
+                      className="icon-badge shrink-0 mt-0.5"
+                      whileHover={{ scale: 1.1, rotate: -5 }}
+                    >
+                      <c.icon size={16} style={{ color: '#e0c27a' }} />
+                    </motion.div>
                     <div>
                       <span className="font-display font-medium text-sm tracking-wide">{c.title}</span>
-                      <p className="text-xs text-muted-foreground mt-1 leading-[1.8]">{c.desc}</p>
+                      <p className="text-xs text-muted-foreground mt-1.5 leading-[2]">{c.desc}</p>
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </motion.div>
             </div>
