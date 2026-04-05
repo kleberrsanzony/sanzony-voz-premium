@@ -39,9 +39,10 @@ interface StaggerItemProps {
   yOffset?: number;
   duration?: number;
   className?: string;
+  onClick?: () => void;
 }
 
-export function StaggerItem({ children, yOffset = 20, duration = 0.6, className }: StaggerItemProps) {
+export function StaggerItem({ children, yOffset = 20, duration = 0.6, className, onClick }: StaggerItemProps) {
   const itemVariants = {
     hidden: { opacity: 0, y: yOffset, filter: "blur(4px)" },
     visible: { 
@@ -52,9 +53,8 @@ export function StaggerItem({ children, yOffset = 20, duration = 0.6, className 
     },
   };
 
-  // Se o child for um Componente/Fragment e precisarmos repassar a ref, o framer-motion lida bem com isso dentro da div wrapper.
   return (
-    <motion.div variants={itemVariants} className={className}>
+    <motion.div variants={itemVariants} className={className} onClick={onClick}>
       {children}
     </motion.div>
   );
