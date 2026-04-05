@@ -19,7 +19,7 @@ export interface DemoItem {
 }
 
 export const heroDemos: DemoItem[] = [
-  { category: 'Comercial', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audioUrl: '/audio/SPOT DIOR.mp3' },
+  { category: 'Premium', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audioUrl: '/audio/SPOT DIOR.mp3' },
   { category: 'Comercial', title: 'Lançamento de Produto', client: 'Grupo Automotivo', duration: '0:45', audioUrl: '/audio/demo-comercial-2.mp3' },
   { category: 'Varejo', title: 'Black Friday', client: 'Shopping Center', duration: '0:28', audioUrl: '/audio/demo-varejo-1.mp3' },
   { category: 'Varejo', title: 'Liquidação de Verão', client: 'Rede Nacional', duration: '0:22', audioUrl: '/audio/demo-varejo-2.mp3' },
@@ -31,6 +31,7 @@ export const heroDemos: DemoItem[] = [
 
 /* ━━━ Grid Demos ━━━ */
 export const gridDemos: DemoItem[] = [
+  { category: 'Premium', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audioUrl: '/audio/SPOT DIOR.mp3' },
   { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Premium', duration: '0:25', audioUrl: '/audio/grid-1.mp3' },
   { category: 'Comercial', title: 'Campanha de Natal', client: 'Rede Supermercados', duration: '0:32', audioUrl: '/audio/grid-2.mp3' },
   { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audioUrl: '/audio/grid-3.mp3' },

@@ -1,12 +1,41 @@
-import { gridDemos } from "@/data/content"
-import { Play } from "lucide-react"
-import { AudioLines } from "lucide-react"
-import { Reveal } from "@/components/ui/reveal"
-import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
+"use client";
+
+import { useState, useRef } from "react";
+import { gridDemos } from "@/data/content";
+import { Play, Pause, AudioLines } from "lucide-react";
+import { Reveal } from "@/components/ui/reveal";
+import { StaggerGroup, StaggerItem } from "@/components/ui/stagger";
 
 export default function DemoSection() {
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  const togglePlay = (index: number, audioUrl?: string) => {
+    if (!audioUrl) return;
+
+    if (playingIndex === index) {
+      audioRef.current?.pause();
+      setPlayingIndex(null);
+    } else {
+      setPlayingIndex(index);
+      if (audioRef.current) {
+        audioRef.current.src = audioUrl;
+        audioRef.current.play().catch(err => {
+          console.error("Erro ao tocar demo:", err);
+          setPlayingIndex(null);
+        });
+      }
+    }
+  };
+
   return (
     <section id="demos">
+      <audio 
+        ref={audioRef} 
+        onEnded={() => setPlayingIndex(null)}
+        onError={() => setPlayingIndex(null)}
+      />
+
       <div className="section-spacing">
         <div className="container-site">
           <Reveal delay={0.1}>
@@ -28,25 +57,47 @@ export default function DemoSection() {
             {gridDemos.map((d, i) => (
               <StaggerItem
                 key={i}
-                className="luxury-card glass-card flex flex-col justify-between group cursor-pointer block border border-white/5"
+                onClick={() => togglePlay(i, d.audioUrl)}
+                className={`luxury-card glass-card flex flex-col justify-between group cursor-pointer border-[#e0c27a]/10 hover:border-[#e0c27a]/20 transition-all duration-500 ${
+                  playingIndex === i ? "border-[#e0c27a]/40 bg-white/5" : "border-white/5"
+                }`}
               >
                 <div className="flex items-center justify-between mb-8 relative z-10">
                   <span className="text-[0.6rem] uppercase tracking-widest text-[#e0c27a] font-medium">
                     {d.category}
                   </span>
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-[#a67c2e] to-[#e0c27a] text-black flex items-center justify-center opacity-0 transform scale-50 group-hover:opacity-100 group-hover:scale-100 transition-all duration-500 shadow-lg shadow-black">
-                    <Play size={14} className="ml-1" />
+                  <div className={`w-12 h-12 rounded-full bg-gradient-to-br from-[#a67c2e] to-[#e0c27a] text-black flex items-center justify-center transition-all duration-500 shadow-lg shadow-black ${
+                    playingIndex === i ? "opacity-100 scale-100" : "opacity-0 scale-50 group-hover:opacity-100 group-hover:scale-100"
+                  }`}>
+                    {playingIndex === i ? <Pause size={14} /> : <Play size={14} className="ml-1" />}
                   </div>
                 </div>
+                
                 <div className="relative z-10">
-                  <h3 className="font-display font-medium text-lg tracking-wide text-white group-hover:text-[#e0c27a] transition-colors">
+                  <h3 className={`font-display font-medium text-lg tracking-wide transition-colors ${
+                    playingIndex === i ? "text-[#e0c27a]" : "text-white group-hover:text-[#e0c27a]"
+                  }`}>
                     {d.title}
                   </h3>
+                  
                   <div className="flex items-center justify-between mt-3">
                     <p className="text-xs text-muted-foreground">{d.client}</p>
-                    <span className="text-[0.6rem] text-muted-foreground font-mono">
-                      {d.duration}
-                    </span>
+                    
+                    {playingIndex === i ? (
+                      <div className="flex items-center gap-[2px] h-3">
+                        {[1, 2, 3, 2].map((v, idx) => (
+                          <span 
+                            key={idx} 
+                            className="w-[1.5px] bg-[#e0c27a] rounded-full animate-pulse" 
+                            style={{ height: `${(v/3)*100}%`, animationDelay: `${idx * 0.15}s`}} 
+                          />
+                        ))}
+                      </div>
+                    ) : (
+                      <span className="text-[0.6rem] text-muted-foreground font-mono">
+                        {d.duration}
+                      </span>
+                    )}
                   </div>
                 </div>
               </StaggerItem>
@@ -55,5 +106,5 @@ export default function DemoSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
