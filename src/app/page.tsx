@@ -11,15 +11,22 @@ import Footer from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen bg-black">
       <Header />
       <Hero />
+      <div className="section-divider" />
       <DemoSection />
+      <div className="section-divider" />
       <PositioningSection />
+      <div className="section-divider" />
       <ServicesSection />
+      <div className="section-divider" />
       <ProcessSection />
+      <div className="section-divider" />
       <StudioSection />
+      <div className="section-divider" />
       <TestimonialsSection />
+      <div className="section-divider" />
       <CTASection />
       <Footer />
     </main>
