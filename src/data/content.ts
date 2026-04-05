@@ -151,4 +151,9 @@ export const footerLinks = [
   { label: 'Contato', href: '#contato' },
 ]
 
+export const playerSettings = {
+  showProgressBar: true,
+  defaultVolume: 0.8
+}
+
 export { AudioLines }
