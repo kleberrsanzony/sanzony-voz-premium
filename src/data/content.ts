@@ -15,27 +15,28 @@ export interface DemoItem {
   title: string
   client: string
   duration: string
+  audioUrl?: string
 }
 
 export const heroDemos: DemoItem[] = [
-  { category: 'Comercial', title: 'Campanha Nacional', client: 'Rede de Varejo', duration: '0:32' },
-  { category: 'Comercial', title: 'Lançamento de Produto', client: 'Grupo Automotivo', duration: '0:45' },
-  { category: 'Varejo', title: 'Black Friday', client: 'Shopping Center', duration: '0:28' },
-  { category: 'Varejo', title: 'Liquidação de Verão', client: 'Rede Nacional', duration: '0:22' },
-  { category: 'Premium', title: 'Resort & Spa', client: 'Grupo Hoteleiro', duration: '0:38' },
-  { category: 'Premium', title: 'Lançamento Automotivo', client: 'Marca Importada', duration: '0:45' },
-  { category: 'Institucional', title: 'Relatório Anual', client: 'Corporação S/A', duration: '1:12' },
-  { category: 'Institucional', title: 'Onboarding Interno', client: 'Tech Company', duration: '0:55' },
+  { category: 'Comercial', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audioUrl: '/audio/SPOT DIOR.mp3' },
+  { category: 'Comercial', title: 'Lançamento de Produto', client: 'Grupo Automotivo', duration: '0:45', audioUrl: '/audio/demo-comercial-2.mp3' },
+  { category: 'Varejo', title: 'Black Friday', client: 'Shopping Center', duration: '0:28', audioUrl: '/audio/demo-varejo-1.mp3' },
+  { category: 'Varejo', title: 'Liquidação de Verão', client: 'Rede Nacional', duration: '0:22', audioUrl: '/audio/demo-varejo-2.mp3' },
+  { category: 'Premium', title: 'Resort & Spa', client: 'Grupo Hoteleiro', duration: '0:38', audioUrl: '/audio/demo-premium-1.mp3' },
+  { category: 'Premium', title: 'Lançamento Automotivo', client: 'Marca Importada', duration: '0:45', audioUrl: '/audio/demo-premium-2.mp3' },
+  { category: 'Institucional', title: 'Relatório Anual', client: 'Corporação S/A', duration: '1:12', audioUrl: '/audio/demo-inst-1.mp3' },
+  { category: 'Institucional', title: 'Onboarding Interno', client: 'Tech Company', duration: '0:55', audioUrl: '/audio/demo-inst-2.mp3' },
 ]
 
 /* ━━━ Grid Demos ━━━ */
 export const gridDemos: DemoItem[] = [
-  { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Premium', duration: '0:25' },
-  { category: 'Comercial', title: 'Campanha de Natal', client: 'Rede Supermercados', duration: '0:32' },
-  { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40' },
-  { category: 'Institucional', title: 'Treinamento Corporativo', client: 'Multinacional', duration: '1:05' },
-  { category: 'Rádio', title: 'Vinheta Matinal', client: 'Rádio FM 94.5', duration: '0:12' },
-  { category: 'Digital', title: 'Reels Promocional', client: 'E-commerce', duration: '0:15' },
+  { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Premium', duration: '0:25', audioUrl: '/audio/grid-1.mp3' },
+  { category: 'Comercial', title: 'Campanha de Natal', client: 'Rede Supermercados', duration: '0:32', audioUrl: '/audio/grid-2.mp3' },
+  { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audioUrl: '/audio/grid-3.mp3' },
+  { category: 'Institucional', title: 'Treinamento Corporativo', client: 'Multinacional', duration: '1:05', audioUrl: '/audio/grid-4.mp3' },
+  { category: 'Rádio', title: 'Vinheta Matinal', client: 'Rádio FM 94.5', duration: '0:12', audioUrl: '/audio/grid-5.mp3' },
+  { category: 'Digital', title: 'Reels Promocional', client: 'E-commerce', duration: '0:15', audioUrl: '/audio/grid-6.mp3' },
 ]
 
 /* ━━━ Positioning Pillars ━━━ */
