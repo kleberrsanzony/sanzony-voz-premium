@@ -138,7 +138,7 @@ export const navLinks = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Processo', href: '#processo' },
   { label: 'Estúdio', href: '#estudio' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Fazer Briefing', href: '/briefing' },
 ]
 
 /* ━━━ Footer Links ━━━ */
@@ -148,7 +148,7 @@ export const footerLinks = [
   { label: 'Serviços', href: '#servicos' },
   { label: 'Processo', href: '#processo' },
   { label: 'Estúdio', href: '#estudio' },
-  { label: 'Contato', href: '#contato' },
+  { label: 'Fazer Briefing', href: '/briefing' },
 ]
 
 export const playerSettings = {
