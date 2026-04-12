@@ -1,3 +1,4 @@
+"use client";
 import { steps } from "@/data/content"
 import { Reveal } from "@/components/ui/reveal"
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"

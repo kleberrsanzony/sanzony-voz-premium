@@ -1,3 +1,4 @@
+"use client";
 import { footerLinks } from "@/data/content"
 
 export default function Footer() {

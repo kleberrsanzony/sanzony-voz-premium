@@ -1,3 +1,4 @@
+"use client";
 import { capabilities } from "@/data/content"
 import { Mic2 } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"

@@ -1,3 +1,4 @@
+"use client";
 import { testimonials } from "@/data/content"
 import { Star } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"

@@ -1,3 +1,4 @@
+"use client";
 import { services } from "@/data/content"
 import { Megaphone } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"

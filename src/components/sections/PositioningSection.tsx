@@ -1,3 +1,4 @@
+"use client";
 import { pillars } from "@/data/content"
 import { Shield } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
