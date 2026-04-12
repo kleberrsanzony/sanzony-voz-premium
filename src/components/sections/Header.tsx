@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
 import { navLinks } from "@/data/content";
 import { Button } from "@/components/ui/button";
 
@@ -77,7 +78,7 @@ export default function Header() {
         {/* CTA */}
         <motion.div variants={headerItemVariants} className="hidden lg:block">
           <Button variant="outline" asChild className="text-[0.55rem] h-10 px-6">
-            <a href="#contato">Solicitar Orçamento</a>
+            <Link href="/briefing">Fazer Briefing</Link>
           </Button>
         </motion.div>
 
@@ -131,9 +132,9 @@ export default function Header() {
                     Elite Room Access
                   </span>
                   <Button asChild className="w-full text-[0.65rem] py-6">
-                    <a href="#contato" onClick={() => setOpen(false)}>
+                    <Link href="/briefing" onClick={() => setOpen(false)}>
                       Solicitar Briefing Direto
-                    </a>
+                    </Link>
                   </Button>
                 </div>
               </motion.div>

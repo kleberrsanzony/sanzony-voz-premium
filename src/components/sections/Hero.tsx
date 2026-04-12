@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { heroCategories, heroDemos } from "@/data/content";
 import { DemoPlayer } from "./DemoPlayer";
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
@@ -85,7 +86,7 @@ export default function Hero() {
                 <a href="#demos">Ouvir Demos</a>
               </Button>
               <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 bg-black/20 backdrop-blur-sm hover:bg-black/50">
-                <a href="#contato">Solicitar Orçamento</a>
+                <Link href="/briefing">Fazer Briefing</Link>
               </Button>
             </motion.div>
           </div>
