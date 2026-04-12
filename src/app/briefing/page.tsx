@@ -67,45 +67,45 @@ export default function BriefingPage() {
     });
 
     if (error) {
-      toast({ 
-        title: "Erro ao enviar", 
-        description: error.message, 
-        variant: "destructive" 
+      toast({
+        title: "Erro ao enviar",
+        description: error.message,
+        variant: "destructive"
       });
     } else {
-      toast({ 
-        title: "Briefing enviado!", 
+      toast({
+        title: "Briefing enviado!",
         description: "Recebemos seu pedido. Entraremos em contato em breve.",
       });
-      setFormData({ 
-        nome: "", empresa: "", email: "", whatsapp: "", 
-        tipo_locucao: "", texto: "", tom: "", regiao: "", periodo: "" 
+      setFormData({
+        nome: "", empresa: "", email: "", whatsapp: "",
+        tipo_locucao: "", texto: "", tom: "", regiao: "", periodo: ""
       });
     }
     setLoading(false);
   };
 
   const inputClasses =
-    "w-full bg-secondary/40 border border-white/5 rounded-lg px-5 py-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/30 focus:border-gold/50 transition-all font-body text-sm";
-  const labelClasses = "block text-[0.60rem] uppercase tracking-[0.2em] font-bold text-gold-dark/80 mb-2.5";
+    "w-full bg-secondary/50 border border-white/5 rounded-md px-4 py-3 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/50 focus:border-gold/50 transition-all font-body text-sm";
+  const labelClasses = "block text-[0.65rem] uppercase tracking-widest font-bold text-gold-dark mb-2";
 
   return (
     <main className="min-h-screen bg-black">
       <Header />
-      
+
       <div className="relative pt-32 pb-20 overflow-hidden">
         {/* Ambient Glow */}
         <div className="bg-ambient-layer" />
 
         <div className="container-site relative z-10 max-w-3xl">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} 
-            animate={{ opacity: 1, y: 0 }} 
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: easePremium }}
           >
-            <div className="text-center mb-16 px-4">
+            <div className="text-center mb-16">
               <span className="section-label mb-4 block">Produção de Elite</span>
-              <h1 className="font-display text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 leading-none">
+              <h1 className="font-display text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">
                 Inicie seu <span className="text-gold">Projeto</span>
               </h1>
               <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto leading-relaxed">
@@ -147,14 +147,14 @@ export default function BriefingPage() {
 
                 <div className="space-y-2">
                   <label className={labelClasses}>Script / Texto para Gravação <span className="text-gold-mid">*</span></label>
-                  <textarea 
-                    name="texto" 
-                    value={formData.texto} 
-                    onChange={handleChange} 
-                    required 
-                    rows={6} 
-                    className={inputClasses + " resize-none"} 
-                    placeholder="Insira o texto que será locutado. Inclua observações sobre pronúncia de marcas ou nomes se necessário." 
+                  <textarea
+                    name="texto"
+                    value={formData.texto}
+                    onChange={handleChange}
+                    required
+                    rows={6}
+                    className={inputClasses + " resize-none"}
+                    placeholder="Insira o texto que será locutado. Inclua observações sobre pronúncia de marcas ou nomes se necessário."
                   />
                 </div>
 
@@ -195,7 +195,7 @@ export default function BriefingPage() {
                       </>
                     )}
                   </button>
-                  
+
                   <div className="flex items-center justify-center gap-2 text-muted-foreground text-[0.6rem] mt-6 tracking-widest uppercase font-bold opacity-60">
                     <Shield className="h-3 w-3 text-gold-dark" />
                     <span>Ambiente Seguro & Dados Criptografados</span>
@@ -215,7 +215,7 @@ export default function BriefingPage() {
                   <p className="text-muted-foreground text-xs">Análise técnica imediata.</p>
                 </div>
               </div>
-              
+
               <Link href="/" className="text-[0.6rem] uppercase tracking-[0.3em] text-muted-foreground hover:text-gold transition-colors flex items-center gap-2">
                 <ArrowLeft className="h-3 w-3" />
                 <span>Voltar ao Início</span>

@@ -177,3 +177,12 @@ h1, h2, h3, h4, h5, h6 {
   filter: brightness(1.1) contrast(1.05);
 }
 
+/* Hide scrollbar utility */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+

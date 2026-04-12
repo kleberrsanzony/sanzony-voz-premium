@@ -105,27 +105,29 @@ export function DemoPlayer({
       />
 
       {/* Header Controls (Toggles/Volume) */}
-      <div className="flex flex-wrap items-center justify-between gap-4 mb-7 pb-4 border-b border-white/5">
-        <div className="flex gap-2">
-          {heroCategories.map((c) => (
-            <button
-              key={c}
-              onClick={() => setActiveTab(c)}
-              className={`px-4 py-1.5 text-[0.5rem] uppercase tracking-[0.3em] rounded-sm transition-all duration-500 cursor-pointer ${
-                activeTab === c 
-                  ? "text-[#e0c27a] font-semibold bg-[#e0c27a]/10 border border-[#e0c27a]/30" 
-                  : "text-muted-foreground hover:text-white bg-[#111] border border-white/5 hover:border-white/10"
-              }`}
-            >
-              {c}
-            </button>
-          ))}
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-white/5">
+        <div className="w-full sm:flex-1 overflow-x-auto scrollbar-hide -mb-px">
+          <div className="flex gap-1.5 min-w-max">
+            {heroCategories.map((c) => (
+              <button
+                key={c}
+                onClick={() => setActiveTab(c)}
+                className={`px-4 py-2 text-[0.55rem] uppercase tracking-[0.2em] rounded-md transition-all duration-300 cursor-pointer ${
+                  activeTab === c 
+                    ? "text-[#e0c27a] font-bold bg-[#e0c27a]/15 border border-[#e0c27a]/30 shadow-[0_0_15px_rgba(224,194,122,0.1)]" 
+                    : "text-muted-foreground hover:text-white bg-white/5 border border-transparent hover:bg-white/10"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
         </div>
 
         {/* Global Volume Control */}
-        <div className="flex items-center gap-2 group/volume">
+        <div className="hidden xs:flex items-center gap-3 py-1 px-3 bg-white/5 border border-white/5 rounded-full group/volume">
           <button onClick={() => setIsMuted(!isMuted)} className="text-muted-foreground hover:text-[#e0c27a] transition-colors">
-            {isMuted || volume === 0 ? <VolumeX size={14} /> : <Volume2 size={14} />}
+            {isMuted || volume === 0 ? <VolumeX size={12} /> : <Volume2 size={12} />}
           </button>
           <input 
             type="range" 
@@ -134,7 +136,7 @@ export function DemoPlayer({
             step="0.01" 
             value={isMuted ? 0 : volume}
             onChange={handleVolumeChange}
-            className="w-16 h-1 bg-white/10 accent-[#e0c27a] cursor-pointer rounded-full group-hover/volume:w-20 transition-all"
+            className="w-12 h-0.5 bg-white/10 accent-[#e0c27a] cursor-pointer rounded-full group-hover/volume:w-16 transition-all"
           />
         </div>
       </div>
@@ -171,9 +173,9 @@ export function DemoPlayer({
                 <p className="text-[0.6rem] text-muted-foreground mt-0.5 uppercase tracking-widest">{d.client}</p>
               </div>
               
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-3">
                 {playing === i && (
-                  <div className="flex items-center gap-[3px] h-4">
+                  <div className="hidden xs:flex items-center gap-[2px] h-3">
                     {[1, 2, 3, 2, 1].map((v, idx) => (
                       <span 
                         key={idx} 
@@ -183,7 +185,7 @@ export function DemoPlayer({
                     ))}
                   </div>
                 )}
-                <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider w-10 text-right">
+                <span className="text-[0.6rem] text-muted-foreground font-mono tracking-wider tabular-nums">
                   {playing === i ? formatTime(currentTime) : d.duration}
                 </span>
               </div>

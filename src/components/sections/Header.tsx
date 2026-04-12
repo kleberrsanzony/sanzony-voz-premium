@@ -43,11 +43,10 @@ export default function Header() {
       variants={headerContainerVariants}
       initial="hidden"
       animate="visible"
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${
-        scrolled
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${scrolled
           ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
           : "bg-transparent border-transparent"
-      }`}
+        }`}
     >
       <div className="container-site flex items-center justify-between h-20 md:h-24">
         {/* Logo */}
@@ -67,7 +66,7 @@ export default function Header() {
               key={l.href}
               variants={headerItemVariants}
               href={l.href}
-              className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground hover:text-white transition-colors relative group py-2 font-medium"
+              className="text-[0.55rem] uppercase tracking-[0.3em] text-muted-foreground hover:text-white transition-colors relative group py-2"
             >
               {l.label}
               <span className="absolute bottom-0 left-0 w-0 h-px bg-[#e0c27a] transition-all duration-300 group-hover:w-full" />
@@ -77,7 +76,7 @@ export default function Header() {
 
         {/* CTA */}
         <motion.div variants={headerItemVariants} className="hidden lg:block">
-          <Button variant="outline" asChild className="text-[0.6rem] uppercase tracking-widest h-10 px-6 border-white/10 hover:border-gold/50">
+          <Button variant="outline" asChild className="text-[0.55rem] h-10 px-6">
             <Link href="/briefing">Fazer Briefing</Link>
           </Button>
         </motion.div>
@@ -120,7 +119,7 @@ export default function Header() {
                 ))}
               </nav>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-col gap-8 mt-12"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}

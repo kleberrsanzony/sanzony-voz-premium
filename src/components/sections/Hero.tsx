@@ -64,7 +64,7 @@ export default function Hero() {
 
             <motion.h1
               variants={headlineVariants}
-              className="font-display font-bold text-5xl xs:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] tracking-tighter text-white mb-8 flex flex-col gap-1"
+              className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8 flex flex-col gap-1"
             >
               <motion.span variants={headlineLineVariants}>
                 Sua marca não
@@ -82,10 +82,10 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-              <Button asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold shadow-[0_0_40px_rgba(224,194,122,0.2)]">
+              <Button asChild className="w-full sm:w-auto h-14 px-10 shadow-[0_0_40px_rgba(224,194,122,0.2)]">
                 <a href="#demos">Ouvir Demos</a>
               </Button>
-              <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold bg-black/20 backdrop-blur-sm border-white/10 hover:border-gold/50 hover:bg-black/50">
+              <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 bg-black/20 backdrop-blur-sm hover:bg-black/50">
                 <Link href="/briefing">Fazer Briefing</Link>
               </Button>
             </motion.div>
