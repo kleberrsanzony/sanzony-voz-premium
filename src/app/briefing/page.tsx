@@ -86,8 +86,8 @@ export default function BriefingPage() {
   };
 
   const inputClasses =
-    "w-full bg-secondary/50 border border-white/5 rounded-md px-4 py-3 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/50 focus:border-gold/50 transition-all font-body text-sm";
-  const labelClasses = "block text-[0.65rem] uppercase tracking-widest font-bold text-gold-dark mb-2";
+    "w-full bg-secondary/40 border border-white/5 rounded-lg px-5 py-4 text-white placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-gold/30 focus:border-gold/50 transition-all font-body text-sm";
+  const labelClasses = "block text-[0.60rem] uppercase tracking-[0.2em] font-bold text-gold-dark/80 mb-2.5";
 
   return (
     <main className="min-h-screen bg-black">
@@ -103,9 +103,9 @@ export default function BriefingPage() {
             animate={{ opacity: 1, y: 0 }} 
             transition={{ duration: 0.8, ease: easePremium }}
           >
-            <div className="text-center mb-16">
+            <div className="text-center mb-16 px-4">
               <span className="section-label mb-4 block">Produção de Elite</span>
-              <h1 className="font-display text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">
+              <h1 className="font-display text-5xl md:text-7xl font-black tracking-tighter text-white mb-6 leading-none">
                 Inicie seu <span className="text-gold">Projeto</span>
               </h1>
               <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto leading-relaxed">

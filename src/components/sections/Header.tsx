@@ -67,7 +67,7 @@ export default function Header() {
               key={l.href}
               variants={headerItemVariants}
               href={l.href}
-              className="text-[0.55rem] uppercase tracking-[0.3em] text-muted-foreground hover:text-white transition-colors relative group py-2"
+              className="text-[0.65rem] uppercase tracking-[0.25em] text-muted-foreground hover:text-white transition-colors relative group py-2 font-medium"
             >
               {l.label}
               <span className="absolute bottom-0 left-0 w-0 h-px bg-[#e0c27a] transition-all duration-300 group-hover:w-full" />
@@ -77,7 +77,7 @@ export default function Header() {
 
         {/* CTA */}
         <motion.div variants={headerItemVariants} className="hidden lg:block">
-          <Button variant="outline" asChild className="text-[0.55rem] h-10 px-6">
+          <Button variant="outline" asChild className="text-[0.6rem] uppercase tracking-widest h-10 px-6 border-white/10 hover:border-gold/50">
             <Link href="/briefing">Fazer Briefing</Link>
           </Button>
         </motion.div>

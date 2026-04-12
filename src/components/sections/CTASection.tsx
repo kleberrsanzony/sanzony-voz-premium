@@ -30,10 +30,10 @@ export default function CTASection() {
             
             <StaggerItem className="w-full">
               <div className="flex flex-col sm:flex-row justify-center gap-5 w-full sm:w-auto">
-                <Button asChild className="w-full sm:w-auto h-14 px-12 text-sm shadow-[0_0_40px_rgba(224,194,122,0.3)]">
+                <Button asChild className="w-full sm:w-auto h-16 px-12 text-[0.7rem] uppercase tracking-[0.2em] font-bold shadow-[0_0_50px_rgba(224,194,122,0.3)]">
                   <Link href="/briefing">Fazer Briefing Premium</Link>
                 </Button>
-                <Button asChild variant="outline" className="w-full sm:w-auto h-14 px-12 text-sm bg-black">
+                <Button asChild variant="outline" className="w-full sm:w-auto h-16 px-12 text-[0.7rem] uppercase tracking-[0.2em] font-bold bg-black border-white/10 hover:border-gold/50">
                   <a href="https://wa.me/5511999999999" target="_blank">WhatsApp Direto</a>
                 </Button>
               </div>
