@@ -106,8 +106,8 @@ export function DemoPlayer({
 
       {/* Header Controls (Toggles/Volume) */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-4 border-b border-white/5">
-        <div className="w-full sm:flex-1 overflow-x-auto scrollbar-hide -mb-px">
-          <div className="flex gap-1.5 min-w-max">
+        <div className="w-full sm:flex-1">
+          <div className="flex flex-wrap gap-2">
             {heroCategories.map((c) => (
               <button
                 key={c}
