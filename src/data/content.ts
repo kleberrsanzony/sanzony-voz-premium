@@ -34,7 +34,7 @@ export const gridDemos: DemoItem[] = [
   { category: 'Premium', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audio_url: '/audio/luxury-spot-dior.mp3' },
   { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Premium', duration: '0:25', audio_url: '/audio/grid-1.mp3' },
   { category: 'Comercial', title: 'Campanha de Natal', client: 'Rede Supermercados', duration: '0:32', audio_url: '/audio/grid-2.mp3' },
-  { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audio_url: '/audio_url: /audio/grid-3.mp3' },
+  { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audio_url: '/audio/grid-3.mp3' },
   { category: 'Institucional', title: 'Treinamento Corporativo', client: 'Multinacional', duration: '1:05', audio_url: '/audio/grid-4.mp3' },
   { category: 'Rádio', title: 'Vinheta Matinal', client: 'Rádio FM 94.5', duration: '0:12', audio_url: '/audio/grid-5.mp3' },
   { category: 'Digital', title: 'Reels Promocional', client: 'E-commerce', duration: '0:15', audio_url: '/audio/grid-6.mp3' },

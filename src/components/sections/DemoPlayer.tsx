@@ -151,7 +151,7 @@ export function DemoPlayer({
             }`}
             onClick={(e) => {
               if ((e.target as HTMLElement).tagName !== 'INPUT') {
-                togglePlay(i, d.audioUrl || (d as any).audio_url);
+                togglePlay(i, d.audio_url);
               }
             }}
           >
