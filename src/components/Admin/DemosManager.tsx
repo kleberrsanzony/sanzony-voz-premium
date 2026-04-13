@@ -119,7 +119,7 @@ export default function DemosManager() {
 
   // Effect to fetch duration if URL is pasted manually
   useEffect(() => {
-    if (formData.audio_url && !formData.duration || formData.duration === "0:00") {
+    if (formData.audio_url && (!formData.duration || formData.duration === "0:00")) {
       const audio = new Audio();
       audio.src = formData.audio_url;
       const timeout = setTimeout(() => {
@@ -131,7 +131,7 @@ export default function DemosManager() {
       }, 1000);
       return () => clearTimeout(timeout);
     }
-  }, [formData.audio_url]);
+  }, [formData.audio_url, formData.duration]);
 
   if (loading && demos.length === 0) {
     return (
