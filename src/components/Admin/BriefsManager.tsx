@@ -190,7 +190,10 @@ export default function BriefsManager() {
     await withBriefLoading(brief.id, async () => {
       const filePath = `${brief.id}/${Date.now()}_${file.name}`;
       const { error: uploadError } = await supabase.storage.from('audio-files').upload(filePath, file);
-      if (uploadError) return toast({ title: 'Erro upload', description: uploadError.message, variant: 'destructive' });
+      if (uploadError) {
+        toast({ title: 'Erro upload', description: uploadError.message, variant: 'destructive' });
+        return;
+      }
 
       await supabase.from('briefs').update({ audio_url: filePath, audio_filename: file.name }).eq('id', brief.id);
       const result = await automationService.runPostUploadFlow(brief.id, { ...brief, audio_url: filePath, audio_filename: file.name } as any);
@@ -202,7 +205,10 @@ export default function BriefsManager() {
   const deleteBrief = async (briefId: string) => {
     await withBriefLoading(briefId, async () => {
       const { error } = await supabase.from('briefs').delete().eq('id', briefId);
-      if (error) return toast({ title: 'Erro', description: error.message, variant: 'destructive' });
+      if (error) {
+        toast({ title: 'Erro', description: error.message, variant: 'destructive' });
+        return;
+      }
       setExpandedBrief(null);
       fetchBriefs();
     });
@@ -212,7 +218,10 @@ export default function BriefsManager() {
     const current = editDataRef.current[briefId] || {};
     await withBriefLoading(briefId, async () => {
       const { error } = await supabase.from('briefs').update(current).eq('id', briefId);
-      if (error) return toast({ title: 'Erro', description: error.message, variant: 'destructive' });
+      if (error) {
+        toast({ title: 'Erro', description: error.message, variant: 'destructive' });
+        return;
+      }
       setEditingBrief(null);
       fetchBriefs();
     });
