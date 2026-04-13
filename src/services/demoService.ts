@@ -10,7 +10,7 @@ export interface DemoEntry extends DemoItem {
 
 export const demoService = {
   async getDemos() {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("demos")
       .select("*")
       .order("order_index", { ascending: true });
@@ -20,7 +20,7 @@ export const demoService = {
   },
 
   async addDemo(demo: Omit<DemoEntry, "id" | "created_at">) {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("demos")
       .insert(demo)
       .select()
@@ -31,7 +31,7 @@ export const demoService = {
   },
 
   async updateDemo(id: string, updates: Partial<DemoEntry>) {
-    const { data, error } = await supabase
+    const { data, error } = await (supabase as any)
       .from("demos")
       .update(updates)
       .eq("id", id)
@@ -43,7 +43,7 @@ export const demoService = {
   },
 
   async deleteDemo(id: string) {
-    const { error } = await supabase
+    const { error } = await (supabase as any)
       .from("demos")
       .delete()
       .eq("id", id);
