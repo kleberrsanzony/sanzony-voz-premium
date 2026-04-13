@@ -125,7 +125,7 @@ export function DemoPlayer({
         </div>
 
         {/* Global Volume Control */}
-        <div className="hidden xs:flex items-center gap-3 py-1 px-3 bg-white/5 border border-white/5 rounded-full group/volume">
+        <div className="flex items-center gap-3 py-1 px-3 bg-white/5 border border-white/5 rounded-full group/volume">
           <button onClick={() => setIsMuted(!isMuted)} className="text-muted-foreground hover:text-[#e0c27a] transition-colors">
             {isMuted || volume === 0 ? <VolumeX size={12} /> : <Volume2 size={12} />}
           </button>
@@ -151,7 +151,7 @@ export function DemoPlayer({
             }`}
             onClick={(e) => {
               if ((e.target as HTMLElement).tagName !== 'INPUT') {
-                togglePlay(i, d.audioUrl);
+                togglePlay(i, d.audioUrl || (d as any).audio_url);
               }
             }}
           >

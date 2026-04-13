@@ -1,7 +1,9 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { heroCategories, heroDemos } from "@/data/content";
+import { heroCategories as staticCategories, heroDemos as staticDemos } from "@/data/content";
+import { demoService, DemoEntry } from "@/services/demoService";
 import { DemoPlayer } from "./DemoPlayer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -44,6 +46,32 @@ const headlineLineVariants = {
 };
 
 export default function Hero() {
+  const [demos, setDemos] = useState<DemoEntry[]>([]);
+  const [categories, setCategories] = useState<string[]>(Array.from(staticCategories));
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const allDemos = await demoService.getDemos();
+        const heroDemos = allDemos.filter(d => d.location === 'hero');
+        if (heroDemos.length > 0) {
+          setDemos(heroDemos);
+          const uniqueCats = Array.from(new Set(heroDemos.map(d => d.category))).sort();
+          setCategories(uniqueCats);
+        } else {
+          setDemos(staticDemos as any);
+        }
+      } catch (err) {
+        console.error("Hero: Error fetching demos", err);
+        setDemos(staticDemos as any);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
+
   return (
     <section id="inicio" className="relative min-h-screen flex items-center overflow-hidden pt-32 pb-20">
       {/* Background simplificado com Ambient Glow */}
@@ -64,7 +92,7 @@ export default function Hero() {
 
             <motion.h1
               variants={headlineVariants}
-              className="font-display font-bold text-4xl xs:text-5xl md:text-6xl lg:text-[5.5rem] leading-[0.95] tracking-tight text-white mb-8 flex flex-col gap-1"
+              className="font-display font-bold text-5xl xs:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] tracking-tighter text-white mb-8 flex flex-col gap-1"
             >
               <motion.span variants={headlineLineVariants}>
                 Sua marca não
@@ -82,10 +110,10 @@ export default function Hero() {
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
-              <Button asChild className="w-full sm:w-auto h-14 px-10 shadow-[0_0_40px_rgba(224,194,122,0.2)]">
+              <Button asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold shadow-[0_0_40px_rgba(224,194,122,0.2)]">
                 <a href="#demos">Ouvir Demos</a>
               </Button>
-              <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 bg-black/20 backdrop-blur-sm hover:bg-black/50">
+              <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold bg-black/20 backdrop-blur-sm border-white/10 hover:border-gold/50 hover:bg-black/50">
                 <Link href="/briefing">Fazer Briefing</Link>
               </Button>
             </motion.div>
@@ -93,7 +121,7 @@ export default function Hero() {
 
           {/* RIGHT — Interactive Demo Player (Client Component) */}
           <motion.div variants={itemVariants} className="md:col-span-5 w-full">
-            <DemoPlayer heroCategories={heroCategories} heroDemos={heroDemos} />
+            <DemoPlayer heroCategories={categories} heroDemos={demos.length > 0 ? demos : staticDemos as any} />
           </motion.div>
         </div>
 

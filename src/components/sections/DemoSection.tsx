@@ -1,18 +1,41 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { gridDemos, playerSettings } from "@/data/content";
+import { gridDemos as staticDemos, playerSettings } from "@/data/content";
+import { demoService, DemoEntry } from "@/services/demoService";
 import { Play, Pause, AudioLines, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger";
 
 export default function DemoSection() {
+  const [demos, setDemos] = useState<DemoEntry[]>([]);
+  const [loading, setLoading] = useState(true);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(playerSettings.defaultVolume);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  useEffect(() => {
+    async function load() {
+      try {
+        const allDemos = await demoService.getDemos();
+        const filtered = allDemos.filter(d => d.location === 'grid');
+        if (filtered.length > 0) {
+          setDemos(filtered);
+        } else {
+          setDemos(staticDemos as any);
+        }
+      } catch (err) {
+        console.error("DemoSection: Error fetching demos", err);
+        setDemos(staticDemos as any);
+      } finally {
+        setLoading(false);
+      }
+    }
+    load();
+  }, []);
 
   const togglePlay = (index: number, audioUrl?: string) => {
     if (!audioUrl) return;
@@ -116,10 +139,10 @@ export default function DemoSection() {
           </Reveal>
 
           <StaggerGroup className="grid md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.1}>
-            {gridDemos.map((d, i) => (
+            {(demos.length > 0 ? demos : staticDemos).map((d: any, i: number) => (
               <StaggerItem
                 key={i}
-                onClick={() => togglePlay(i, d.audioUrl)}
+                onClick={() => togglePlay(i, d.audioUrl || d.audio_url)}
                 className={`luxury-card glass-card flex flex-col justify-between group cursor-pointer border-[#e0c27a]/15 hover:border-[#e0c27a]/25 transition-all duration-500 min-h-[220px] ${
                   playingIndex === i ? "bg-white/5 border-[#e0c27a]/30" : "border-white/5"
                 }`}
