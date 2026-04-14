@@ -135,32 +135,12 @@ export default function BriefsManager() {
   useEffect(() => {
     fetchBriefs();
 
-    let realtimeActive = false;
-    let errorLogged = false;
-
-    // Strategy 1: Realtime (instant updates when available)
-    const channel = supabase
-      .channel('briefs-realtime')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'briefs' }, () => {
-        fetchBriefs();
-      })
-      .subscribe((status) => {
-        if (status === 'SUBSCRIBED') {
-          realtimeActive = true;
-        } else if (status === 'CHANNEL_ERROR' && !errorLogged) {
-          errorLogged = true;
-          // Log only once to keep console clean
-          console.warn('Sanzony.Voz: Realtime indisponível, usando polling automático (30s).');
-        }
-      });
-
-    // Strategy 2: Polling fallback (keeps data fresh regardless)
-    const pollInterval = setInterval(() => {
-      if (!realtimeActive) fetchBriefs();
-    }, 30000);
+    // Auto-refresh: polls every 15s to keep data fresh.
+    // Realtime (WebSocket) disabled due to Supabase Free plan instability.
+    // To re-enable: uncomment the channel block and set polling to fallback-only.
+    const pollInterval = setInterval(fetchBriefs, 15000);
 
     return () => {
-      supabase.removeChannel(channel);
       clearInterval(pollInterval);
     };
   }, []);
