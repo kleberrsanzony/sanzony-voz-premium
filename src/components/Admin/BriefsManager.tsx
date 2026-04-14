@@ -7,7 +7,8 @@ import {
   Mic, LogOut, Upload, Award, RefreshCw, Shield,
   ChevronDown, ChevronUp, Trash2, Pencil, Save, X,
   CheckCircle2, AlertTriangle, Loader2, Send, ExternalLink,
-  Phone, User, FileText, Info, MessageSquare, Hash as HashIcon
+  Phone, User, FileText, Info, MessageSquare, Hash as HashIcon,
+  Copy, Volume2, FileDown, Link2, RotateCcw
 } from 'lucide-react';
 import AdminStats from '@/components/AdminStats';
 import BriefWorkflow from '@/components/Admin/BriefWorkflow';
@@ -19,7 +20,7 @@ import {
   AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
 import { BriefStatus, STATUS_FLOW, STATUS_ORDER } from '@/services/statusService';
-import { sendViaLink } from '@/services/whatsappService';
+import { sendViaLink, sendPtt, sendDocument, autoSend, buildDeliveryMessage } from '@/services/whatsappService';
 import { automationService, AutomationStep } from '@/services/automationService';
 
 // ── Types ──────────────────────────────────────────────────────────────────────
@@ -481,6 +482,182 @@ export default function BriefsManager() {
                               </dl>
                             )}
                           </div>
+
+                          {/* ── Manual Actions Panel ── */}
+                          {!isEditing && (brief.audio_url || brief.numero_certificado) && (
+                            <div className="bg-secondary/20 border border-border rounded-xl p-4 space-y-3 mt-4">
+                              <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground flex items-center gap-1.5">
+                                <RotateCcw className="h-3 w-3" /> Ações Manuais
+                              </h3>
+
+                              {/* Quick Links */}
+                              <div className="space-y-2">
+                                {brief.numero_certificado && (
+                                  <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
+                                    <Link2 className="h-3 w-3 text-primary shrink-0" />
+                                    <span className="text-[9px] text-muted-foreground uppercase font-bold shrink-0">Certificado:</span>
+                                    <a
+                                      href={`https://sanzonyvoz.com.br/verificar/${brief.numero_certificado}`}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="text-[10px] text-primary hover:underline truncate font-mono"
+                                    >
+                                      sanzonyvoz.com.br/verificar/{brief.numero_certificado}
+                                    </a>
+                                    <button
+                                      onClick={() => {
+                                        navigator.clipboard.writeText(`https://sanzonyvoz.com.br/verificar/${brief.numero_certificado}`);
+                                        toast({ title: 'Link copiado!' });
+                                      }}
+                                      className="p-1 hover:bg-white/10 rounded transition-colors shrink-0"
+                                    >
+                                      <Copy className="h-3 w-3 text-muted-foreground" />
+                                    </button>
+                                  </div>
+                                )}
+
+                                <div className="flex items-center gap-2 bg-black/20 rounded-lg px-3 py-2">
+                                  <Phone className="h-3 w-3 text-emerald-400 shrink-0" />
+                                  <span className="text-[9px] text-muted-foreground uppercase font-bold shrink-0">WhatsApp:</span>
+                                  <a
+                                    href={`https://wa.me/${brief.whatsapp.replace(/\D/g, '')}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-[10px] text-emerald-400 hover:underline truncate font-mono"
+                                  >
+                                    wa.me/{brief.whatsapp.replace(/\D/g, '')}
+                                  </a>
+                                  <button
+                                    onClick={() => {
+                                      navigator.clipboard.writeText(`https://wa.me/${brief.whatsapp.replace(/\D/g, '')}`);
+                                      toast({ title: 'Link copiado!' });
+                                    }}
+                                    className="p-1 hover:bg-white/10 rounded transition-colors shrink-0"
+                                  >
+                                    <Copy className="h-3 w-3 text-muted-foreground" />
+                                  </button>
+                                </div>
+                              </div>
+
+                              {/* Action Buttons */}
+                              <div className="grid grid-cols-2 gap-2 pt-1">
+                                {brief.audio_url && (
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-9 text-[10px] gap-1.5 border-primary/20 hover:bg-primary/10 hover:text-primary"
+                                    disabled={loadingBriefId === brief.id}
+                                    onClick={async () => {
+                                      await withBriefLoading(brief.id, async () => {
+                                        const SYB = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://eazwewzslriqzzvjwpjh.supabase.co';
+                                        const fullAudioUrl = brief.audio_url!.startsWith('http')
+                                          ? brief.audio_url!
+                                          : `${SYB}/storage/v1/object/public/audio-files/${brief.audio_url}`;
+                                        const res = await sendPtt({
+                                          nome: brief.nome,
+                                          whatsapp: brief.whatsapp,
+                                          numero_certificado: brief.numero_certificado,
+                                          audio_url: fullAudioUrl,
+                                        });
+                                        toast({
+                                          title: res.success ? 'Áudio PTT reenviado!' : 'Erro ao reenviar áudio',
+                                          description: res.success ? `Enviado para ${brief.whatsapp}` : res.humanMessage,
+                                          variant: res.success ? 'default' : 'destructive',
+                                        });
+                                      });
+                                    }}
+                                  >
+                                    {loadingBriefId === brief.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Volume2 className="h-3 w-3" />}
+                                    Reenviar Áudio
+                                  </Button>
+                                )}
+
+                                {brief.numero_certificado && (
+                                  <Button
+                                    size="sm"
+                                    variant="outline"
+                                    className="h-9 text-[10px] gap-1.5 border-blue-500/20 hover:bg-blue-500/10 hover:text-blue-400"
+                                    disabled={loadingBriefId === brief.id}
+                                    onClick={async () => {
+                                      await withBriefLoading(brief.id, async () => {
+                                        const res = await sendDocument({
+                                          nome: brief.nome,
+                                          whatsapp: brief.whatsapp,
+                                          numero_certificado: brief.numero_certificado,
+                                          certificado_url: brief.certificado_url,
+                                        });
+                                        toast({
+                                          title: res.success ? 'Certificado PDF reenviado!' : 'Erro ao reenviar PDF',
+                                          description: res.success ? `PDF enviado para ${brief.whatsapp}` : res.humanMessage,
+                                          variant: res.success ? 'default' : 'destructive',
+                                        });
+                                      });
+                                    }}
+                                  >
+                                    {loadingBriefId === brief.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <FileDown className="h-3 w-3" />}
+                                    Reenviar PDF
+                                  </Button>
+                                )}
+
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="h-9 text-[10px] gap-1.5 border-emerald-500/20 hover:bg-emerald-500/10 hover:text-emerald-400"
+                                  disabled={loadingBriefId === brief.id}
+                                  onClick={async () => {
+                                    await withBriefLoading(brief.id, async () => {
+                                      const res = await autoSend({
+                                        nome: brief.nome,
+                                        whatsapp: brief.whatsapp,
+                                        numero_certificado: brief.numero_certificado,
+                                        certificado_url: brief.certificado_url,
+                                        audio_url: brief.audio_url,
+                                      });
+                                      toast({
+                                        title: res.success ? 'Texto reenviado!' : 'Erro ao reenviar texto',
+                                        description: res.success ? `Mensagem enviada para ${brief.whatsapp}` : res.humanMessage,
+                                        variant: res.success ? 'default' : 'destructive',
+                                      });
+                                    });
+                                  }}
+                                >
+                                  {loadingBriefId === brief.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Send className="h-3 w-3" />}
+                                  Reenviar Texto
+                                </Button>
+
+                                <Button
+                                  size="sm"
+                                  variant="outline"
+                                  className="h-9 text-[10px] gap-1.5 border-amber-500/20 hover:bg-amber-500/10 hover:text-amber-400"
+                                  disabled={loadingBriefId === brief.id}
+                                  onClick={async () => {
+                                    await withBriefLoading(brief.id, async () => {
+                                      try {
+                                        const { data, error } = await supabase.functions.invoke('generate-certificate', {
+                                          body: { briefId: brief.id },
+                                        });
+                                        if (error) throw error;
+                                        await fetchBriefs();
+                                        toast({
+                                          title: 'Certificado gerado!',
+                                          description: `Nº: ${data?.certificate?.numero || brief.numero_certificado}`,
+                                        });
+                                      } catch (err: any) {
+                                        toast({
+                                          title: 'Erro ao gerar certificado',
+                                          description: err.message || 'Falha na Edge Function.',
+                                          variant: 'destructive',
+                                        });
+                                      }
+                                    });
+                                  }}
+                                >
+                                  {loadingBriefId === brief.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Award className="h-3 w-3" />}
+                                  Gerar Certificado
+                                </Button>
+                              </div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
