@@ -52,9 +52,8 @@ type FilterKey = 'all' | 'fila_producao' | 'negociacao' | 'entregue';
 
 const AutoResultPanel = ({ steps, success, message, onClose }: { steps: AutomationStep[], success: boolean, message: string, onClose: () => void }) => (
   <div
-    className={`border rounded-xl p-4 space-y-3 text-sm ${
-      success ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-red-500/40 bg-red-500/5'
-    }`}
+    className={`border rounded-xl p-4 space-y-3 text-sm ${success ? 'border-emerald-500/40 bg-emerald-500/5' : 'border-red-500/40 bg-red-500/5'
+      }`}
   >
     <div className="flex items-start justify-between gap-2">
       <div className="flex items-center gap-2 font-bold">
@@ -137,11 +136,17 @@ export default function BriefsManager() {
     fetchBriefs();
 
     const channel = supabase
-      .channel('public:briefs')
-      .on('postgres_changes', { event: '*', schema: 'public', table: 'briefs' }, () => {
+      .channel('briefs-realtime')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'briefs' }, (payload) => {
+        // console.log('Mudança detectada no banco:', payload);
         fetchBriefs();
       })
-      .subscribe();
+      .subscribe((status, err) => {
+        if (status === 'CHANNEL_ERROR') {
+          console.error('Erro de conexão Realtime:', err);
+        }
+        // console.log('Status do Realtime:', status);
+      });
 
     return () => {
       supabase.removeChannel(channel);
@@ -196,12 +201,12 @@ export default function BriefsManager() {
   const generateCertNumber = async (): Promise<string> => {
     const { data: seq, error: seqError } = await supabase.rpc('nextval_cert_seq');
     if (seqError) throw new Error(`Falha ao gerar sequência: ${seqError.message}`);
-    
+
     const now = new Date();
     const year = now.getFullYear();
     const month = now.toLocaleString('pt-BR', { month: 'short' }).toUpperCase().replace('.', '');
     const paddedSeq = String(seq).padStart(3, '0');
-    
+
     return `SVZ-${year}-${month}-${paddedSeq}`;
   };
 
@@ -220,8 +225,8 @@ export default function BriefsManager() {
       }
 
       // 3. Update brief with basic metadata
-      const { error: updateError } = await supabase.from('briefs').update({ 
-        audio_url: filePath, 
+      const { error: updateError } = await supabase.from('briefs').update({
+        audio_url: filePath,
         audio_filename: file.name,
         hash_sha256: hash,
         numero_certificado: certNumber
@@ -233,9 +238,9 @@ export default function BriefsManager() {
       }
 
       // 4. Run automation flow
-      const result = await automationService.runPostUploadFlow(brief.id, { 
-        ...brief, 
-        audio_url: filePath, 
+      const result = await automationService.runPostUploadFlow(brief.id, {
+        ...brief,
+        audio_url: filePath,
         audio_filename: file.name,
         hash_sha256: hash,
         numero_certificado: certNumber
@@ -310,9 +315,8 @@ export default function BriefsManager() {
               <button
                 key={tab.key}
                 onClick={() => setFilter(tab.key)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${
-                  filter === tab.key ? 'bg-card text-foreground' : 'text-muted-foreground hover:text-foreground'
-                }`}
+                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-all ${filter === tab.key ? 'bg-card text-foreground' : 'text-muted-foreground hover:text-foreground'
+                  }`}
               >
                 {tab.label}
               </button>
@@ -400,15 +404,15 @@ export default function BriefsManager() {
                     <div className="p-5">
                       <div className="grid md:grid-cols-5 gap-6">
                         <div className="md:col-span-3 space-y-5">
-                          <BriefWorkflow 
-                            status={brief.status} 
-                            onActionClick={() => handleStatusAction(brief)} 
-                            loading={loadingBriefId === brief.id} 
-                            onAudioUpload={(file) => handleAudioUpload(brief, file)} 
+                          <BriefWorkflow
+                            status={brief.status}
+                            onActionClick={() => handleStatusAction(brief)}
+                            loading={loadingBriefId === brief.id}
+                            onAudioUpload={(file) => handleAudioUpload(brief, file)}
                           />
-                          
-                          {result && <AutoResultPanel {...result} onClose={() => setAutoResult(prev => { const n = {...prev}; delete n[brief.id]; return n; })} />}
-                          
+
+                          {result && <AutoResultPanel {...result} onClose={() => setAutoResult(prev => { const n = { ...prev }; delete n[brief.id]; return n; })} />}
+
                           <div className="bg-secondary/20 border border-border rounded-xl p-4">
                             <h3 className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mb-3 flex items-center gap-1.5">
                               <FileText className="h-3 w-3" /> Texto do Briefing
@@ -465,17 +469,17 @@ export default function BriefsManager() {
                                 </div>
                               </div>
                             ) : (
-                                <dl className="space-y-2.5 text-sm">
-                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Nome</dt><dd className="font-medium text-white mt-0.5">{brief.nome}</dd></div>
-                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Empresa</dt><dd className="font-medium text-white mt-0.5">{brief.empresa || '-'}</dd></div>
-                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Email</dt><dd className="font-mono text-[10px] mt-0.5 break-all text-muted-foreground">{brief.email || '-'}</dd></div>
-                                  <div><dt className="text-[10px] text-muted-foreground uppercase flex items-center gap-1"><Phone className="h-2.5 w-2.5" /> WhatsApp</dt><dd className="font-mono text-xs mt-0.5 text-white">{brief.whatsapp}</dd></div>
-                                  <div className="pt-2 grid grid-cols-3 gap-4 border-t border-white/5 mt-3">
-                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Tom</dt><dd className="text-[11px] text-silver mt-0.5">{brief.tom || '-'}</dd></div>
-                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Região</dt><dd className="text-[11px] text-silver mt-0.5">{brief.regiao || '-'}</dd></div>
-                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Período</dt><dd className="text-[11px] text-silver mt-0.5">{brief.periodo || '-'}</dd></div>
-                                  </div>
-                                </dl>
+                              <dl className="space-y-2.5 text-sm">
+                                <div><dt className="text-[10px] text-muted-foreground uppercase">Nome</dt><dd className="font-medium text-white mt-0.5">{brief.nome}</dd></div>
+                                <div><dt className="text-[10px] text-muted-foreground uppercase">Empresa</dt><dd className="font-medium text-white mt-0.5">{brief.empresa || '-'}</dd></div>
+                                <div><dt className="text-[10px] text-muted-foreground uppercase">Email</dt><dd className="font-mono text-[10px] mt-0.5 break-all text-muted-foreground">{brief.email || '-'}</dd></div>
+                                <div><dt className="text-[10px] text-muted-foreground uppercase flex items-center gap-1"><Phone className="h-2.5 w-2.5" /> WhatsApp</dt><dd className="font-mono text-xs mt-0.5 text-white">{brief.whatsapp}</dd></div>
+                                <div className="pt-2 grid grid-cols-3 gap-4 border-t border-white/5 mt-3">
+                                  <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Tom</dt><dd className="text-[11px] text-silver mt-0.5">{brief.tom || '-'}</dd></div>
+                                  <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Região</dt><dd className="text-[11px] text-silver mt-0.5">{brief.regiao || '-'}</dd></div>
+                                  <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Período</dt><dd className="text-[11px] text-silver mt-0.5">{brief.periodo || '-'}</dd></div>
+                                </div>
+                              </dl>
                             )}
                           </div>
                         </div>
