@@ -723,6 +723,55 @@ export default function BriefsManager() {
                                     }}
                                   />
                                 </label>
+
+                                {/* Resend everything at once */}
+                                {brief.audio_url && (
+                                  <Button
+                                    size="sm"
+                                    className="col-span-2 h-11 text-xs gap-2 font-bold bg-gradient-to-r from-amber-500 to-yellow-400 text-slate-900 hover:scale-[1.02] active:scale-[0.99] transition-transform shadow-lg shadow-amber-500/20"
+                                    disabled={loadingBriefId === brief.id}
+                                    onClick={async () => {
+                                      await withBriefLoading(brief.id, async () => {
+                                        const SYB = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://eazwewzslriqzzvjwpjh.supabase.co';
+                                        const payload = {
+                                          nome: brief.nome,
+                                          whatsapp: brief.whatsapp,
+                                          numero_certificado: brief.numero_certificado,
+                                          certificado_url: brief.certificado_url,
+                                          audio_url: brief.audio_url?.startsWith('http')
+                                            ? brief.audio_url
+                                            : `${SYB}/storage/v1/object/public/audio-files/${brief.audio_url}`,
+                                        };
+
+                                        const results: string[] = [];
+
+                                        // 1. Text
+                                        const t = await autoSend(payload);
+                                        results.push(t.success ? '✅ Texto' : '❌ Texto');
+
+                                        // 2. PDF
+                                        if (brief.certificado_url) {
+                                          const d = await sendDocument(payload);
+                                          results.push(d.success ? '✅ PDF' : '❌ PDF');
+                                        }
+
+                                        // 3. Audio PTT
+                                        const p = await sendPtt(payload);
+                                        results.push(p.success ? '✅ Áudio' : '❌ Áudio');
+
+                                        const allOk = results.every(r => r.startsWith('✅'));
+                                        toast({
+                                          title: allOk ? 'Tudo reenviado!' : 'Envio parcial',
+                                          description: results.join('  ·  '),
+                                          variant: allOk ? 'default' : 'destructive',
+                                        });
+                                      });
+                                    }}
+                                  >
+                                    {loadingBriefId === brief.id ? <Loader2 className="h-4 w-4 animate-spin" /> : <RefreshCw className="h-4 w-4" />}
+                                    Reenviar Tudo
+                                  </Button>
+                                )}
                               </div>
                             </div>
                           )}
