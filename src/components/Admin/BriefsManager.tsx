@@ -655,6 +655,74 @@ export default function BriefsManager() {
                                   {loadingBriefId === brief.id ? <Loader2 className="h-3 w-3 animate-spin" /> : <Award className="h-3 w-3" />}
                                   Gerar Certificado
                                 </Button>
+
+                                {/* Upload new audio + send */}
+                                <label className="col-span-2 cursor-pointer">
+                                  <div
+                                    className={`w-full flex items-center justify-center gap-2 px-4 py-3 rounded-xl border-2 border-dashed 
+                                    border-primary/30 bg-primary/5 hover:bg-primary/10 hover:border-primary/50 transition-all
+                                    text-primary font-bold text-[10px] uppercase tracking-wider ${loadingBriefId === brief.id ? 'opacity-60 pointer-events-none' : ''}`}
+                                  >
+                                    {loadingBriefId === brief.id ? (
+                                      <Loader2 className="h-4 w-4 animate-spin" />
+                                    ) : (
+                                      <>
+                                        <Upload className="h-4 w-4" />
+                                        Enviar novo áudio corrigido
+                                      </>
+                                    )}
+                                  </div>
+                                  <input
+                                    type="file"
+                                    accept=".mp3,.wav,.aac,.m4a,.ogg"
+                                    className="hidden"
+                                    disabled={loadingBriefId === brief.id}
+                                    onChange={async (e) => {
+                                      const file = e.target.files?.[0];
+                                      if (!file) return;
+                                      e.target.value = ''; // reset for re-uploads
+                                      
+                                      await withBriefLoading(brief.id, async () => {
+                                        // 1. Upload to storage
+                                        const filePath = `${brief.id}/${Date.now()}_${file.name}`;
+                                        const { error: uploadError } = await supabase.storage.from('audio-files').upload(filePath, file);
+                                        if (uploadError) {
+                                          toast({ title: 'Erro no upload', description: uploadError.message, variant: 'destructive' });
+                                          return;
+                                        }
+
+                                        // 2. Update brief
+                                        const { error: updateError } = await supabase.from('briefs').update({
+                                          audio_url: filePath,
+                                          audio_filename: file.name,
+                                        }).eq('id', brief.id);
+                                        if (updateError) {
+                                          toast({ title: 'Erro ao salvar', description: updateError.message, variant: 'destructive' });
+                                          return;
+                                        }
+
+                                        // 3. Send PTT immediately
+                                        const SYB = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://eazwewzslriqzzvjwpjh.supabase.co';
+                                        const fullUrl = `${SYB}/storage/v1/object/public/audio-files/${filePath}`;
+                                        const res = await sendPtt({
+                                          nome: brief.nome,
+                                          whatsapp: brief.whatsapp,
+                                          numero_certificado: brief.numero_certificado,
+                                          audio_url: fullUrl,
+                                        });
+
+                                        await fetchBriefs();
+                                        toast({
+                                          title: res.success ? 'Áudio corrigido enviado!' : 'Upload ok, mas falha no envio',
+                                          description: res.success 
+                                            ? `Novo áudio enviado para ${brief.whatsapp}` 
+                                            : `Arquivo salvo. ${res.humanMessage}`,
+                                          variant: res.success ? 'default' : 'destructive',
+                                        });
+                                      });
+                                    }}
+                                  />
+                                </label>
                               </div>
                             </div>
                           )}
