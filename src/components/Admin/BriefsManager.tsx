@@ -135,12 +135,19 @@ export default function BriefsManager() {
   useEffect(() => {
     fetchBriefs();
 
-    // Auto-refresh: polls every 15s to keep data fresh.
-    // Realtime (WebSocket) disabled due to Supabase Free plan instability.
-    // To re-enable: uncomment the channel block and set polling to fallback-only.
-    const pollInterval = setInterval(fetchBriefs, 15000);
+    // Realtime: instant updates via WebSocket
+    const channel = supabase
+      .channel('briefs-realtime')
+      .on('postgres_changes', { event: '*', schema: 'public', table: 'briefs' }, () => {
+        fetchBriefs();
+      })
+      .subscribe();
+
+    // Polling fallback (30s safety net)
+    const pollInterval = setInterval(fetchBriefs, 30000);
 
     return () => {
+      supabase.removeChannel(channel);
       clearInterval(pollInterval);
     };
   }, []);
