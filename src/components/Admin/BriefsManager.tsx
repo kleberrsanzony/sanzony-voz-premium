@@ -449,13 +449,33 @@ export default function BriefsManager() {
                                   <label className="text-[9px] text-muted-foreground uppercase tracking-widest mb-1 block font-bold">Empresa</label>
                                   <Input value={editData[brief.id]?.empresa || ''} onChange={(e) => setEditData(brief.id, { empresa: e.target.value })} className="h-8 text-sm bg-black/40 border-white/10" />
                                 </div>
+                                <div className="pt-2 grid grid-cols-3 gap-2 border-t border-white/5 mt-2">
+                                  <div>
+                                    <label className="text-[9px] text-muted-foreground uppercase tracking-widest mb-1 block font-bold">Tom</label>
+                                    <Input value={editData[brief.id]?.tom || ''} onChange={(e) => setEditData(brief.id, { tom: e.target.value })} className="h-8 text-[10px] bg-black/40 border-white/10" />
+                                  </div>
+                                  <div>
+                                    <label className="text-[9px] text-muted-foreground uppercase tracking-widest mb-1 block font-bold">Região</label>
+                                    <Input value={editData[brief.id]?.regiao || ''} onChange={(e) => setEditData(brief.id, { regiao: e.target.value })} className="h-8 text-[10px] bg-black/40 border-white/10" />
+                                  </div>
+                                  <div>
+                                    <label className="text-[9px] text-muted-foreground uppercase tracking-widest mb-1 block font-bold">Período</label>
+                                    <Input value={editData[brief.id]?.periodo || ''} onChange={(e) => setEditData(brief.id, { periodo: e.target.value })} className="h-8 text-[10px] bg-black/40 border-white/10" />
+                                  </div>
+                                </div>
                               </div>
                             ) : (
-                              <dl className="space-y-2.5 text-sm">
-                                <div><dt className="text-[10px] text-muted-foreground uppercase">Nome</dt><dd className="font-medium text-white mt-0.5">{brief.nome}</dd></div>
-                                <div><dt className="text-[10px] text-muted-foreground uppercase">Email</dt><dd className="font-mono text-[10px] mt-0.5 break-all text-muted-foreground">{brief.email}</dd></div>
-                                <div><dt className="text-[10px] text-muted-foreground uppercase flex items-center gap-1"><Phone className="h-2.5 w-2.5" /> WhatsApp</dt><dd className="font-mono text-xs mt-0.5 text-white">{brief.whatsapp}</dd></div>
-                              </dl>
+                                <dl className="space-y-2.5 text-sm">
+                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Nome</dt><dd className="font-medium text-white mt-0.5">{brief.nome}</dd></div>
+                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Empresa</dt><dd className="font-medium text-white mt-0.5">{brief.empresa || '-'}</dd></div>
+                                  <div><dt className="text-[10px] text-muted-foreground uppercase">Email</dt><dd className="font-mono text-[10px] mt-0.5 break-all text-muted-foreground">{brief.email || '-'}</dd></div>
+                                  <div><dt className="text-[10px] text-muted-foreground uppercase flex items-center gap-1"><Phone className="h-2.5 w-2.5" /> WhatsApp</dt><dd className="font-mono text-xs mt-0.5 text-white">{brief.whatsapp}</dd></div>
+                                  <div className="pt-2 grid grid-cols-3 gap-4 border-t border-white/5 mt-3">
+                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Tom</dt><dd className="text-[11px] text-silver mt-0.5">{brief.tom || '-'}</dd></div>
+                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Região</dt><dd className="text-[11px] text-silver mt-0.5">{brief.regiao || '-'}</dd></div>
+                                    <div><dt className="text-[9px] text-muted-foreground uppercase font-bold">Período</dt><dd className="text-[11px] text-silver mt-0.5">{brief.periodo || '-'}</dd></div>
+                                  </div>
+                                </dl>
                             )}
                           </div>
                         </div>

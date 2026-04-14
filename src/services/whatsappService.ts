@@ -214,10 +214,11 @@ export const sendPtt = async (payload: DeliveryPayload): Promise<SendResult> => 
       },
       body: JSON.stringify({
         number: jid,
-        mediatype: 'audio', // 'audio' triggers the PTT effect in most v2 installations
-        mimetype: 'audio/mpeg',
+        mediatype: 'audio',
+        mimetype: 'audio/mp4', // Optimized for WhatsApp PTT
         media: fullAudioUrl,
         fileName: audioFileName,
+        ptt: true, // Crucial for Evolution API v2 voice message
         delay: 2000
       }),
     });
