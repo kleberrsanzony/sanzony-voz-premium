@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Shield } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "@/data/content";
 import { Button } from "@/components/ui/button";
@@ -75,21 +75,32 @@ export default function Header() {
         </nav>
 
         {/* CTA */}
-        <motion.div variants={headerItemVariants} className="hidden lg:block">
+        <motion.div variants={headerItemVariants} className="hidden lg:flex items-center gap-6">
+          <Link 
+            href="/verificar" 
+            className="text-muted-foreground hover:text-[#e0c27a] transition-colors"
+            title="Verificar Certificado"
+          >
+            <Shield size={18} />
+          </Link>
           <Button variant="outline" asChild className="text-[0.55rem] h-10 px-6">
             <Link href="/briefing">Fazer Briefing</Link>
           </Button>
         </motion.div>
 
         {/* Mobile toggle */}
-        <motion.button
-          variants={headerItemVariants}
-          className="lg:hidden text-silver hover:text-white transition-colors"
-          onClick={() => setOpen(!open)}
-          aria-label="Menu"
-        >
-          {open ? <X size={24} /> : <Menu size={24} />}
-        </motion.button>
+        <motion.div variants={headerItemVariants} className="lg:hidden flex items-center gap-4">
+          <Link href="/verificar" className="text-silver hover:text-[#e0c27a] transition-colors">
+            <Shield size={20} />
+          </Link>
+          <button
+            className="text-silver hover:text-white transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label="Menu"
+          >
+            {open ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </motion.div>
       </div>
 
       {/* Mobile Editorial Menu Overlay */}

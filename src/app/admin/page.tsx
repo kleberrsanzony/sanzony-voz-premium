@@ -25,36 +25,61 @@ export default function AdminPage() {
     if (authCheckingRef.current) return;
     authCheckingRef.current = true;
 
+    // Timeouts and Caching to prevent "blinking"
+    const timeoutPromise = new Promise((_, reject) => 
+      setTimeout(() => reject(new Error('TIMEOUT_DB')), 6000)
+    );
+
     try {
-      const { data: roleData, error: roleError } = await supabase
+      const fetchPromise = supabase
         .from('user_roles')
         .select('role')
         .eq('user_id', userId)
         .eq('role', 'admin')
         .maybeSingle();
 
+      const { data: roleData, error: roleError } = await Promise.race([
+        fetchPromise,
+        timeoutPromise
+      ]) as any;
+
       if (roleError) throw roleError;
 
       if (!roleData) {
+        sessionStorage.removeItem('is_admin_verified');
         toast({ title: 'Acesso Negado', description: 'Você não tem permissão de admin.', variant: 'destructive' });
         router.push('/login');
         return;
       }
 
+      sessionStorage.setItem('is_admin_verified', 'true');
       setIsAdmin(true);
       setPageLoading(false);
     } catch (err: any) {
-      console.error('[Admin Auth] Erro de validação:', err);
-      toast({ title: 'Erro de autenticação', description: 'Não foi possível validar seu acesso.', variant: 'destructive' });
-      router.push('/login');
+      if (sessionStorage.getItem('is_admin_verified') === 'true') {
+        console.warn('[Admin Auth] DB Timeout, falling back to cache.');
+        setIsAdmin(true);
+        setPageLoading(false);
+      } else {
+        console.error('[Admin Auth] Erro de validação:', err);
+        toast({ title: 'Erro de conexão', description: 'Não foi possível validar seu acesso admin.', variant: 'destructive' });
+        router.push('/login');
+      }
     } finally {
       authCheckingRef.current = false;
     }
   };
 
   useEffect(() => {
+    // Initial optimistic release if cached
+    if (sessionStorage.getItem('is_admin_verified') === 'true') {
+      setIsAdmin(true);
+      setPageLoading(false);
+    }
+
     const { data: { subscription } } = supabase.auth.onAuthStateChange(async (event, session) => {
       if (!session?.user) {
+        sessionStorage.removeItem('is_admin_verified');
         router.push('/login');
         return;
       }
@@ -64,6 +89,7 @@ export default function AdminPage() {
 
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session?.user) {
+        sessionStorage.removeItem('is_admin_verified');
         router.push('/login');
       } else {
         setUser(session.user);
@@ -78,7 +104,10 @@ export default function AdminPage() {
     return (
       <div className="min-h-screen bg-black flex flex-col items-center justify-center gap-4">
         <Mic className="h-10 w-10 text-gold animate-pulse" />
-        <p className="text-muted-foreground animate-pulse tracking-widest uppercase text-[0.6rem]">Autenticando Acesso Elite…</p>
+        <div className="flex flex-col items-center gap-1">
+          <p className="text-white font-display font-bold tracking-[0.2em] uppercase text-[0.6rem] animate-pulse">Acesso Elite</p>
+          <p className="text-muted-foreground tracking-[0.3em] uppercase text-[0.4rem] animate-pulse">Encriptação de Ponta Ativa…</p>
+        </div>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mic, LogIn, Shield } from "lucide-react";
+import { Mic, LogIn, Shield, Mic2 } from "lucide-react";
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { supabase } from "@/integrations/supabase/client";
@@ -49,21 +49,27 @@ const LoginPage = () => {
     "w-full bg-secondary border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors";
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center p-6">
+    <div className="min-h-screen bg-black flex items-center justify-center p-6 selection:bg-gold/20">
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+        <div className="absolute -top-[20%] -left-[10%] w-[50%] h-[50%] bg-gold/5 rounded-full blur-[120px]" />
+        <div className="absolute -bottom-[20%] -right-[10%] w-[50%] h-[50%] bg-gold/5 rounded-full blur-[120px]" />
+      </div>
+
       <motion.div
-        className="w-full max-w-md bg-card border border-border rounded-2xl p-10"
+        className="w-full max-w-md bg-card/40 backdrop-blur-xl border border-white/5 rounded-2xl p-10 relative z-10 shadow-2xl shadow-gold/5"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-6">
-            <Mic className="h-8 w-8 text-primary" />
-            <span className="font-serif text-2xl font-bold">
-              <span className="text-gradient-gold">SANZONY</span>
-              <span className="text-muted-foreground">.VOZ</span>
-            </span>
+        <header className="border-b border-white/5 py-5">
+        <div className="container mx-auto px-6">
+          <Link href="/" className="font-display font-bold text-lg tracking-tight text-white group flex items-center gap-2">
+            <Mic2 size={18} className="text-gold group-hover:scale-110 transition-transform" />
+            <span>Sanzony<span className="text-gold">.</span>Voz</span>
           </Link>
+        </div>
+      </header>
+        <div className="text-center mb-8">
           <h1 className="font-serif text-2xl font-bold">Painel Admin</h1>
           <p className="text-muted-foreground text-sm mt-2">Acesse o painel de gerenciamento</p>
         </div>

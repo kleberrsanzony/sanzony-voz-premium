@@ -5,6 +5,7 @@ import PositioningSection from "@/components/sections/PositioningSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import StudioSection from "@/components/sections/StudioSection";
+import CertificateSection from "@/components/sections/CertificateSection";
 import TestimonialsSection from "@/components/sections/TestimonialsSection";
 import CTASection from "@/components/sections/CTASection";
 import Footer from "@/components/sections/Footer";
@@ -24,6 +25,8 @@ export default function Home() {
       <ProcessSection />
       <div className="section-divider" />
       <StudioSection />
+      <div className="section-divider" />
+      <CertificateSection />
       <div className="section-divider" />
       <TestimonialsSection />
       <div className="section-divider" />
