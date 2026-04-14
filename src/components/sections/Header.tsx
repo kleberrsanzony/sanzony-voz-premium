@@ -43,8 +43,8 @@ export default function Header() {
       variants={headerContainerVariants}
       initial="hidden"
       animate="visible"
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 ${scrolled
-          ? "bg-black/90 backdrop-blur-xl border-b border-white/5"
+      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-500 will-change-transform ${scrolled
+          ? "bg-black/80 backdrop-blur-md border-b border-white/5"
           : "bg-transparent border-transparent"
         }`}
     >

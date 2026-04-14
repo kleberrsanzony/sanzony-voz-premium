@@ -102,7 +102,7 @@ export default function BriefingPage() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: easePremium }}
+            transition={{ duration: 0.5, ease: easePremium }}
           >
             <div className="text-center mb-16">
               <span className="section-label mb-4 block">Produção de Elite</span>
@@ -114,7 +114,7 @@ export default function BriefingPage() {
               </p>
             </div>
 
-            <div className="luxury-card p-8 md:p-12 rounded-2xl border border-white/5 bg-background-surface/40 backdrop-blur-sm">
+            <div className="luxury-card p-8 md:p-12 rounded-2xl border border-white/5 bg-background-surface/80">
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">

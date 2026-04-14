@@ -121,23 +121,25 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ━━━ Premium Hover & Motion System (Pure CSS) ━━━ */
 
-/* Subtle Atmospheric Background Shift */
+/* Subtle Atmospheric Background Shift (Optimized for GPU) */
 @keyframes ambientGlow {
-  0%, 100% { opacity: 0.05; transform: scale(1); }
-  50% { opacity: 0.1; transform: scale(1.05); }
+  0%, 100% { opacity: 0.08; }
+  50% { opacity: 0.12; }
 }
 .bg-ambient-layer {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: radial-gradient(circle at center, rgba(224,194,122,0.15) 0%, transparent 60%);
-  animation: ambientGlow 8s ease-in-out infinite;
+  background: radial-gradient(circle at center, rgba(224,194,122,0.12) 0%, transparent 70%);
+  animation: ambientGlow 10s ease-in-out infinite;
+  will-change: opacity;
 }
 
 /* Premium Card Interactions */
 .luxury-card {
   position: relative;
-  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.6s ease;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.4s ease;
+  will-change: transform, box-shadow;
 }
 
 .luxury-card::before {
