@@ -11,6 +11,7 @@ import Footer from "@/components/sections/Footer";
 
 const voiceTypes = [
   "Comercial",
+  "Locução Premium",
   "Institucional",
   "Publicitária",
   "URA / Espera Telefônica",
@@ -128,8 +129,8 @@ export default function BriefingPage() {
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className={labelClasses}>E-mail Corporativo <span className="text-gold-mid">*</span></label>
-                    <input name="email" type="email" value={formData.email} onChange={handleChange} required className={inputClasses} placeholder="seu@email.com" />
+                    <label className={labelClasses}>E-mail Corporativo</label>
+                    <input name="email" type="email" value={formData.email} onChange={handleChange} className={inputClasses} placeholder="seu@email.com" />
                   </div>
                   <div className="space-y-2">
                     <label className={labelClasses}>WhatsApp de Contato <span className="text-gold-mid">*</span></label>
