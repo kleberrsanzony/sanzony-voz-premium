@@ -14,8 +14,32 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Sanzony.Voz Elite | Presença e Autoridade",
-  description: "Sua marca não precisa de uma voz. Precisa de presença. Elite voiceover e vocal branding.",
+  metadataBase: new URL("https://www.sanzonyvoz.com.br"),
+  title: {
+    default: "Sanzony.Voz Elite | Presença e Autoridade",
+    template: "%s | Sanzony.Voz Elite"
+  },
+  description: "Sua marca não precisa de uma voz. Precisa de presença. Elite voiceover e vocal branding de alto impacto.",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: "Sanzony.Voz Elite | Presença e Autoridade",
+    description: "Locução de alto nível para marcas que buscam exclusividade.",
+    url: "https://www.sanzonyvoz.com.br",
+    siteName: "Sanzony.Voz Elite",
+    locale: "pt_BR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sanzony.Voz Elite | Presença e Autoridade",
+    description: "Locução de alto nível para marcas que buscam exclusividade.",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({

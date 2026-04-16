@@ -6,8 +6,17 @@ import { Mic, ArrowLeft, Send, Shield, Sparkles } from "lucide-react";
 import Link from "next/link";
 import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
+import { Metadata } from "next";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
+
+export const metadata: Metadata = {
+  title: "Fazer Briefing",
+  description: "Inicie seu projeto de locução elite. Preencha o briefing técnico para receber uma proposta personalizada.",
+  alternates: {
+    canonical: "/briefing",
+  },
+};
 
 const voiceTypes = [
   "Comercial",
