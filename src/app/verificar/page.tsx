@@ -2,16 +2,7 @@
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { ShieldCheck, ShieldX, Search, Loader2, Mic2, Hash, FileCheck2, ExternalLink } from "lucide-react";
-import { Metadata } from "next";
 import Link from "next/link";
-
-export const metadata: Metadata = {
-  title: "Verificar Certificado",
-  description: "Valide a autenticidade de arquivos de áudio produzidos pelo Studio Sanzony.Voz usando tecnologia SHA-256.",
-  alternates: {
-    canonical: "/verificar",
-  },
-};
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 
