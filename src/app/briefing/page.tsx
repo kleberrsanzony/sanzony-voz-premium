@@ -10,6 +10,8 @@ import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { useLanguage } from "@/context/LanguageContext";
 
+const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
+
 export default function BriefingPage() {
   const { t } = useLanguage();
   const { toast } = useToast();

@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   compress: true,
   poweredByHeader: false,
   reactStrictMode: true,
+  allowedDevOrigins: ['192.168.3.152'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

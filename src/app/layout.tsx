@@ -105,7 +105,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
