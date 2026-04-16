@@ -1,13 +1,13 @@
-# Documentação Técnica: Sanzony.Voz Premium
+# Documentação Técnica: Sanzony.Voz Elite
 
-Bem-vindo à documentação oficial do projeto **Sanzony.Voz Premium**. Este documento detalha a arquitetura, as funcionalidades principais e os guias de manutenção do site.
+Bem-vindo à documentação oficial do projeto **Sanzony.Voz Elite**. Este documento detalha a arquitetura, as funcionalidades principais e os guias de manutenção do site.
 
 ---
 
 ## 1. Visão Geral
 O projeto é uma Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony.Voz**. O objetivo é apresentar o portfólio de locução premium com uma experiência de áudio imersiva e interativa.
 
-- **URL de Produção:** [https://sanzony-voz-premium-clean.vercel.app](https://sanzony-voz-premium-clean.vercel.app)
+- **URL de Produção:** [https://sanzony-voz-elite-production.vercel.app](https://sanzony-voz-elite-production.vercel.app)
 - **GitHub:** [kleberrsanzony/sanzony-voz-premium](https://github.com/kleberrsanzony/sanzony-voz-premium)
 
 ---

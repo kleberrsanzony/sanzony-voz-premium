@@ -87,7 +87,7 @@ export default function Hero() {
           {/* LEFT — HEADLINE */}
           <div className="md:col-span-7 flex flex-col items-start text-left">
             <motion.span variants={itemVariants} className="section-label mb-8 block">
-              Locução Premium & Branding Vocal
+              Locução Elite & Branding Vocal
             </motion.span>
 
             <motion.h1

@@ -16,7 +16,7 @@ export default function StudioSection() {
                 <div className="w-12 h-12 rounded-full border border-[#e0c27a]/20 bg-black flex items-center justify-center shadow-[0_0_30px_rgba(224,194,122,0.1)] mb-5">
                   <Mic2 size={18} className="text-[#e0c27a]" />
                 </div>
-                <span className="section-label block mb-6">Infraestrutura Premium</span>
+                <span className="section-label block mb-6">Infraestrutura Elite</span>
                 <h2 className="font-display font-bold text-4xl md:text-5xl text-white tracking-tight leading-tight mb-8">
                   Qualidade Broadcast, <br />
                   <span className="text-gold">em tempo recorde.</span>

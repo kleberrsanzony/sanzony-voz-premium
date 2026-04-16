@@ -8,7 +8,7 @@ import {
 } from 'lucide-react'
 
 /* ━━━ Hero Demos ━━━ */
-export const heroCategories = ['Comercial', 'Varejo', 'Premium', 'Institucional'] as const
+export const heroCategories = ['Comercial', 'Varejo', 'Elite', 'Institucional'] as const
 
 export interface DemoItem {
   category: string
@@ -19,22 +19,22 @@ export interface DemoItem {
 }
 
 export const heroDemos: DemoItem[] = [
-  { category: 'Premium', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audio_url: '/audio/luxury-spot-dior.mp3' },
+  { category: 'Elite', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audio_url: '/audio/luxury-spot-dior.mp3' },
   { category: 'Comercial', title: 'Lançamento de Produto', client: 'Grupo Automotivo', duration: '0:45', audio_url: '/audio/demo-comercial-2.mp3' },
   { category: 'Varejo', title: 'Black Friday', client: 'Shopping Center', duration: '0:28', audio_url: '/audio/demo-varejo-1.mp3' },
   { category: 'Varejo', title: 'Liquidação de Verão', client: 'Rede Nacional', duration: '0:22', audio_url: '/audio/demo-varejo-2.mp3' },
-  { category: 'Premium', title: 'Resort & Spa', client: 'Grupo Hoteleiro', duration: '0:38', audio_url: '/audio/demo-premium-1.mp3' },
-  { category: 'Premium', title: 'Lançamento Automotivo', client: 'Marca Importada', duration: '0:45', audio_url: '/audio/demo-premium-2.mp3' },
+  { category: 'Elite', title: 'Resort & Spa', client: 'Grupo Hoteleiro', duration: '0:38', audio_url: '/audio/demo-premium-1.mp3' },
+  { category: 'Elite', title: 'Lançamento Automotivo', client: 'Marca Importada', duration: '0:45', audio_url: '/audio/demo-premium-2.mp3' },
   { category: 'Institucional', title: 'Relatório Anual', client: 'Corporação S/A', duration: '1:12', audio_url: '/audio/demo-inst-1.mp3' },
   { category: 'Institucional', title: 'Onboarding Interno', client: 'Tech Company', duration: '0:55', audio_url: '/audio/demo-inst-2.mp3' },
 ]
 
 /* ━━━ Grid Demos ━━━ */
 export const gridDemos: DemoItem[] = [
-  { category: 'Premium', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audio_url: '/audio/luxury-spot-dior.mp3' },
-  { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Premium', duration: '0:25', audio_url: '/audio/grid-1.mp3' },
+  { category: 'Elite', title: 'Luxury Spot — Dior', client: 'Campanha Internacional', duration: '0:32', audio_url: '/audio/luxury-spot-dior.mp3' },
+  { category: 'Varejo', title: 'Mega Feirão de Ofertas', client: 'Concessionária Elite', duration: '0:25', audio_url: '/audio/grid-1.mp3' },
   { category: 'Comercial', title: 'Campanha de Natal', client: 'Rede Supermercados', duration: '0:32', audio_url: '/audio/grid-2.mp3' },
-  { category: 'Premium', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audio_url: '/audio/grid-3.mp3' },
+  { category: 'Elite', title: 'Hotel Boutique', client: 'Grupo Hoteleiro', duration: '0:40', audio_url: '/audio/grid-3.mp3' },
   { category: 'Institucional', title: 'Treinamento Corporativo', client: 'Multinacional', duration: '1:05', audio_url: '/audio/grid-4.mp3' },
   { category: 'Rádio', title: 'Vinheta Matinal', client: 'Rádio FM 94.5', duration: '0:12', audio_url: '/audio/grid-5.mp3' },
   { category: 'Digital', title: 'Reels Promocional', client: 'E-commerce', duration: '0:15', audio_url: '/audio/grid-6.mp3' },
@@ -96,7 +96,7 @@ export interface Capability {
 }
 
 export const capabilities: Capability[] = [
-  { icon: Mic, title: 'Captação Premium', desc: 'Microfone profissional com tratamento acústico de estúdio dedicado.' },
+  { icon: Mic, title: 'Captação Elite', desc: 'Microfone profissional com tratamento acústico de estúdio dedicado.' },
   { icon: Headphones, title: 'Mixagem Studio', desc: 'Tratamento de áudio com ferramentas de nível broadcast internacional.' },
   { icon: Gauge, title: 'Entrega Express', desc: 'Projetos simples em até 24h. Campanhas maiores com cronograma personalizado.' },
   { icon: Globe, title: 'Cobertura Nacional', desc: 'Atendimento remoto para agências, produtoras e marcas de todo o Brasil.' },

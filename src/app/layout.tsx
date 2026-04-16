@@ -14,8 +14,8 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Sanzony.Voz | Presença e Autoridade",
-  description: "Sua marca não precisa de uma voz. Precisa de presença. Premium voiceover e vocal branding.",
+  title: "Sanzony.Voz Elite | Presença e Autoridade",
+  description: "Sua marca não precisa de uma voz. Precisa de presença. Elite voiceover e vocal branding.",
 };
 
 export default function RootLayout({

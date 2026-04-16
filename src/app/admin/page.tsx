@@ -170,7 +170,7 @@ export default function AdminPage() {
             <Shield size={10} className="text-gold" />
             <span>Encriptação E2E Ativa</span>
           </div>
-          <span>Sanzony.Voz™ Premium Cockpit</span>
+          <span>Sanzony.Voz™ Elite Cockpit</span>
         </div>
       </footer>
     </div>

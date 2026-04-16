@@ -31,7 +31,7 @@ export default function CTASection() {
             <StaggerItem className="w-full">
               <div className="flex flex-col sm:flex-row justify-center gap-5 w-full sm:w-auto">
                 <Button asChild className="w-full sm:w-auto h-14 px-12 text-sm shadow-[0_0_40px_rgba(224,194,122,0.3)]">
-                  <Link href="/briefing">Fazer Briefing Premium</Link>
+                  <Link href="/briefing">Fazer Briefing Elite</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full sm:w-auto h-14 px-12 text-sm bg-black">
                   <a href="https://wa.me/5511999999999" target="_blank">WhatsApp Direto</a>

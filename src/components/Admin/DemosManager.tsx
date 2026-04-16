@@ -7,7 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/hooks/use-toast";
 
-const CATEGORIES = ['Comercial', 'Varejo', 'Premium', 'Institucional'];
+const CATEGORIES = ['Comercial', 'Varejo', 'Elite', 'Institucional'];
 
 const formatSeconds = (totalSeconds: number) => {
   const mins = Math.floor(totalSeconds / 60);

@@ -11,7 +11,7 @@ import Footer from "@/components/sections/Footer";
 
 const voiceTypes = [
   "Comercial",
-  "Locução Premium",
+  "Locução Elite",
   "Institucional",
   "Publicitária",
   "URA / Espera Telefônica",
@@ -192,7 +192,7 @@ export default function BriefingPage() {
                     ) : (
                       <>
                         <Send className="h-4 w-4" />
-                        <span>Enviar Briefing Premium</span>
+                        <span>Enviar Briefing Elite</span>
                       </>
                     )}
                   </button>
