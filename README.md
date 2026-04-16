@@ -2,7 +2,14 @@
 
 Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony.Voz**. Apresenta portfólio de locução premium com experiência de áudio imersiva e sistema de certificação digital.
 
-## 🚀 Tecnologias
+## 🚀 Funcionalidades Elite
+
+- **Multi-idioma (i18n)**: Suporte completo para Português, Inglês e Espanhol com detecção e persistência de preferência.
+- **Experiência de Áudio**: Players customizados com visualização de ondas e controle de volume broadcast.
+- **Certificação Digital**: Sistema de autenticidade de áudio via hash SHA-256 e QR Code.
+- **Briefing Inteligente**: Formulário técnico integrado ao Supabase para captação de leads qualificados.
+
+## 🛠️ Tecnologias
 
 - **Framework:** Next.js 15+ (App Router)
 - **Estilização:** Tailwind CSS 4.0
@@ -12,9 +19,9 @@ Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony
 
 ## 🔗 Links Úteis
 
-- **Produção:** [https://sanzony-voz-elite-production.vercel.app](https://sanzony-voz-elite-production.vercel.app)
-- **Admin:** [/admin](https://sanzony-voz-elite-production.vercel.app/admin) (Acesso restrito)
-- **Briefing:** [/briefing](https://sanzony-voz-elite-production.vercel.app/briefing)
+- **Produção:** [https://sanzony-voz-premium.vercel.app](https://sanzony-voz-premium.vercel.app)
+- **Admin:** [/admin](https://sanzony-voz-premium.vercel.app/admin) (Acesso restrito)
+- **Briefing:** [/briefing](https://sanzony-voz-premium.vercel.app/briefing)
 
 ## 🛠️ Desenvolvimento Local
 
@@ -27,8 +34,6 @@ Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony
    ```
    NEXT_PUBLIC_SUPABASE_URL=...
    NEXT_PUBLIC_SUPABASE_ANON_KEY=...
-   NEXT_PUBLIC_EVOLUTION_API_URL=...
-   NEXT_PUBLIC_EVOLUTION_API_KEY=...
    ```
 
 3. Inicie o servidor:
@@ -38,4 +43,8 @@ Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony
 
 ## 📄 Documentação
 
-Para mais detalhes técnicos, consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md).
+Para mais detalhes técnicos sobre a arquitetura de tradução e estabilidade do sistema, consulte o arquivo [DOCUMENTATION.md](./DOCUMENTATION.md).
+
+---
+> [!TIP]
+> **Ponto de Restauração**: A versão estável com i18n completo está marcada com a tag `stable-i18n-functional`.

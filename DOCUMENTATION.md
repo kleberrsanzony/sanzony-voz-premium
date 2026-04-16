@@ -1,23 +1,24 @@
 # Documentação Técnica: Sanzony.Voz Elite
 
-Bem-vindo à documentação oficial do projeto **Sanzony.Voz Elite**. Este documento detalha a arquitetura, as funcionalidades principais e os guias de manutenção do site.
+Bem-vindo à documentação oficial do projeto **Sanzony.Voz Elite**. Este documento detalha a arquitetura de internacionalização (i18n), as funcionalidades principais e os guias de manutenção do sistema.
 
 ---
 
 ## 1. Visão Geral
-O projeto é uma Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony.Voz**. O objetivo é apresentar o portfólio de locução premium com uma experiência de áudio imersiva e interativa.
+O projeto é uma Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony.Voz**. O objetivo é apresentar o portfólio de locução premium com uma experiência de áudio imersiva e interativa, agora com suporte global.
 
-- **URL de Produção:** [https://sanzony-voz-elite-production.vercel.app](https://sanzony-voz-elite-production.vercel.app)
+- **URL de Produção:** [https://sanzony-voz-premium.vercel.app](https://sanzony-voz-premium.vercel.app)
 - **GitHub:** [kleberrsanzony/sanzony-voz-premium](https://github.com/kleberrsanzony/sanzony-voz-premium)
+- **Branch de Estabilização:** `SEO`
 
 ---
 
 ## 2. Stack Tecnológica
 - **Framework:** [Next.js 15+](https://nextjs.org/) (App Router)
-- **Estilização:** [Tailwind CSS 4.0](https://tailwindcss.com/) (CSS-first configuration)
+- **Estilização:** [Tailwind CSS 4.0](https://tailwindcss.com/)
+- **Internacionalização:** React Context API + LocalStorage
 - **Animações:** [Framer Motion 12+](https://www.framer.com/motion/)
-- **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
-- **Ícones:** [Lucide React](https://lucide.dev/)
+- **Backend:** [Supabase](https://supabase.com/)
 
 ---
 
@@ -25,83 +26,62 @@ O projeto é uma Landing Page de alto padrão ("Cinema Dark") desenvolvida para 
 
 ```text
 /src
-  /app              # Rotas, Layout Global e CSS
-    - globals.css   # Variáveis de cor, gradientes e utilitários customizados
-    - layout.tsx    # Estrutura base (PWA ready, Fonts)
-    - page.tsx      # Orquestração de todas as seções da Landing Page
+  /app              # Rotas e Layouts (App Router)
   /components
-    /sections       # Componentes principais de cada seção (Hero, Demos, etc.)
-    /ui             # Componentes de interface genéricos (Botões, Reveladores)
-  /data
-    - content.ts    # SINGLE SOURCE OF TRUTH (Textos, Links, Configurações)
-  /lib
-    - utils.ts      # Helpers de Tailwind-merge e Clsx
-/public
-  /audio            # Arquivos .mp3 das demonstrações
-  - icons.svg       # Sprite de ícones customizados (se houver)
+    /sections       # Componentes de UI (Hero, Services, Demos, etc.)
+    /ui             # Componentes base e utilitários visuais
+  /context          # LanguageContext.tsx (Gerenciamento de Estado Global)
+  /locales          # pt.json, en.json, es.json (Dicionários de tradução)
+  /data             # content.ts (Configurações e dados estáticos fallback)
+  /services         # demoService.ts (Integração com Supabase)
 ```
 
 ---
 
 ## 4. Sistemas Principais
 
-### A. Sistema de Áudio (Audio Player Layer)
-O site possui dois tipos de players que compartilham lógica de estado:
-1.  **Hero Player (`DemoPlayer.tsx`)**: Focado em categorias específicas no topo do site.
-2.  **Grid Player (`DemoSection.tsx`)**: Uma grade de demos navegável.
+### A. Sistema de Internacionalização (i18n)
+Diferente de bibliotecas pesadas, utilizamos uma solução leve baseada em `Context API`:
+- **`LanguageContext`**: Detecta o idioma do navegador ou recupera do `localStorage`.
+- **Dicionários**: Arquivos JSON em `/src/locales` servem como fonte única de verdade para textos.
+- **Hook `useLanguage`**: Utilizado por componentes cliente para acessar o objeto `t` (translations).
 
-**Ficha Técnica do Áudio:**
-- Usa o elemento nativo HTML5 `<audio>` via `useRef`.
-- Suporta **Seekbar** (barra de progresso) e **Controle de Volume**.
-- **Playback Exclusivo**: Ao dar play em uma faixa, qualquer outra que esteja tocando é pausada automaticamente.
+> [!IMPORTANT]
+> Todos os componentes que utilizam `useLanguage` devem obrigatoriamente incluir a diretiva `"use client";` no topo do arquivo.
 
-### B. Sistema de Animação
-Utilizamos três helpers principais para manter a consistência visual:
-- **`Reveal`**: Faz o conteúdo "surgir" com fade e desfoque ao entrar no scroll.
-- **`StaggerGroup` / `StaggerItem`**: Cria o efeito de cascata (um item após o outro) em listas e grids.
-- **Micro-interações**: Hover effects nos cards usam transições suaves de 500ms para bordas e opacidade.
+### B. Sistema de Áudio (Audio Player Layer)
+- **Playback Exclusivo**: Garante que apenas um áudio seja reproduzido por vez.
+- **Sincronização**: Interface reativa que reflete o progresso e estado do áudio em tempo real.
+
+### C. Certificação Digital
+- **Hash SHA-256**: Gerado para cada entrega de áudio, garantindo originalidade.
+- **Página de Verificação**: Rota `/verificar` e `/verificar/[id]` para auditoria pública de arquivos.
 
 ---
 
 ## 5. Guia de Manutenção e Edição
 
+### Como adicionar/editar Traduções:
+1.  Abra o arquivo correspondente em `src/locales/` (ex: `es.json` para Espanhol).
+2.  Localize a chave que deseja alterar e salve o arquivo.
+3.  O Hot Reload do Next.js atualizará o site imediatamente.
+
 ### Como adicionar novos Áudios/Demos:
-1.  Suba o arquivo `.mp3` (sem espaços no nome) para `/public/audio/`.
-2.  Abra [`src/data/content.ts`](file:///Users/ks/Documents/Dev/siteNovo/src/data/content.ts).
-3.  Adicione um objeto às listas `heroDemos` ou `gridDemos`.
-
-```typescript
-{ 
-  category: 'Comercial', 
-  title: 'Meu Novo Spot', 
-  client: 'Cliente X', 
-  duration: '0:30', 
-  audioUrl: '/audio/meu-novo-spot.mp3' 
-}
-```
-
-### Como configurar os Players:
-No final de `content.ts`, você pode controlar o comportamento global:
-- `showProgressBar`: Define se as barrinhas de progresso aparecem ou não.
-- `defaultVolume`: Volume inicial para todos os usuários.
-
-### Como alterar o Design (Cores/Divisorias):
-- **Cores**: Defina novas variáveis no `@theme` dentro de [`globals.css`](file:///Users/ks/Documents/Dev/siteNovo/src/app/globals.css).
-- **Divisórias**: O utilitário `.section-divider` cria as linhas douradas degradê entre as seções.
+1.  Os áudios são gerenciados preferencialmente via **Dashboard Admin**.
+2.  Para fallback estático, edite `src/data/content.ts` e adicione o novo objeto na lista correspondente.
 
 ---
 
-## 6. Performance e SEO
-- **Imagens**: Usamos o componente `next/image` para otimização automática.
-- **Lighthouse**: O projeto foi estruturado para atingir scores próximos a 100 em acessibilidade e performance.
-- **SEO**: Meta tags dinâmicas e estrutura de Headings (h1, h2, h3) otimizada para buscadores.
+## 6. Performance e Estabilidade
+- **Gerenciamento de Cache**: Em ambientes de desenvolvimento/build, se o espaço em disco for um problema, o comando `rm -rf .next` pode ser usado para limpar o cache de build.
+- **Versão Estável**: Utilize a tag `stable-i18n-functional` para retornar ao ponto onde a internacionalização e estabilidade foram consolidadas.
 
 ---
 
 ## 7. Comandos Úteis
 - `npm run dev`: Inicia o ambiente de desenvolvimento.
-- `npm run build`: Gera o pacote de produção para deployment.
-- `vercel --prod`: Faz o deploy manual para a Vercel (Production channel).
+- `npm run build`: Gera o pacote de produção.
+- `git checkout stable-i18n-functional`: Restaura o site para a versão estável i18n.
 
 ---
 > [!NOTE]
