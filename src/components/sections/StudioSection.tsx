@@ -1,10 +1,16 @@
 "use client";
+
 import { capabilities } from "@/data/content"
-import { Mic2 } from "lucide-react"
+import { Mic2, ShieldCheck, Headphones, Gauge, Globe } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
+import { useLanguage } from "@/context/LanguageContext"
+
+const icons = [Mic2, Headphones, Gauge, Globe];
 
 export default function StudioSection() {
+  const { t } = useLanguage();
+
   return (
     <section id="estudio" className="relative overflow-hidden bg-black">
       <div className="section-spacing">
@@ -16,26 +22,28 @@ export default function StudioSection() {
                 <div className="w-12 h-12 rounded-full border border-[#e0c27a]/20 bg-black flex items-center justify-center shadow-[0_0_30px_rgba(224,194,122,0.1)] mb-5">
                   <Mic2 size={18} className="text-[#e0c27a]" />
                 </div>
-                <span className="section-label block mb-6">Infraestrutura Elite</span>
+                <span className="section-label block mb-6">{t.sections.studio.label}</span>
                 <h2 className="font-display font-bold text-4xl md:text-5xl text-white tracking-tight leading-tight mb-8">
-                  Qualidade Broadcast, <br />
-                  <span className="text-gold">em tempo recorde.</span>
+                  {t.sections.studio.title}
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-12 max-w-lg">
-                  Estúdio próprio com tratamento acústico de altíssima performance, equipamentos premium e conexão em tempo real para direção remota de qualquer lugar do mundo.
+                  {t.sections.studio.subtitle}
                 </p>
               </Reveal>
               
               <StaggerGroup className="grid sm:grid-cols-2 gap-x-8 gap-y-6 w-full" staggerDelay={0.1}>
-                {capabilities.map((c, i) => (
-                  <StaggerItem key={i} className="flex flex-col gap-3">
-                    <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center text-[#e0c27a]">
-                      <c.icon size={14} />
-                    </div>
-                    <span className="font-display font-medium text-sm text-white tracking-wide">{c.title}</span>
-                    <span className="text-[0.65rem] text-muted-foreground leading-relaxed">{c.desc}</span>
-                  </StaggerItem>
-                ))}
+                {t.sections.studio.capabilities.map((c, i) => {
+                  const Icon = icons[i] || Mic2;
+                  return (
+                    <StaggerItem key={i} className="flex flex-col gap-3">
+                      <div className="w-8 h-8 rounded bg-white/5 border border-white/10 flex items-center justify-center text-[#e0c27a]">
+                        <Icon size={14} />
+                      </div>
+                      <span className="font-display font-medium text-sm text-white tracking-wide">{c.title}</span>
+                      <span className="text-[0.65rem] text-muted-foreground leading-relaxed">{c.desc}</span>
+                    </StaggerItem>
+                  );
+                })}
               </StaggerGroup>
             </div>
 

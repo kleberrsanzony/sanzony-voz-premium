@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Home",
+    "demos": "Demos",
+    "services": "Services",
+    "process": "Process",
+    "studio": "Studio",
+    "briefing": "Get Briefing"
+  },
+  "hero": {
+    "label": "Elite Voiceover & Vocal Branding",
+    "line1": "Your brand doesn't",
+    "line2": "need just a voice.",
+    "line3": "It needs presence.",
+    "subtitle": "Premium voiceover for campaigns, brands, and projects that demand more than just sound.",
+    "cta_main": "Hear Demos",
+    "cta_sec": "Get Briefing",
+    "scroll": "Explore"
+  },
+  "sections": {
+    "demos": {
+      "label": "Portfolio",
+      "title": "Demonstrations",
+      "subtitle": "Explore versatility and technique across different voiceover styles."
+    },
+    "services": {
+      "label": "Expertise",
+      "title": "Vocal solutions for every format.",
+      "subtitle": "Each type of project requires a specific vocal approach.",
+      "items": [
+        { "title": "Commercial / TV", "desc": "High-impact voiceover for TV, Cinema, and major advertising campaigns." },
+        { "title": "Social Media", "desc": "Dynamic and engaging narration for Reels, TikTok, YouTube, and Ads." },
+        { "title": "Corporate", "desc": "Corporate tone, authority, and clarity for internal videos and training." },
+        { "title": "IVR / Telephony", "desc": "Humanized and professional service for telephone waiting messages." }
+      ]
+    },
+    "process": {
+      "label": "Methodology",
+      "title": "From briefing to delivery, without friction.",
+      "subtitle": "A structured process to ensure that each recording is approved on the first try.",
+      "steps": [
+        { "title": "Technical Briefing", "desc": "Collection of intentions, target audience, and references to align the delivery." },
+        { "title": "Recording & Mix", "desc": "Capture in broadcast studio with cleaning and final audio treatment." },
+        { "title": "Delivery & Feedback", "desc": "Sending the audio ready for use, with agility and technical support." }
+      ]
+    },
+    "studio": {
+      "label": "Elite Infrastructure",
+      "title": "Broadcast Quality, in record time.",
+      "subtitle": "Own studio with high performance acoustic treatment, premium equipment, and real-time connection for remote direction from anywhere in the world.",
+      "capabilities": [
+        { "title": "Elite Capture", "desc": "Professional microphone with dedicated acoustic studio treatment." },
+        { "title": "Studio Mixing", "desc": "Audio treatment with international broadcast level tools." },
+        { "title": "Express Delivery", "desc": "Simple projects in up to 24h. Larger campaigns with customized schedule." },
+        { "title": "National Coverage", "desc": "Remote service for agencies, production companies, and brands throughout Brazil." }
+      ]
+    },
+    "certificate": {
+      "label": "Difference",
+      "title": "Digitally Certified Audio.",
+      "desc": "Each voiceover produced by Studio Sanzony.Voz receives a digital certificate of authenticity with SHA-256 technology, ensuring the integrity and originality of the audio.",
+      "verify_cta": "Verify a certificate",
+      "features": [
+        { "title": "Unique SHA-256 Hash", "desc": "Exclusive cryptographic fingerprint generated from the audio file." },
+        { "title": "Traceable Serial Number", "desc": "Code in SVZ-YEAR-MONTH-XXX format for quick location and auditing." },
+        { "title": "Verification QR Code", "desc": "Instant scanning on any device with a camera." },
+        { "title": "Legally Valid Document", "desc": "Timestamped record with provable authorship for contractual protection." },
+        { "title": "Protection Against Misuse", "desc": "We trace unauthorized copies and ensure the integrity of the delivery." }
+      ]
+    },
+    "cta": {
+      "label": "Next Steps",
+      "title": "Ready to give voice",
+      "title_accent": "to your project?",
+      "subtitle": "Request a quote today. Send your script or briefing and discover how we can elevate your brand's perceived value.",
+      "button_briefing": "Get Elite Briefing",
+      "button_whatsapp": "Direct WhatsApp",
+      "footer": "Fast responses / Guaranteed confidentiality"
+    },
+    "testimonials": {
+      "label": "Trust",
+      "title": "The choice of major brands and production companies.",
+      "items": [
+        { "name": "Ricardo Silva", "role": "Creative Director", "text": "Impressive agility and a vocal quality that raised the bar for our campaigns.", "stars": 5 },
+        { "name": "Ana Paula M.", "role": "Executive Producer", "text": "The service and delivery exceed expectations. Sanzony's versatility is a huge differentiator.", "stars": 5 },
+        { "name": "Gabriel Costa", "role": "Marketing Manager", "text": "Our main player for all institutional projects. Impeccable vocal presence.", "stars": 5 }
+      ]
+    }
+  },
+  "briefing": {
+    "label": "Elite Production",
+    "title": "Start your",
+    "title_accent": "Project",
+    "subtitle": "Fill in the technical details below. Our team will analyze your briefing to deliver a voiceover with personality and impact.",
+    "form": {
+      "name": "Full Name",
+      "name_placeholder": "Your name",
+      "company": "Company / Brand",
+      "company_placeholder": "Company name",
+      "email": "Corporate E-mail",
+      "email_placeholder": "your@email.com",
+      "whatsapp": "Contact WhatsApp",
+      "whatsapp_placeholder": "+00 00 00000-0000",
+      "category": "Voiceover Category",
+      "category_placeholder": "Select a category...",
+      "script": "Script / Text for Recording",
+      "script_placeholder": "Insert the text to be voiced. Include notes on pronunciation of brands or names if necessary.",
+      "tone": "Intentionality / Tone",
+      "tone_placeholder": "How should it sound?",
+      "region": "Broadcast Reach",
+      "region_placeholder": "Ex: National, Internet, Regional",
+      "period": "Licensing Period",
+      "period_placeholder": "Ex: 12 months, Lifetime",
+      "submit": "Send Elite Briefing",
+      "submitting": "Processing...",
+      "secure": "Secure Environment & Encrypted Data",
+      "success_title": "Briefing sent!",
+      "success_desc": "We received your request. We will contact you soon.",
+      "error_title": "Error sending",
+      "back": "Back to Home",
+      "support_title": "Response in 24h",
+      "support_desc": "Immediate technical analysis."
+    },
+    "voice_types": [
+      "Commercial",
+      "Elite Voiceover",
+      "Corporate",
+      "Advertising",
+      "IVR / Phone Waiting",
+      "Documentary",
+      "E-learning",
+      "Other"
+    ],
+    "tones": [
+      "Serious / Corporate",
+      "Happy / Casual",
+      "Emotional / Dramatic",
+      "Energetic / Dynamic",
+      "Calm / Soft",
+      "Authoritative / Confident"
+    ]
+  },
+  "verification": {
+    "label": "Authenticity",
+    "title": "Verify",
+    "title_accent": "Certificate",
+    "subtitle": "Enter the certificate number (e.g., {example}) to confirm its authenticity.",
+    "placeholder": "SVZ-2026-ABR-001",
+    "button": "Verify",
+    "info": "The Sanzony.Voz certification system uses SHA-256 hash to ensure the originality and integrity of each audio file delivered.",
+    "valid": {
+      "label": "Valid Certificate",
+      "issued": "Issued on {date}",
+      "client": "Client",
+      "company": "Company",
+      "type": "Voiceover Type",
+      "status": "Status",
+      "hash": "SHA-256 Hash"
+    },
+    "invalid": {
+      "title": "Certificate not found",
+      "desc": "No match found for this number. Check if you typed it correctly or contact Studio Sanzony.Voz."
+    }
+  },
+  "categories": {
+    "comercial": "Commercial",
+    "varejo": "Retail",
+    "elite": "Elite",
+    "institucional": "Institutional",
+    "radio": "Radio",
+    "digital": "Digital"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "tagline": "Sanzony.Voz™ Elite Cockpit",
+    "terms": "Terms",
+    "privacy": "Privacy"
+  }
+}

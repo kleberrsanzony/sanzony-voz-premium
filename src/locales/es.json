@@ -1,0 +1,179 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "demos": "Demos",
+    "services": "Servicios",
+    "process": "Proceso",
+    "studio": "Estudio",
+    "briefing": "Hacer Briefing"
+  },
+  "hero": {
+    "label": "Locución Elite & Branding Vocal",
+    "line1": "Su marca no",
+    "line2": "necesita solo una voz.",
+    "line3": "Necesita presencia.",
+    "subtitle": "Locución premium para campañas, marcas y proyectos que exigen más que solo sonido.",
+    "cta_main": "Oír Demos",
+    "cta_sec": "Hacer Briefing",
+    "scroll": "Explorar"
+  },
+  "sections": {
+    "demos": {
+      "label": "Portafolio",
+      "title": "Demostraciones",
+      "subtitle": "Explore la versatilidad y la técnica en diferentes estilos de locución."
+    },
+    "services": {
+      "label": "Experticia",
+      "title": "Soluciones vocales para cada formato.",
+      "subtitle": "Cada tipo de proyecto exige un enfoque vocal específico.",
+      "items": [
+        { "title": "Comercial / TV", "desc": "Locución de impacto para TV, Cine y grandes campañas publicitarias." },
+        { "title": "Redes Sociales", "desc": "Narración dinámica y atractiva para Reels, TikTok, YouTube y Ads." },
+        { "title": "Institucional", "desc": "Tono corporativo, autoridad y claridad para videos internos y capacitaciones." },
+        { "title": "URA / Telefonía", "desc": "Atención humanizada y profesional para esperas telefónicas." }
+      ]
+    },
+    "process": {
+      "label": "Metodología",
+      "title": "Del briefing a la entrega, sin fricciones.",
+      "subtitle": "Un proceso estructurado para garantizar que cada grabación sea aprobada a la primera.",
+      "steps": [
+        { "title": "Briefing Técnico", "desc": "Recopilación de intenciones, público objetivo y referencias para alinear la entrega." },
+        { "title": "Grabación y Mezcla", "desc": "Captura en estudio broadcast con limpieza y tratamiento de audio final." },
+        { "title": "Entrega y Feedback", "desc": "Envío del audio listo para usar, con agilidad y soporte técnico." }
+      ]
+    },
+    "studio": {
+      "label": "Infraestructura Elite",
+      "title": "Calidad Broadcast, en tiempo récord.",
+      "subtitle": "Estudio propio con tratamiento acústico de altísima performance, equipos premium y conexión en tiempo real para dirección remota desde cualquier parte del mundo.",
+      "capabilities": [
+        { "title": "Captura Elite", "desc": "Micrófono profesional con tratamiento acústico de estudio dedicado." },
+        { "title": "Mezcla Studio", "desc": "Tratamiento de audio con herramientas de nivel broadcast internacional." },
+        { "title": "Entrega Express", "desc": "Proyectos sencillos en hasta 24h. Campañas mayores con cronograma personalizado." },
+        { "title": "Cobertura Mundial", "desc": "Atención remota para agencias, productoras y marcas de todo el mundo." }
+      ]
+    },
+    "certificate": {
+      "label": "Diferencial",
+      "title": "Audio Certificado Digitalmente.",
+      "desc": "Cada locución producida por el Studio Sanzony.Voz recibe un certificado digital de autenticidad con tecnología SHA-256, garantizando la integridad y la originalidad del audio.",
+      "verify_cta": "Verificar un certificado",
+      "features": [
+        { "title": "Hash SHA-256 único", "desc": "Huella digital criptográfica exclusiva generada a partir del archivo de audio." },
+        { "title": "Número secuencial rastreable", "desc": "Código en el formato SVZ-AÑO-MES-XXX para localización y auditoría rápida." },
+        { "title": "Código QR de verificación", "desc": "Lectura instantánea en cualquier dispositivo con cámara." },
+        { "title": "Documento con validez legal", "desc": "Registro con fecha y autoría comprobable para protección contractual." },
+        { "title": "Protección contra uso indebido", "desc": "Rastreamos copias no autorizadas y garantizamos la integridad de la entrega." }
+      ]
+    },
+    "cta": {
+      "label": "Próximos Pasos",
+      "title": "¿Listo para dar voz",
+      "title_accent": "a su proyecto?",
+      "subtitle": "Solicite un presupuesto hoy mismo. Envíe su guion o briefing y descubra cómo podemos elevar el valor percibido de su marca.",
+      "button_briefing": "Hacer Briefing Elite",
+      "button_whatsapp": "WhatsApp Directo",
+      "footer": "Respuestas rápidas / Confidencialidad garantizada"
+    },
+    "testimonials": {
+      "label": "Confianza",
+      "title": "La elección de las principales marcas y productoras.",
+      "items": [
+        { "name": "Ricardo Silva", "role": "Dir. de Creación", "text": "Agilidad impresionante y una calidad vocal que elevó el nivel de nuestras campañas.", "stars": 5 },
+        { "name": "Ana Paula M.", "role": "Productora Ejecutiva", "text": "El servicio y la entrega superan las expectativas. La versatilidad de Sanzony es un diferencial enorme.", "stars": 5 },
+        { "name": "Gabriel Costa", "role": "Marketing Manager", "text": "Nuestro colaborador principal para todos los proyectos institucionales. Presencia vocal impecable.", "stars": 5 }
+      ]
+    }
+  },
+  "briefing": {
+    "label": "Producción de Elite",
+    "title": "Inicie su",
+    "title_accent": "Proyecto",
+    "subtitle": "Complete los detalles técnicos a continuación. Nuestro equipo analizará su briefing para entregar una locución con personalidad e impacto.",
+    "form": {
+      "name": "Nombre Completo",
+      "name_placeholder": "Su nombre",
+      "company": "Empresa / Marca",
+      "company_placeholder": "Nombre de la empresa",
+      "email": "E-mail Corporativo",
+      "email_placeholder": "su@email.com",
+      "whatsapp": "WhatsApp de Contacto",
+      "whatsapp_placeholder": "+00 00 00000-0000",
+      "category": "Categoría de Locución",
+      "category_placeholder": "Seleccione una categoría...",
+      "script": "Guion / Texto para Grabación",
+      "script_placeholder": "Ingrese el texto que será locutado. Incluya notas sobre pronunciación de marcas o nombres si es necesario.",
+      "tone": "Intencionalidad / Tono",
+      "tone_placeholder": "¿Cómo debe sonar?",
+      "region": "Alcance de Difusión",
+      "region_placeholder": "Ej: Nacional, Internet, Regional",
+      "period": "Periodo de Licenciamiento",
+      "period_placeholder": "Ej: 12 meses, Vitalicio",
+      "submit": "Enviar Briefing Elite",
+      "submitting": "Procesando...",
+      "secure": "Ambiente Seguro & Datos Cifrados",
+      "success_title": "¡Briefing enviado!",
+      "success_desc": "Hemos recibido su pedido. Nos pondremos en contacto pronto.",
+      "error_title": "Error al enviar",
+      "back": "Volver al Inicio",
+      "support_title": "Respuesta en 24h",
+      "support_desc": "Análisis técnico inmediato."
+    },
+    "voice_types": [
+      "Comercial",
+      "Locución Elite",
+      "Institucional",
+      "Publicitaria",
+      "URA / Espera Telefónica",
+      "Documental",
+      "E-learning",
+      "Otro"
+    ],
+    "tones": [
+      "Serio / Corporativo",
+      "Alegre / Casual",
+      "Emocional / Dramático",
+      "Enérgico / Dinámico",
+      "Calma / Suave",
+      "Autoritário / Confiante"
+    ]
+  },
+  "verification": {
+    "label": "Autenticidad",
+    "title": "Verificar",
+    "title_accent": "Certificado",
+    "subtitle": "Ingrese el número de certificado (ej: {example}) para confirmar su autenticidad.",
+    "placeholder": "SVZ-2026-ABR-001",
+    "button": "Verificar",
+    "info": "El sistema de certificación Sanzony.Voz utiliza hash SHA-256 para garantizar la originalidad e integridad de cada archivo de audio entregado.",
+    "valid": {
+      "label": "Certificado Válido",
+      "issued": "Emitido el {date}",
+      "client": "Cliente",
+      "company": "Empresa",
+      "type": "Tipo de Locución",
+      "status": "Estado",
+      "hash": "Hash SHA-256"
+    },
+    "invalid": {
+      "title": "Certificado no encontrado",
+      "desc": "Ningún registro corresponde a este número. Verifique si lo escribió correctamente o comuníquese con Studio Sanzony.Voz."
+    }
+  },
+  "categories": {
+    "comercial": "Comercial",
+    "varejo": "Minorista",
+    "elite": "Elite",
+    "institucional": "Institucional",
+    "radio": "Radio",
+    "digital": "Digital"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "tagline": "Sanzony.Voz™ Elite Cockpit",
+    "terms": "Términos",
+    "privacy": "Privacidad"
+  }
+}

@@ -7,6 +7,7 @@ import { demoService, DemoEntry } from "@/services/demoService";
 import { DemoPlayer } from "./DemoPlayer";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
 
 const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -46,6 +47,7 @@ const headlineLineVariants = {
 };
 
 export default function Hero() {
+  const { t } = useLanguage();
   const [demos, setDemos] = useState<DemoEntry[]>([]);
   const [categories, setCategories] = useState<string[]>(Array.from(staticCategories));
   const [loading, setLoading] = useState(true);
@@ -87,7 +89,7 @@ export default function Hero() {
           {/* LEFT — HEADLINE */}
           <div className="md:col-span-7 flex flex-col items-start text-left">
             <motion.span variants={itemVariants} className="section-label mb-8 block">
-              Locução Elite & Branding Vocal
+              {t.hero.label}
             </motion.span>
 
             <motion.h1
@@ -95,26 +97,26 @@ export default function Hero() {
               className="font-display font-bold text-5xl xs:text-6xl md:text-7xl lg:text-[5.5rem] leading-[0.9] tracking-tighter text-white mb-8 flex flex-col gap-1"
             >
               <motion.span variants={headlineLineVariants}>
-                Sua marca não
+                {t.hero.line1}
               </motion.span>
               <motion.span variants={headlineLineVariants} className="text-muted-foreground font-light">
-                precisa de uma voz.
+                {t.hero.line2}
               </motion.span>
               <motion.span variants={headlineLineVariants} className="text-gold mt-2">
-                Precisa de presença.
+                {t.hero.line3}
               </motion.span>
             </motion.h1>
 
             <motion.p variants={itemVariants} className="text-muted-foreground text-sm md:text-base leading-relaxed max-w-md mb-10">
-              Locução premium para campanhas, marcas e projetos que exigem mais do que som.
+              {t.hero.subtitle}
             </motion.p>
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
               <Button asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold shadow-[0_0_40px_rgba(224,194,122,0.2)]">
-                <a href="#demos">Ouvir Demos</a>
+                <a href="#demos">{t.hero.cta_main}</a>
               </Button>
               <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold bg-black/20 backdrop-blur-sm border-white/10 hover:border-gold/50 hover:bg-black/50">
-                <Link href="/briefing">Fazer Briefing</Link>
+                <Link href="/briefing">{t.hero.cta_sec}</Link>
               </Button>
             </motion.div>
           </div>
@@ -129,7 +131,7 @@ export default function Hero() {
         <motion.div variants={itemVariants} className="mt-20 flex justify-center w-full">
           <div className="flex flex-col items-center gap-3">
             <div className="w-[1px] h-12 bg-gradient-to-b from-transparent to-[#e0c27a] animate-pulse" />
-            <span className="text-[0.60rem] uppercase tracking-[0.4em] text-[#7a5c2e]">Explorar</span>
+            <span className="text-[0.60rem] uppercase tracking-[0.4em] text-[#7a5c2e]">{t.hero.scroll}</span>
           </div>
         </motion.div>
       </motion.div>

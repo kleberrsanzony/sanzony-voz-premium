@@ -1,8 +1,18 @@
 "use client";
-import { footerLinks } from "@/data/content"
+import { useLanguage } from "@/context/LanguageContext"
 
 export default function Footer() {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
+
+  const translatedFooterLinks = [
+    { label: t.nav.home, href: "#inicio" },
+    { label: t.nav.demos, href: "#demos" },
+    { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.process, href: "#processo" },
+    { label: t.nav.studio, href: "#estudio" },
+    { label: t.nav.briefing, href: "/briefing" },
+  ];
 
   return (
     <footer className="bg-black py-16 border-t border-white/5">
@@ -11,13 +21,13 @@ export default function Footer() {
           
           <a
             href="#inicio"
-            className="font-display font-bold text-2xl tracking-tight text-white"
+            className="font-display font-bold text-2xl tracking-tight text-white transition-opacity hover:opacity-80"
           >
             Sanzony<span className="text-[#e0c27a]">.</span>Voz
           </a>
 
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-            {footerLinks.map((l) => (
+            {translatedFooterLinks.map((l) => (
                <a
                  key={l.href}
                  href={l.href}
@@ -32,14 +42,14 @@ export default function Footer() {
 
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-[0.65rem] text-muted-foreground uppercase tracking-widest text-center">
-            &copy; {currentYear} Sanzony.Voz. Todos os direitos reservados.
+            &copy; {currentYear} Sanzony.Voz. {t.footer.rights}
           </p>
           <div className="flex gap-6">
             <a href="#" className="text-[0.65rem] text-muted-foreground hover:text-white uppercase tracking-widest">
-              Termos
+              {t.footer.terms}
             </a>
              <a href="#" className="text-[0.65rem] text-muted-foreground hover:text-white uppercase tracking-widest">
-              Privacidade
+              {t.footer.privacy}
             </a>
           </div>
         </div>

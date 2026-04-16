@@ -8,30 +8,10 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
-
-const voiceTypes = [
-  "Comercial",
-  "Locução Elite",
-  "Institucional",
-  "Publicitária",
-  "URA / Espera Telefônica",
-  "Documentário",
-  "E-learning",
-  "Outro",
-];
-
-const toneOptions = [
-  "Sério / Corporativo",
-  "Alegre / Descontraído",
-  "Emocional / Dramático",
-  "Enérgico / Dinâmico",
-  "Calmo / Suave",
-  "Autoritário / Confiante",
-];
-
-const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function BriefingPage() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -69,14 +49,14 @@ export default function BriefingPage() {
 
     if (error) {
       toast({
-        title: "Erro ao enviar",
+        title: t.briefing.form.error_title,
         description: error.message,
         variant: "destructive"
       });
     } else {
       toast({
-        title: "Briefing enviado!",
-        description: "Recebemos seu pedido. Entraremos em contato em breve.",
+        title: t.briefing.form.success_title,
+        description: t.briefing.form.success_desc,
       });
       setFormData({
         nome: "", empresa: "", email: "", whatsapp: "",
@@ -105,12 +85,12 @@ export default function BriefingPage() {
             transition={{ duration: 0.5, ease: easePremium }}
           >
             <div className="text-center mb-16">
-              <span className="section-label mb-4 block">Produção de Elite</span>
+              <span className="section-label mb-4 block">{t.briefing.label}</span>
               <h1 className="font-display text-4xl md:text-6xl font-black tracking-tighter text-white mb-6">
-                Inicie seu <span className="text-gold">Projeto</span>
+                {t.briefing.title} <span className="text-gold">{t.briefing.title_accent}</span>
               </h1>
               <p className="text-muted-foreground text-sm md:text-base max-w-lg mx-auto leading-relaxed">
-                Preencha os detalhes técnicos abaixo. Nossa equipe analisará seu briefing para entregar uma locução com personalidade e impacto.
+                {t.briefing.subtitle}
               </p>
             </div>
 
@@ -118,36 +98,36 @@ export default function BriefingPage() {
               <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className={labelClasses}>Nome Completo <span className="text-gold-mid">*</span></label>
-                    <input name="nome" value={formData.nome} onChange={handleChange} required className={inputClasses} placeholder="Seu nome" />
+                    <label className={labelClasses}>{t.briefing.form.name} <span className="text-gold-mid">*</span></label>
+                    <input name="nome" value={formData.nome} onChange={handleChange} required className={inputClasses} placeholder={t.briefing.form.name_placeholder} />
                   </div>
                   <div className="space-y-2">
-                    <label className={labelClasses}>Empresa / Marca</label>
-                    <input name="empresa" value={formData.empresa} onChange={handleChange} className={inputClasses} placeholder="Nome da empresa" />
+                    <label className={labelClasses}>{t.briefing.form.company}</label>
+                    <input name="empresa" value={formData.empresa} onChange={handleChange} className={inputClasses} placeholder={t.briefing.form.company_placeholder} />
                   </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className={labelClasses}>E-mail Corporativo</label>
-                    <input name="email" type="email" value={formData.email} onChange={handleChange} className={inputClasses} placeholder="seu@email.com" />
+                    <label className={labelClasses}>{t.briefing.form.email}</label>
+                    <input name="email" type="email" value={formData.email} onChange={handleChange} className={inputClasses} placeholder={t.briefing.form.email_placeholder} />
                   </div>
                   <div className="space-y-2">
-                    <label className={labelClasses}>WhatsApp de Contato <span className="text-gold-mid">*</span></label>
-                    <input name="whatsapp" value={formData.whatsapp} onChange={handleChange} required className={inputClasses} placeholder="(00) 00000-0000" />
+                    <label className={labelClasses}>{t.briefing.form.whatsapp} <span className="text-gold-mid">*</span></label>
+                    <input name="whatsapp" value={formData.whatsapp} onChange={handleChange} required className={inputClasses} placeholder={t.briefing.form.whatsapp_placeholder} />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className={labelClasses}>Categoria de Locução <span className="text-gold-mid">*</span></label>
+                  <label className={labelClasses}>{t.briefing.form.category} <span className="text-gold-mid">*</span></label>
                   <select name="tipo_locucao" value={formData.tipo_locucao} onChange={handleChange} required className={inputClasses + " cursor-pointer"}>
-                    <option value="" className="bg-black">Selecione uma categoria...</option>
-                    {voiceTypes.map((t) => (<option key={t} value={t} className="bg-black">{t}</option>))}
+                    <option value="" className="bg-black">{t.briefing.form.category_placeholder}</option>
+                    {t.briefing.voice_types.map((v: string) => (<option key={v} value={v} className="bg-black">{v}</option>))}
                   </select>
                 </div>
 
                 <div className="space-y-2">
-                  <label className={labelClasses}>Script / Texto para Gravação <span className="text-gold-mid">*</span></label>
+                  <label className={labelClasses}>{t.briefing.form.script} <span className="text-gold-mid">*</span></label>
                   <textarea
                     name="texto"
                     value={formData.texto}
@@ -155,27 +135,27 @@ export default function BriefingPage() {
                     required
                     rows={6}
                     className={inputClasses + " resize-none"}
-                    placeholder="Insira o texto que será locutado. Inclua observações sobre pronúncia de marcas ou nomes se necessário."
+                    placeholder={t.briefing.form.script_placeholder}
                   />
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-8">
                   <div className="space-y-2">
-                    <label className={labelClasses}>Intencionalidade / Tom</label>
+                    <label className={labelClasses}>{t.briefing.form.tone}</label>
                     <select name="tom" value={formData.tom} onChange={handleChange} className={inputClasses + " cursor-pointer"}>
-                      <option value="" className="bg-black">Como deve soar?</option>
-                      {toneOptions.map((t) => (<option key={t} value={t} className="bg-black">{t}</option>))}
+                      <option value="" className="bg-black">{t.briefing.form.tone_placeholder}</option>
+                      {t.briefing.tones.map((v: string) => (<option key={v} value={v} className="bg-black">{v}</option>))}
                     </select>
                   </div>
                   <div className="space-y-2">
-                    <label className={labelClasses}>Alcance de Veiculação</label>
-                    <input name="regiao" value={formData.regiao} onChange={handleChange} className={inputClasses} placeholder="Ex: Nacional, Internet, Regional" />
+                    <label className={labelClasses}>{t.briefing.form.region}</label>
+                    <input name="regiao" value={formData.regiao} onChange={handleChange} className={inputClasses} placeholder={t.briefing.form.region_placeholder} />
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <label className={labelClasses}>Período de Licenciamento</label>
-                  <input name="periodo" value={formData.periodo} onChange={handleChange} className={inputClasses} placeholder="Ex: 12 meses, Vitalício" />
+                  <label className={labelClasses}>{t.briefing.form.period}</label>
+                  <input name="periodo" value={formData.periodo} onChange={handleChange} className={inputClasses} placeholder={t.briefing.form.period_placeholder} />
                 </div>
 
                 <div className="pt-6">
@@ -187,19 +167,19 @@ export default function BriefingPage() {
                     {loading ? (
                       <div className="flex items-center gap-2">
                         <div className="w-4 h-4 border-2 border-black/20 border-t-black rounded-full animate-spin" />
-                        <span>Processando...</span>
+                        <span>{t.briefing.form.submitting}</span>
                       </div>
                     ) : (
                       <>
                         <Send className="h-4 w-4" />
-                        <span>Enviar Briefing Elite</span>
+                        <span>{t.briefing.form.submit}</span>
                       </>
                     )}
                   </button>
 
                   <div className="flex items-center justify-center gap-2 text-muted-foreground text-[0.6rem] mt-6 tracking-widest uppercase font-bold opacity-60">
                     <Shield className="h-3 w-3 text-gold-dark" />
-                    <span>Ambiente Seguro & Dados Criptografados</span>
+                    <span>{t.briefing.form.secure}</span>
                   </div>
                 </div>
               </form>
@@ -212,14 +192,14 @@ export default function BriefingPage() {
                   <Sparkles className="h-5 w-5 text-gold" />
                 </div>
                 <div>
-                  <p className="text-white text-xs font-bold uppercase tracking-wider">Resposta em 24h</p>
-                  <p className="text-muted-foreground text-xs">Análise técnica imediata.</p>
+                  <p className="text-white text-xs font-bold uppercase tracking-wider">{t.briefing.form.support_title}</p>
+                  <p className="text-muted-foreground text-xs">{t.briefing.form.support_desc}</p>
                 </div>
               </div>
 
               <Link href="/" className="text-[0.6rem] uppercase tracking-[0.3em] text-muted-foreground hover:text-gold transition-colors flex items-center gap-2">
                 <ArrowLeft className="h-3 w-3" />
-                <span>Voltar ao Início</span>
+                <span>{t.briefing.form.back}</span>
               </Link>
             </div>
           </motion.div>

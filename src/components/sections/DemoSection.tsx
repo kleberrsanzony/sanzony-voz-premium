@@ -6,8 +6,10 @@ import { demoService, DemoEntry } from "@/services/demoService";
 import { Play, Pause, AudioLines, Volume2, VolumeX } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger";
+import { useLanguage } from "@/context/LanguageContext";
 
 export default function DemoSection() {
+  const { t } = useLanguage();
   const [demos, setDemos] = useState<DemoEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [playingIndex, setPlayingIndex] = useState<number | null>(null);
@@ -16,6 +18,12 @@ export default function DemoSection() {
   const [volume, setVolume] = useState(playerSettings.defaultVolume);
   const [isMuted, setIsMuted] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
+
+  // Helper to translate category from DB/content
+  const translateCategory = (cat: string) => {
+    const key = cat.toLowerCase();
+    return (t.categories as any)[key] || cat;
+  };
 
   useEffect(() => {
     async function load() {
@@ -115,10 +123,13 @@ export default function DemoSection() {
               <div className="w-12 h-12 rounded-full border border-[#e0c27a]/20 bg-black flex items-center justify-center shadow-[0_0_30px_rgba(224,194,122,0.05)]">
                 <AudioLines size={18} className="text-[#e0c27a]" />
               </div>
-              <span className="section-label mt-5 block">Portfólio em Foco</span>
+              <span className="section-label mt-5 block">{t.sections.demos.label}</span>
               <h2 className="mt-8 font-display font-bold text-4xl md:text-5xl tracking-tight text-white max-w-xl leading-tight">
-                A voz certa para o momento <span className="text-gold">exato.</span>
+                {t.sections.demos.title}
               </h2>
+              <p className="mt-6 text-muted-foreground text-sm md:text-base leading-relaxed max-w-2xl">
+                {t.sections.demos.subtitle}
+              </p>
               
               {/* Global Volume for Grid */}
               <div className="mt-8 flex items-center gap-3 bg-white/5 px-4 py-2 rounded-full border border-white/5">
@@ -149,7 +160,7 @@ export default function DemoSection() {
               >
                 <div className="flex items-center justify-between mb-8 relative z-10">
                   <span className="text-[0.6rem] uppercase tracking-widest text-[#e0c27a] font-medium">
-                    {d.category}
+                    {translateCategory(d.category)}
                   </span>
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shadow-xl ${
                     playingIndex === i 

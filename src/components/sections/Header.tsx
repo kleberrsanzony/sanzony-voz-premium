@@ -6,6 +6,8 @@ import { Menu, X, Shield } from "lucide-react";
 import Link from "next/link";
 import { navLinks } from "@/data/content";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/context/LanguageContext";
+import LanguageSwitcher from "@/components/ui/LanguageSwitcher";
 
 const easePremium = [0.22, 1, 0.36, 1] as [number, number, number, number];
 
@@ -29,6 +31,7 @@ const headerItemVariants = {
 };
 
 export default function Header() {
+  const { t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -37,6 +40,14 @@ export default function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const translatedNavLinks = [
+    { label: t.nav.home, href: "#inicio" },
+    { label: t.nav.demos, href: "#demos" },
+    { label: t.nav.services, href: "#servicos" },
+    { label: t.nav.process, href: "#processo" },
+    { label: t.nav.studio, href: "#estudio" },
+  ];
 
   return (
     <motion.header
@@ -61,7 +72,7 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className="hidden lg:flex items-center gap-10">
-          {navLinks?.map((l: any) => (
+          {translatedNavLinks.map((l: any) => (
             <motion.a
               key={l.href}
               variants={headerItemVariants}
@@ -76,20 +87,22 @@ export default function Header() {
 
         {/* CTA */}
         <motion.div variants={headerItemVariants} className="hidden lg:flex items-center gap-6">
+          <LanguageSwitcher />
           <Link 
             href="/verificar" 
             className="text-muted-foreground hover:text-[#e0c27a] transition-colors"
-            title="Verificar Certificado"
+            title={`${t.verification.title} ${t.verification.title_accent}`}
           >
             <Shield size={18} />
           </Link>
           <Button variant="outline" asChild className="text-[0.55rem] h-10 px-6">
-            <Link href="/briefing">Fazer Briefing</Link>
+            <Link href="/briefing">{t.nav.briefing}</Link>
           </Button>
         </motion.div>
 
         {/* Mobile toggle */}
         <motion.div variants={headerItemVariants} className="lg:hidden flex items-center gap-4">
+          <LanguageSwitcher />
           <Link href="/verificar" className="text-silver hover:text-[#e0c27a] transition-colors">
             <Shield size={20} />
           </Link>
@@ -115,7 +128,7 @@ export default function Header() {
           >
             <div className="container-site h-full overflow-y-auto flex flex-col justify-between pt-12 pb-12">
               <nav className="flex flex-col gap-6">
-                {navLinks?.map((l: any, i: number) => (
+                {translatedNavLinks.map((l: any, i: number) => (
                   <motion.a
                     key={l.href}
                     href={l.href}
@@ -143,7 +156,7 @@ export default function Header() {
                   </span>
                   <Button asChild className="w-full text-[0.65rem] py-6">
                     <Link href="/briefing" onClick={() => setOpen(false)}>
-                      Solicitar Briefing Direto
+                      {t.nav.briefing}
                     </Link>
                   </Button>
                 </div>
