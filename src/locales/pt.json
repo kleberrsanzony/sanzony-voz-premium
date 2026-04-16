@@ -20,8 +20,20 @@
   "sections": {
     "demos": {
       "label": "Portfólio",
-      "title": "Demonstrações",
+      "title": "Demos",
       "subtitle": "Explore a versatilidade e a técnica em diferentes estilos de locução."
+    },
+    "positioning": {
+      "label": "Assinatura Vocal",
+      "title_line1": "A marca que fala,",
+      "title_line2_prefix": "a audiência que",
+      "title_line2_accent": "escuta.",
+      "pillars": [
+        { "title": "Persuasão", "desc": "Cada palavra entregada com a intenção exata de mover audiências e gerar ação." },
+        { "title": "Técnica", "desc": "Captação com padrão broadcast, tratamento profissional e entrega impecável." },
+        { "title": "Interpretação", "desc": "Leitura estratégica de roteiro que transforma texto em experiência auditiva." },
+        { "title": "Presença de Marca", "desc": "Uma assinatura vocal que posiciona, diferencia e torna a marca memorável." }
+      ]
     },
     "services": {
       "label": "Expertise",

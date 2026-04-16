@@ -23,6 +23,18 @@
       "title": "Demostraciones",
       "subtitle": "Explore la versatilidad y la técnica en diferentes estilos de locución."
     },
+    "positioning": {
+      "label": "Firma Vocal",
+      "title_line1": "La marca que habla,",
+      "title_line2_prefix": "la audiencia que",
+      "title_line2_accent": "escucha.",
+      "pillars": [
+        { "title": "Persuasión", "desc": "Cada palabra entregada con la intención exacta de mover audiencias y generar acción." },
+        { "title": "Técnica", "desc": "Captura con estándar broadcast, tratamiento profesional y entrega impecable." },
+        { "title": "Interpretación", "desc": "Lectura estratégica de guion que transforma el texto en una experiencia auditiva." },
+        { "title": "Presencia de Marca", "desc": "Una firma vocal que posiciona, diferencia y hace que la marca sea memorable." }
+      ]
+    },
     "services": {
       "label": "Experticia",
       "title": "Soluciones vocales para cada formato.",

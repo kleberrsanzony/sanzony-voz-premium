@@ -20,8 +20,20 @@
   "sections": {
     "demos": {
       "label": "Portfolio",
-      "title": "Demonstrations",
-      "subtitle": "Explore versatility and technique across different voiceover styles."
+      "title": "Demos",
+      "subtitle": "Explore versatility and technique across different voice-over styles."
+    },
+    "positioning": {
+      "label": "Voice Signature",
+      "title_line1": "The brand that speaks,",
+      "title_line2_prefix": "the audience that",
+      "title_line2_accent": "listens.",
+      "pillars": [
+        { "title": "Persuasion", "desc": "Every word delivered with the exact intent to move audiences and drive action." },
+        { "title": "Technique", "desc": "Broadcast-standard capture, professional processing, and flawless delivery." },
+        { "title": "Interpretation", "desc": "Strategic script reading that transforms text into an auditory experience." },
+        { "title": "Brand Presence", "desc": "A voice signature that positions, differentiates, and makes the brand memorable." }
+      ]
     },
     "services": {
       "label": "Expertise",
