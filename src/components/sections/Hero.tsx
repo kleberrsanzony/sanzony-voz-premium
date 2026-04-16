@@ -113,10 +113,10 @@ export default function Hero() {
 
             <motion.div variants={itemVariants} className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto">
               <Button asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold shadow-[0_0_40px_rgba(224,194,122,0.2)]">
-                <a href="#demos">{t.hero.cta_main}</a>
+                <a href="#demos" aria-label="Explorar portfólio de demonstrações de voz">{t.hero.cta_main}</a>
               </Button>
               <Button variant="outline" asChild className="w-full sm:w-auto h-14 px-10 text-[0.7rem] uppercase tracking-[0.2em] font-bold bg-black/20 backdrop-blur-sm border-white/10 hover:border-gold/50 hover:bg-black/50">
-                <Link href="/briefing">{t.hero.cta_sec}</Link>
+                <Link href="/briefing" aria-label="Ir para página de briefing e solicitar orçamento">{t.hero.cta_sec}</Link>
               </Button>
             </motion.div>
           </div>

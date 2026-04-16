@@ -33,10 +33,10 @@ export default function CTASection() {
             <StaggerItem className="w-full">
               <div className="flex flex-col sm:flex-row justify-center gap-5 w-full sm:w-auto">
                 <Button asChild className="w-full sm:w-auto h-14 px-12 text-sm shadow-[0_0_40px_rgba(224,194,122,0.3)]">
-                  <Link href="/briefing">{t.sections.cta.button_briefing}</Link>
+                  <Link href="/briefing" aria-label="Iniciar briefing técnico do projeto">{t.sections.cta.button_briefing}</Link>
                 </Button>
                 <Button asChild variant="outline" className="w-full sm:w-auto h-14 px-12 text-sm bg-black">
-                  <a href="https://wa.me/5511999999999" target="_blank">{t.sections.cta.button_whatsapp}</a>
+                  <a href="https://wa.me/5511999999999" target="_blank" aria-label="Falar diretamente pelo WhatsApp">{t.sections.cta.button_whatsapp}</a>
                 </Button>
               </div>
             </StaggerItem>

@@ -5,7 +5,7 @@
     "services": "Services",
     "process": "Process",
     "studio": "Studio",
-    "briefing": "Get Briefing"
+    "briefing": "Hire Now"
   },
   "hero": {
     "label": "Elite Voiceover & Vocal Branding",
@@ -13,8 +13,8 @@
     "line2": "need just a voice.",
     "line3": "It needs presence.",
     "subtitle": "Premium voiceover for campaigns, brands, and projects that demand more than just sound.",
-    "cta_main": "Hear Demos",
-    "cta_sec": "Get Briefing",
+    "cta_main": "Explore Premium Demos",
+    "cta_sec": "Hire & Send Brief",
     "scroll": "Explore"
   },
   "sections": {
@@ -71,7 +71,7 @@
       "label": "Difference",
       "title": "Digitally Certified Audio.",
       "desc": "Each voiceover produced by Studio Sanzony.Voz receives a digital certificate of authenticity with SHA-256 technology, ensuring the integrity and originality of the audio.",
-      "verify_cta": "Verify a certificate",
+      "verify_cta": "Validate Authenticity",
       "features": [
         { "title": "Unique SHA-256 Hash", "desc": "Exclusive cryptographic fingerprint generated from the audio file." },
         { "title": "Traceable Serial Number", "desc": "Code in SVZ-YEAR-MONTH-XXX format for quick location and auditing." },
@@ -85,7 +85,7 @@
       "title": "Ready to give voice",
       "title_accent": "to your project?",
       "subtitle": "Request a quote today. Send your script or briefing and discover how we can elevate your brand's perceived value.",
-      "button_briefing": "Get Elite Briefing",
+      "button_briefing": "Hire & Send Brief",
       "button_whatsapp": "Direct WhatsApp",
       "footer": "Fast responses / Guaranteed confidentiality"
     },

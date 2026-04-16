@@ -65,6 +65,7 @@ export default function Header() {
           variants={headerItemVariants}
           href="#inicio"
           className="font-display font-bold text-xl md:text-2xl tracking-tight text-foreground transition-transform hover:scale-[1.02]"
+          aria-label="Sanzony Voz - Página Inicial"
         >
           Sanzony<span className="text-gold">.</span>Voz
           <span className="text-[0.5rem] font-light ml-0.5 align-super text-[#7a5c2e]">™</span>
@@ -92,6 +93,7 @@ export default function Header() {
             href="/verificar" 
             className="text-muted-foreground hover:text-[#e0c27a] transition-colors"
             title={`${t.verification.title} ${t.verification.title_accent}`}
+            aria-label="Verificar Autenticidade do Certificado"
           >
             <Shield size={18} />
           </Link>

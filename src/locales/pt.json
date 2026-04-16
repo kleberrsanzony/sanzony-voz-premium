@@ -13,8 +13,8 @@
     "line2": "precisa de uma voz.",
     "line3": "Precisa de presença.",
     "subtitle": "Locução premium para campanhas, marcas e projetos que exigem mais do que som.",
-    "cta_main": "Ouvir Demos",
-    "cta_sec": "Fazer Briefing",
+    "cta_main": "Explorar Demos Premium",
+    "cta_sec": "Enviar Briefing Técnico",
     "scroll": "Explorar"
   },
   "sections": {
@@ -71,7 +71,7 @@
       "label": "Diferencial",
       "title": "Áudio Certificado Digitalmente.",
       "desc": "Cada locução produzida pelo Studio Sanzony.Voz recebe um certificado digital de autenticidade com tecnologia SHA-256, garantindo a integridade e a originalidade do áudio.",
-      "verify_cta": "Verificar um certificado",
+      "verify_cta": "Validar Autenticidade",
       "features": [
         { "title": "Hash SHA-256 único", "desc": "Impressão digital criptográfica exclusiva gerada a partir do arquivo de áudio." },
         { "title": "Número sequencial rastreável", "desc": "Código no formato SVZ-ANO-MES-XXX para localização e auditoria rápida." },
@@ -85,7 +85,7 @@
       "title": "Pronto para dar voz",
       "title_accent": "ao seu projeto?",
       "subtitle": "Solicite um orçamento hoje mesmo. Envie seu roteiro ou briefing e descubra como podemos elevar o valor percebido da sua marca.",
-      "button_briefing": "Fazer Briefing Elite",
+      "button_briefing": "Iniciar Briefing Elite",
       "button_whatsapp": "WhatsApp Direto",
       "footer": "Respostas rápidas / Confidencialidade garantida"
     },
