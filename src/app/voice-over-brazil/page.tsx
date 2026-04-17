@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { Reveal } from "@/components/ui/reveal";
-import { Globe, Mic2, Star, Zap, CheckCircle2, Headphones, Activity, ShieldCheck } from "lucide-react";
+import { Globe, Mic2, Star, Zap, CheckCircle2, Headphones, Activity, ShieldCheck, Target } from "lucide-react";
 import Link from "next/link";
 
 export const metadata: Metadata = {
