@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image"
+import { IndustryStandardGrid } from "@/components/ui/industry-standard-grid"
 import { capabilities } from "@/data/content"
 import { Mic2, ShieldCheck, Headphones, Gauge, Globe } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
@@ -16,7 +18,7 @@ export default function StudioSection() {
       <div className="section-spacing">
         <div className="container-site relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            
+
             <div className="flex flex-col items-start pr-0 lg:pr-12">
               <Reveal>
                 <div className="w-12 h-12 rounded-full border border-[#e0c27a]/20 bg-black flex items-center justify-center shadow-[0_0_30px_rgba(224,194,122,0.1)] mb-5">
@@ -30,7 +32,7 @@ export default function StudioSection() {
                   {t.sections.studio.subtitle}
                 </p>
               </Reveal>
-              
+
               <StaggerGroup className="grid sm:grid-cols-2 gap-x-8 gap-y-6 w-full" staggerDelay={0.1}>
                 {t.sections.studio.capabilities.map((c, i) => {
                   const Icon = icons[i] || Mic2;
@@ -48,14 +50,11 @@ export default function StudioSection() {
             </div>
 
             <Reveal delay={0.4} blur={false}>
-              <div className="w-full aspect-square md:aspect-[4/3] lg:aspect-square bg-[#030303] rounded-md border border-white/5 overflow-hidden flex items-center justify-center relative shadow-2xl magnetic-image-lift">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#111] to-[#0a0a0a]" />
-                <p className="text-muted-foreground text-xs uppercase tracking-widest relative z-10">
-                  [ Studio Image Placeholder ]
-                </p>
+              <div className="w-full aspect-square md:aspect-[4/3] lg:aspect-square rounded-md overflow-hidden relative shadow-2xl magnetic-image-lift">
+                <IndustryStandardGrid />
               </div>
             </Reveal>
-            
+
           </div>
         </div>
       </div>
