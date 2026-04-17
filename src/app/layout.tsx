@@ -105,7 +105,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <script
           type="application/ld+json"
@@ -114,6 +114,7 @@ export default function RootLayout({
       </head>
       <body
         className={`${inter.variable} ${outfit.variable} antialiased bg-black text-foreground`}
+        suppressHydrationWarning
       >
         <LanguageProvider>
           {children}
