@@ -8,13 +8,13 @@
     "briefing": "Hire Now"
   },
   "hero": {
-    "label": "Elite Voiceover & Vocal Branding",
+    "label": "Premium Voiceover & Vocal Branding",
     "line1": "Your brand doesn't",
     "line2": "need just a voice.",
     "line3": "It needs presence.",
     "subtitle": "Premium voiceover for campaigns, brands, and projects that demand more than just sound.",
-    "cta_main": "Explore Premium Demos",
-    "cta_sec": "Hire & Send Brief",
+    "cta_main": "Hear Demos",
+    "cta_sec": "Request Quote",
     "scroll": "Explore"
   },
   "sections": {
@@ -40,10 +40,14 @@
       "title": "Vocal solutions for every format.",
       "subtitle": "Each type of project requires a specific vocal approach.",
       "items": [
-        { "title": "Commercial / TV", "desc": "High-impact voiceover for TV, Cinema, and major advertising campaigns." },
-        { "title": "Social Media", "desc": "Dynamic and engaging narration for Reels, TikTok, YouTube, and Ads." },
-        { "title": "Corporate", "desc": "Corporate tone, authority, and clarity for internal videos and training." },
-        { "title": "IVR / Telephony", "desc": "Humanized and professional service for telephone waiting messages." }
+        { "title": "Commercial Spots", "desc": "Advertising pieces with impact and clarity for TV, radio, and digital." },
+        { "title": "Jingles", "desc": "Sound signatures that fix the brand identity in the audience's ear." },
+        { "title": "Radio Calls", "desc": "Dynamic and engaging voiceover that captures attention in seconds." },
+        { "title": "Sound Truck", "desc": "Powerful and direct voice for promotional actions on public roads." },
+        { "title": "Institutional", "desc": "Sophisticated narration for corporate videos and presentations." },
+        { "title": "Digital Content", "desc": "Voiceover adapted for Reels, TikTok, YouTube, and stories." },
+        { "title": "Campaigns", "desc": "Complete vocal direction for integrated high-reach campaigns." },
+        { "title": "Vocal Branding", "desc": "Creation of consistent sound identity for your brand." }
       ]
     },
     "process": {
@@ -51,9 +55,11 @@
       "title": "From briefing to delivery, without friction.",
       "subtitle": "A structured process to ensure that each recording is approved on the first try.",
       "steps": [
-        { "title": "Technical Briefing", "desc": "Collection of intentions, target audience, and references to align the delivery." },
-        { "title": "Recording & Mix", "desc": "Capture in broadcast studio with cleaning and final audio treatment." },
-        { "title": "Delivery & Feedback", "desc": "Sending the audio ready for use, with agility and technical support." }
+        { "title": "Briefing", "desc": "Alignment of tone, audience, format, and project objectives." },
+        { "title": "Direction", "desc": "Definition of the ideal vocal approach for the piece and the brand." },
+        { "title": "Recording", "desc": "Capture in professional studio with broadcast quality." },
+        { "title": "Treatment", "desc": "Editing, mixing, and fine adjustments for flawless delivery." },
+        { "title": "Delivery", "desc": "Final files in requested formats, ready for use." }
       ]
     },
     "studio": {
@@ -187,5 +193,274 @@
     "tagline": "Sanzony.Voz™ Elite Cockpit",
     "terms": "Terms",
     "privacy": "Privacy"
+  },
+  "voice_hub": {
+    "hero": {
+      "label": "Strategic Catalog",
+      "title": "30 Types of",
+      "title_accent": "Professional Voiceover",
+      "subtitle": "Every project demands a specific tone, rhythm, and intention. Explore our service hub and discover how the right voice transforms perception into authority."
+    },
+    "categories": {
+      "institutional": "Institutional and Corporate",
+      "commercial": "Commercial and Promotional",
+      "digital": "Digital Content and Streaming",
+      "education": "Education, Information and Journalism",
+      "creative": "Creative and Experiential",
+      "relationship": "Relationship and Engagement"
+    },
+    "sections": {
+      "why_invest": "Why invest",
+      "objection": "Handling Objections",
+      "benefits": "Strategic Benefits",
+      "estilos": "styles",
+      "estilo": "style",
+      "authority_title": "Vocal Authority and Branding",
+      "authority_desc": "Professional voiceover goes beyond a beautiful voice; it's about strategic vocal branding. Whether for a corporate video that inspires trust or a commercial voice that drives conversions, the narrator's technical choice directly impacts your ROI.",
+      "scalability_title": "Content Scalability",
+      "scalability_desc": "Our 30-type voiceover structure covers everything from dynamic digital (VSL, Reels, TikTok) to traditional radio and television. We guarantee broadcast quality across all formats, preserving your brand's identity at every touchpoint."
+    },
+    "items": {
+      "locucao-institucional": {
+        "title": "Institutional Voiceover",
+        "shortDescription": "Presentations that position your brand with authority, clarity, and sophistication.",
+        "benefits": ["Transmits immediate credibility", "Elevates brand value perception", "Standardizes institutional communication", "Strengthens positioning"],
+        "whyInvest": "The way your company presents itself defines how it will be perceived.",
+        "objectionBreak": "It's not about a pretty voice, it's about strategic positioning.",
+        "ctaText": "Request a quote"
+      },
+      "locucao-corporativa": {
+        "title": "Corporate Voiceover",
+        "shortDescription": "Professional communication for companies that demand consistency and standards.",
+        "benefits": ["Standardizes internal and external communication", "Reinforces brand identity", "Improves message clarity", "Increases professionalism"],
+        "whyInvest": "Strong companies have consistent communication across all touchpoints.",
+        "objectionBreak": "Even simple communications impact your brand's perception.",
+        "ctaText": "Talk to an expert"
+      },
+      "treinamentos-e-learning": {
+        "title": "Training / E-learning",
+        "shortDescription": "Clear and engaging narrations for digital educational content.",
+        "benefits": ["Improves content retention", "Makes learning more fluid", "Reduces student fatigue", "Professionalizes courses"],
+        "whyInvest": "The voice directly influences content absorption.",
+        "objectionBreak": "It's not just content—it's a learning experience.",
+        "ctaText": "Request course narration"
+      },
+      "ura-pabx-espera-telefonica": {
+        "title": "IVR / PABX / Phone Waiting",
+        "shortDescription": "Professional sound experience for telephone service.",
+        "benefits": ["Organizes service delivery", "Improves customer experience", "Reduces noise and confusion", "Transmits professionalism"],
+        "whyInvest": "Your service starts before any human conversation.",
+        "objectionBreak": "A bad initial experience can cost a customer.",
+        "ctaText": "I want to professionalize my service"
+      },
+      "audiodescricao": {
+        "title": "Audio Description",
+        "shortDescription": "Accessibility with quality and respect for the user experience.",
+        "benefits": ["Real inclusion", "Compliance with standards", "Expands content reach", "Social and institutional value"],
+        "whyInvest": "Accessibility is not optional—it's positioning.",
+        "objectionBreak": "It's not a cost, it's public expansion.",
+        "ctaText": "Request audio description project"
+      },
+      "varejo": {
+        "title": "Retail",
+        "shortDescription": "Voiceover focused on impact and fast conversion.",
+        "benefits": ["Stimulates immediate action", "Increases sales", "Creates a sense of urgency", "Reinforces promotions"],
+        "whyInvest": "In retail, every second counts to sell.",
+        "objectionBreak": "Without a strong voice, your offer loses impact.",
+        "ctaText": "I want to increase my sales"
+      },
+      "radio-indoor": {
+        "title": "In-store Radio",
+        "shortDescription": "Strategic communication within commercial environments.",
+        "benefits": ["Influences buying behavior", "Creates a sound environment", "Reinforces brand at the point of sale", "Increases average ticket"],
+        "whyInvest": "The environment experience directly impacts the decision.",
+        "objectionBreak": "Silence or generic sound doesn't sell.",
+        "ctaText": "Create sound experience"
+      },
+      "manifestos-de-marca": {
+        "title": "Brand Manifestos",
+        "shortDescription": "Emotional voice for branding campaigns.",
+        "benefits": ["Creates emotional connection", "Strengthens identity", "Differentiates your brand", "Generates recall"],
+        "whyInvest": "Strong brands are felt, not just seen.",
+        "objectionBreak": "Without emotion, your message doesn't leave a mark.",
+        "ctaText": "Create brand manifesto"
+      },
+      "assinaturas-e-frases-de-efeito": {
+        "title": "Signatures and Taglines",
+        "shortDescription": "Short snippets that mark presence.",
+        "benefits": ["Increases brand recall", "Creates sound identity", "Standardizes communication", "Strengthens branding"],
+        "whyInvest": "Short phrases can have a lasting impact.",
+        "objectionBreak": "Details build great brands.",
+        "ctaText": "Create sound signature"
+      },
+      "vinhetas-de-impacto": {
+        "title": "Impact Stingers",
+        "shortDescription": "Openings and transitions with strong identity.",
+        "benefits": ["Creates sound identity", "Increases professionalism", "Gives rhythm to content", "Marks presence"],
+        "whyInvest": "The first seconds define perception.",
+        "objectionBreak": "Without identity, your content gets lost.",
+        "ctaText": "Create professional stinger"
+      },
+      "reels-shorts-tiktok": {
+        "title": "Voice for Reels / Shorts / TikTok",
+        "shortDescription": "Strategic voiceover for high-impact short videos.",
+        "benefits": ["Increases retention", "Improves performance", "Highlights content", "Increases engagement"],
+        "whyInvest": "Attention is fought for second by second.",
+        "objectionBreak": "Without voice, your content loses strength.",
+        "ctaText": "I want to improve my videos"
+      },
+      "videos-para-infoprodutores": {
+        "title": "Videos for Infoproducers",
+        "shortDescription": "Voiceover for sales and educational content.",
+        "benefits": ["Increases conversion", "Professionalizes content", "Improves clarity", "Elevates perception"],
+        "whyInvest": "The voice directly impacts the purchase decision.",
+        "objectionBreak": "Good content needs a strong presentation.",
+        "ctaText": "Empower my videos"
+      },
+      "paginas-e-cartas-de-vendas": {
+        "title": "Sales Pages and VSLs",
+        "shortDescription": "Persuasive narration for funnels and pages.",
+        "benefits": ["Increases conversion", "Maintains attention", "Guides the user", "Reinforces argument"],
+        "whyInvest": "The voice drives the decision.",
+        "objectionBreak": "Text alone doesn't always hold the user.",
+        "ctaText": "Increase conversion"
+      },
+      "podcasts-e-entrevistas": {
+        "title": "Podcasts and Interviews",
+        "shortDescription": "Professional voice for continuous content.",
+        "benefits": ["Improves experience", "Increases retention", "Professionalizes content", "Strengthens authority"],
+        "whyInvest": "Sound quality directly impacts stay duration.",
+        "objectionBreak": "Good content needs good delivery.",
+        "ctaText": "Professionalize my podcast"
+      },
+      "youtube-dublagens-alternativas": {
+        "title": "YouTube / Alternative Dubbing",
+        "shortDescription": "Voiceover for online audiovisual content.",
+        "benefits": ["Expands reach", "Improves retention", "Adapts content", "Professionalizes videos"],
+        "whyInvest": "Videos with professional voice perform better.",
+        "objectionBreak": "The voice influences more than you imagine.",
+        "ctaText": "Improve my videos"
+      },
+      "estilo-jornalistico": {
+        "title": "Journalistic Style",
+        "shortDescription": "Clear and objective voice for information.",
+        "benefits": ["Transmits credibility", "Facilitates comprehension", "Maintains rhythm", "Professionalizes content"],
+        "whyInvest": "Information needs to be clear and reliable.",
+        "objectionBreak": "Without clarity, the message is lost.",
+        "ctaText": "Produce professional content"
+      },
+      "artigos-em-audio": {
+        "title": "Audio Articles",
+        "shortDescription": "Transform texts into an auditory experience.",
+        "benefits": ["Increases consumption", "Expands reach", "Improves accessibility", "Repurposes content"],
+        "whyInvest": "Not everyone reads, but many listen.",
+        "objectionBreak": "Content can go beyond text.",
+        "ctaText": "Transform content into audio"
+      },
+      "audiobooks": {
+        "title": "Audiobooks",
+        "shortDescription": "Immersive experience for books.",
+        "benefits": ["Engages the listener", "Maintains rhythm", "Values the work", "Expands audience"],
+        "whyInvest": "The audio market is constantly growing.",
+        "objectionBreak": "Reading is not the only way to consume content.",
+        "ctaText": "Create audiobook"
+      },
+      "documentarios": {
+        "title": "Documentaries",
+        "shortDescription": "Engaging and informative narration.",
+        "benefits": ["Engages the public", "Gives depth", "Maintains interest", "Elevates production"],
+        "whyInvest": "The narrative drives the experience.",
+        "objectionBreak": "Without strong narrative, the content loses impact.",
+        "ctaText": "Narrate my project"
+      },
+      "narrativas-educacionais": {
+        "title": "Educational Narratives",
+        "shortDescription": "Teaching with clarity and involvement.",
+        "benefits": ["Facilitates learning", "Maintains attention", "Reduces cognitive effort", "Professionalizes teaching"],
+        "whyInvest": "The voice directly influences learning.",
+        "objectionBreak": "It's not just content, it's delivery.",
+        "ctaText": "Improve my educational content"
+      },
+      "personagens": {
+        "title": "Characters",
+        "shortDescription": "Unique voices for creative projects.",
+        "benefits": ["Creates identity", "Engages audience", "Differentiates content", "Gives life to the project"],
+        "whyInvest": "Characters generate emotional connection.",
+        "objectionBreak": "Without identity, the project loses strength.",
+        "ctaText": "Create character"
+      },
+      "voice-over": {
+        "title": "Voice Over",
+        "shortDescription": "Voice over images with fluidity.",
+        "benefits": ["Drives narrative", "Maintains rhythm", "Improves understanding", "Professionalizes video"],
+        "whyInvest": "The voice guides the visual experience.",
+        "objectionBreak": "Image without narrative loses strength.",
+        "ctaText": "Add voice to the project"
+      },
+      "eventos-e-cerimonias": {
+        "title": "Events and Ceremonies",
+        "shortDescription": "Live or recorded voiceover for events.",
+        "benefits": ["Organization", "Impact", "Professionalism", "Fluidity"],
+        "whyInvest": "Events need clear direction.",
+        "objectionBreak": "Improvisation can compromise the experience.",
+        "ctaText": "Professionalize event"
+      },
+      "apps-e-assistentes-virtuais": {
+        "title": "Apps and Virtual Assistants",
+        "shortDescription": "Functional and humanized voice for technology.",
+        "benefits": ["Improves UX", "Humanizes interface", "Facilitates use", "Increases engagement"],
+        "whyInvest": "Voice is part of the user experience.",
+        "objectionBreak": "Technology without humanized voice drives users away.",
+        "ctaText": "Create voice experience"
+      },
+      "meditacoes-espiritualidade": {
+        "title": "Meditations / Spirituality",
+        "shortDescription": "Calm and guided voice for relaxation.",
+        "benefits": ["Generates connection", "Increases immersion", "Improves experience", "Facilitates practice"],
+        "whyInvest": "The voice defines the level of experience.",
+        "objectionBreak": "Without proper guidance, the experience loses effect.",
+        "ctaText": "Create guided content"
+      },
+      "mensagens-para-whatsapp": {
+        "title": "Messages for WhatsApp",
+        "shortDescription": "Direct and humanized communication.",
+        "benefits": ["Increases response", "Humanizes brand", "Facilitates communication", "Improves conversion"],
+        "whyInvest": "Clear messages generate more response.",
+        "objectionBreak": "Text doesn't replace voice presence.",
+        "ctaText": "Improve communication"
+      },
+      "atendimento-em-redes-sociais": {
+        "title": "Social Media Customer Service",
+        "shortDescription": "Voice applied to digital relationships.",
+        "benefits": ["Humanizes interaction", "Increases connection", "Differentiates brand", "Improves experience"],
+        "whyInvest": "Relationship is a competitive differentiator.",
+        "objectionBreak": "Automation without humanity drives customers away.",
+        "ctaText": "Humanize service"
+      },
+      "campanhas-de-impacto-social": {
+        "title": "Social Impact Campaigns",
+        "shortDescription": "Voice with purpose and emotion.",
+        "benefits": ["Generates connection", "Amplifies message", "Engages public", "Increases reach"],
+        "whyInvest": "Social messages need to be felt.",
+        "objectionBreak": "Without emotion, the message doesn't impact.",
+        "ctaText": "Create campaign"
+      },
+      "conteudo-motivacional": {
+        "title": "Motivational Content",
+        "shortDescription": "Inspirational and engaging voice.",
+        "benefits": ["Engages audience", "Generates connection", "Increases retention", "Strengthens brand"],
+        "whyInvest": "Emotional content generates more engagement.",
+        "objectionBreak": "Without emotion, there is no connection.",
+        "ctaText": "Create inspirational content"
+      },
+      "identidade-sonora-branding-de-voz": {
+        "title": "Sound Identity / Voice Branding",
+        "shortDescription": "The voice as a strategic brand asset.",
+        "benefits": ["Differentiates in the market", "Creates recognition", "Standardizes communication", "Strengthens branding"],
+        "whyInvest": "Strong brands are recognized by sound.",
+        "objectionBreak": "Without sound identity, your brand is forgettable.",
+        "ctaText": "Build voice identity"
+      }
+    }
   }
 }

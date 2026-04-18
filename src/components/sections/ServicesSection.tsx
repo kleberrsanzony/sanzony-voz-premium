@@ -1,12 +1,12 @@
 "use client";
 
 import { services } from "@/data/content"
-import { Megaphone, Tv, Monitor, Mic2, Phone, Briefcase } from "lucide-react"
+import { Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 import { useLanguage } from "@/context/LanguageContext"
 
-const icons = [Tv, Monitor, Briefcase, Phone];
+const icons = [Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles];
 
 export default function ServicesSection() {
   const { t } = useLanguage();
@@ -31,7 +31,7 @@ export default function ServicesSection() {
           </Reveal>
 
           <StaggerGroup className="grid md:grid-cols-2 lg:grid-cols-4 gap-px rounded-md overflow-hidden bg-white/5 border border-white/5">
-            {t.sections.services.items.map((s, i) => {
+            {t.sections.services.items.map((s: any, i: number) => {
               const Icon = icons[i] || Megaphone;
               return (
                 <StaggerItem

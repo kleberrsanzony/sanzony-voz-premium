@@ -2,6 +2,7 @@
 
 import { useLanguage } from "@/context/LanguageContext";
 import { Globe, ChevronDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -15,10 +16,48 @@ const languages = [
   { code: "es", label: "Español", flag: "🇪🇸" },
 ] as const;
 
+// Map of localized routes for specific pages
+const routeMap: Record<string, Record<string, string>> = {
+  hub: {
+    pt: "/tipos-de-locucao",
+    en: "/en/voice-over-types",
+    es: "/es/tipos-de-locucion",
+  },
+  home: {
+    pt: "/",
+    en: "/en",
+    es: "/", // Fallback if no specific home ES
+  }
+};
+
 export default function LanguageSwitcher() {
   const { language, setLanguage } = useLanguage();
+  const pathname = usePathname();
+  const router = useRouter();
 
   const current = languages.find((l) => l.code === language) || languages[0];
+
+  const handleLanguageChange = (langCode: "pt" | "en" | "es") => {
+    // 1. Update Context
+    setLanguage(langCode);
+
+    // 2. Check if we are on a known localized route
+    let targetRoute = "";
+    
+    // Check Hub routes
+    if (Object.values(routeMap.hub).includes(pathname)) {
+      targetRoute = routeMap.hub[langCode];
+    } 
+    // Check Home routes
+    else if (pathname === "/" || pathname === "/en") {
+      targetRoute = routeMap.home[langCode];
+    }
+
+    // 3. Navigate if target route found and different from current
+    if (targetRoute && targetRoute !== pathname) {
+      router.push(targetRoute);
+    }
+  };
 
   return (
     <DropdownMenu>
@@ -33,7 +72,7 @@ export default function LanguageSwitcher() {
         {languages.map((lang) => (
           <DropdownMenuItem
             key={lang.code}
-            onClick={() => setLanguage(lang.code)}
+            onClick={() => handleLanguageChange(lang.code as "pt" | "en" | "es")}
             className={`flex items-center justify-between gap-4 cursor-pointer text-[0.7rem] uppercase tracking-widest font-bold py-2 ${
               language === lang.code ? "text-gold bg-white/5" : "text-muted-foreground hover:text-white"
             }`}

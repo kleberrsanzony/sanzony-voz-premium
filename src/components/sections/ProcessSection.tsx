@@ -4,9 +4,9 @@ import { steps } from "@/data/content"
 import { Reveal } from "@/components/ui/reveal"
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 import { useLanguage } from "@/context/LanguageContext"
-import { ClipboardList, Mic, Send } from "lucide-react"
+import { FileText, Compass, Mic2, Settings, Send } from "lucide-react"
 
-const icons = [ClipboardList, Mic, Send];
+const icons = [FileText, Compass, Mic2, Settings, Send];
 
 export default function ProcessSection() {
   const { t } = useLanguage();
@@ -30,8 +30,8 @@ export default function ProcessSection() {
           </Reveal>
 
           <StaggerGroup className="flex flex-col gap-6" staggerDelay={0.15}>
-            {t.sections.process.steps.map((s, i) => {
-              const Icon = icons[i] || ClipboardList;
+            {t.sections.process.steps.map((s: any, i: number) => {
+              const Icon = icons[i] || FileText;
               const stepNum = (i + 1).toString().padStart(2, '0');
               return (
                 <StaggerItem

@@ -26,28 +26,30 @@ O projeto é uma Landing Page de alto padrão ("Cinema Dark") desenvolvida para 
 
 ```text
 /src
-  /app              # Rotas e Layouts (App Router)
+  /app              # Rotas e Layouts (PT: /tipos-de-locucao | EN: /en/voice-over-types)
   /components
-    /sections       # Componentes de UI (Hero, Services, Demos, etc.)
-    /ui             # Componentes base e utilitários visuais
+    /sections       # Componentes de UI (Hero, TiposDeLocucaoHub, etc.)
+    /ui             # Componentes base e utilitários (LanguageSwitcher, etc.)
+    /i18n           # SetLanguage.tsx (Helper de sincronização de rota)
   /context          # LanguageContext.tsx (Gerenciamento de Estado Global)
   /locales          # pt.json, en.json, es.json (Dicionários de tradução)
-  /data             # content.ts (Configurações e dados estáticos fallback)
-  /services         # demoService.ts (Integração com Supabase)
+  /data             # voice-types.ts (Catálogo de 30 tipos de locução)
 ```
 
 ---
 
 ## 4. Sistemas Principais
 
-### A. Sistema de Internacionalização (i18n)
-Diferente de bibliotecas pesadas, utilizamos uma solução leve baseada em `Context API`:
-- **`LanguageContext`**: Detecta o idioma do navegador ou recupera do `localStorage`.
-- **Dicionários**: Arquivos JSON em `/src/locales` servem como fonte única de verdade para textos.
-- **Hook `useLanguage`**: Utilizado por componentes cliente para acessar o objeto `t` (translations).
+### A. Sistema de Internacionalização (i18n) e SEO
+Utilizamos uma arquitetura híbrida para máxima performance de SEO:
+- **Rotas Localizadas**: URLs amigáveis para cada idioma (ex: `/en/voice-over-types`), garantindo indexação independente.
+- **`LanguageContext`**: Gerencia o estado de tradução no lado do cliente.
+- **`SetLanguage`**: Componente helper que sincroniza o contexto global com a rota visitada.
+- **`LanguageSwitcher`**: Seletor de idiomas inteligente que redireciona o usuário para a rota localizada correspondente.
+- **Metadata Dinâmica**: Tags de SEO (title, description, hreflang, canonical) são geradas individualmente por rota e idioma.
 
 > [!IMPORTANT]
-> Todos os componentes que utilizam `useLanguage` devem obrigatoriamente incluir a diretiva `"use client";` no topo do arquivo.
+> Para novas rotas localizadas, utilize o componente `<SetLanguage lang="..." />` para garantir que o contexto de tradução acompanhe a URL.
 
 ### B. Sistema de Áudio (Audio Player Layer)
 - **Playback Exclusivo**: Garante que apenas um áudio seja reproduzido por vez.
@@ -80,8 +82,8 @@ Diferente de bibliotecas pesadas, utilizamos uma solução leve baseada em `Cont
 
 ## 7. Comandos Úteis
 - `npm run dev`: Inicia o ambiente de desenvolvimento.
-- `npm run build`: Gera o pacote de produção.
-- `git checkout stable-i18n-functional`: Restaura o site para a versão estável i18n.
+- `npm run build`: Gera o pacote de produção para validação.
+- `vercel --prod`: Faz o deploy definitivo para a produção.
 
 ---
 > [!NOTE]
