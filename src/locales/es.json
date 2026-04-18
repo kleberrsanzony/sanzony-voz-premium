@@ -75,7 +75,8 @@
     },
     "certificate": {
       "label": "Diferencial",
-      "title": "Audio Certificado Digitalmente.",
+      "title": "Audio Certificado",
+      "title_accent": "Digitalmente.",
       "desc": "Cada locución producida por el Studio Sanzony.Voz recibe un certificado digital de autenticidad con tecnología SHA-256, garantizando la integridad y la originalidad del audio.",
       "verify_cta": "Verificar un certificado",
       "features": [

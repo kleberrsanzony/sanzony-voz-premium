@@ -25,7 +25,8 @@ export default function CertificateSection() {
                 </div>
                 <span className="section-label block mb-6">{t.sections.certificate.label}</span>
                 <h2 className="font-display font-bold text-4xl md:text-5xl text-white tracking-tight leading-tight mb-6">
-                  {t.sections.certificate.title}
+                  {t.sections.certificate.title}{" "}
+                  <span className="text-[#e0c27a]">{t.sections.certificate.title_accent}</span>
                 </h2>
                 <p className="text-muted-foreground text-sm leading-relaxed mb-10 max-w-lg">
                   {t.sections.certificate.desc}

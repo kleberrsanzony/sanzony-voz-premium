@@ -75,9 +75,10 @@
     },
     "certificate": {
       "label": "Diferencial",
-      "title": "Áudio Certificado Digitalmente.",
+      "title": "Áudio Certificado",
+      "title_accent": "Digitalmente.",
       "desc": "Cada locução produzida pelo Studio Sanzony.Voz recebe um certificado digital de autenticidade com tecnologia SHA-256, garantindo a integridade e a originalidade do áudio.",
-      "verify_cta": "Validar Autenticidade",
+      "verify_cta": "Verificar um certificado",
       "features": [
         { "title": "Hash SHA-256 único", "desc": "Impressão digital criptográfica exclusiva gerada a partir do arquivo de áudio." },
         { "title": "Número sequencial rastreável", "desc": "Código no formato SVZ-ANO-MES-XXX para localização e auditoria rápida." },

@@ -75,9 +75,10 @@
     },
     "certificate": {
       "label": "Difference",
-      "title": "Digitally Certified Audio.",
+      "title": "Digitally Certified",
+      "title_accent": "Audio.",
       "desc": "Each voiceover produced by Studio Sanzony.Voz receives a digital certificate of authenticity with SHA-256 technology, ensuring the integrity and originality of the audio.",
-      "verify_cta": "Validate Authenticity",
+      "verify_cta": "Verify a certificate",
       "features": [
         { "title": "Unique SHA-256 Hash", "desc": "Exclusive cryptographic fingerprint generated from the audio file." },
         { "title": "Traceable Serial Number", "desc": "Code in SVZ-YEAR-MONTH-XXX format for quick location and auditing." },
