@@ -26,7 +26,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A forma como sua empresa se apresenta define como ela será percebida.",
     objectionBreak: "Não é sobre voz bonita, é sobre posicionamento estratégico.",
     ctaText: "Solicitar orçamento",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "locucao-corporativa",
@@ -42,7 +42,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Empresas fortes têm comunicação consistente em todos os pontos de contato.",
     objectionBreak: "Mesmo comunicações simples impactam a percepção da sua marca.",
     ctaText: "Falar com especialista",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "treinamentos-e-learning",
@@ -58,7 +58,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz influencia diretamente na absorção do conteúdo.",
     objectionBreak: "Não é só conteúdo — é experiência de aprendizado.",
     ctaText: "Solicitar narração para curso",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "ura-pabx-espera-telefonica",
@@ -74,7 +74,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Seu atendimento começa antes de qualquer conversa humana.",
     objectionBreak: "Uma má experiência inicial pode custar um cliente.",
     ctaText: "Quero profissionalizar meu atendimento",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "audiodescricao",
@@ -90,7 +90,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Acessibilidade não é opcional — é posicionamento.",
     objectionBreak: "Não é custo, é expansão de público.",
     ctaText: "Solicitar projeto de audiodescrição",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
 
   // 💡 Comerciais e Promocionais
@@ -108,7 +108,23 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "No varejo, cada segundo conta para vender.",
     objectionBreak: "Sem uma voz forte, sua oferta perde impacto.",
     ctaText: "Quero aumentar minhas vendas",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
+  },
+  {
+    id: "locucao-para-propaganda",
+    category: "Comerciais e Promocionais",
+    title: "Locução para Propaganda",
+    shortDescription: "Vozes de impacto para comerciais de TV, Rádio e Redes Sociais com padrão broadcast.",
+    benefits: [
+      "Vibração ideal para varejo e lançamentos",
+      "Tons aspiracionais para marcas premium",
+      "Alta persuasão Comercial",
+      "Entrega em tempo recorde"
+    ],
+    whyInvest: "Chame a atenção, desperte o desejo e converta com uma locução publicitária que vende.",
+    objectionBreak: "Não é apenas uma voz bonita — é técnica de vendas aplicada ao áudio.",
+    ctaText: "Solicitar Spot Agora",
+    ctaLink: "/briefing"
   },
   {
     id: "radio-indoor",
@@ -124,7 +140,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A experiência no ambiente impacta diretamente na decisão.",
     objectionBreak: "Silêncio ou som genérico não vendem.",
     ctaText: "Criar experiência sonora",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "manifestos-de-marca",
@@ -140,7 +156,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Marcas fortes são sentidas, não apenas vistas.",
     objectionBreak: "Sem emoção, sua mensagem não marca.",
     ctaText: "Criar manifesto de marca",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "assinaturas-e-frases-de-efeito",
@@ -156,7 +172,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Frases curtas podem ter impacto duradouro.",
     objectionBreak: "Detalhes constroem grandes marcas.",
     ctaText: "Criar assinatura sonora",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "vinhetas-de-impacto",
@@ -172,12 +188,12 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Primeiros segundos definem percepção.",
     objectionBreak: "Sem identidade, seu conteúdo se perde.",
     ctaText: "Criar vinheta profissional",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
 
   // 🎧 Conteúdo Digital e Streaming
   {
-    id: "reels-shorts-tiktok",
+    id: "voz-para-reels-shorts-tiktok",
     category: "Conteúdo Digital e Streaming",
     title: "Voz para Reels / Shorts / TikTok",
     shortDescription: "Locução estratégica para vídeos curtos de alto impacto.",
@@ -190,7 +206,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A atenção é disputada segundo a segundo.",
     objectionBreak: "Sem voz, seu conteúdo perde força.",
     ctaText: "Quero melhorar meus vídeos",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "videos-para-infoprodutores",
@@ -206,7 +222,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz impacta diretamente na decisão de compra.",
     objectionBreak: "Conteúdo bom precisa de apresentação forte.",
     ctaText: "Potencializar meus vídeos",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "paginas-e-cartas-de-vendas",
@@ -222,7 +238,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz conduz a decisão.",
     objectionBreak: "Texto sozinho nem sempre segura o usuário.",
     ctaText: "Aumentar conversão",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "podcasts-e-entrevistas",
@@ -238,7 +254,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Qualidade sonora impacta diretamente na permanência.",
     objectionBreak: "Conteúdo bom precisa de entrega boa.",
     ctaText: "Profissionalizar meu podcast",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "youtube-dublagens-alternativas",
@@ -254,7 +270,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Vídeos com voz profissional performam melhor.",
     objectionBreak: "A voz influencia mais do que você imagina.",
     ctaText: "Melhorar meus vídeos",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
 
   // 📚 Educação, Informação e Jornalismo
@@ -272,7 +288,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Informação precisa ser clara e confiável.",
     objectionBreak: "Sem clareza, a mensagem se perde.",
     ctaText: "Produzir conteúdo profissional",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "artigos-em-audio",
@@ -288,7 +304,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Nem todo mundo lê, mas muitos escutam.",
     objectionBreak: "Conteúdo pode ir além do texto.",
     ctaText: "Transformar conteúdo em áudio",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "audiobooks",
@@ -304,7 +320,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "O mercado de áudio cresce constantemente.",
     objectionBreak: "Leitura não é a única forma de consumir conteúdo.",
     ctaText: "Criar audiobook",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "documentarios",
@@ -320,7 +336,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A narrativa conduz a experiência.",
     objectionBreak: "Sem narrativa forte, o conteúdo perde impacto.",
     ctaText: "Narrar meu projeto",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "narrativas-educacionais",
@@ -336,7 +352,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz influencia diretamente na aprendizagem.",
     objectionBreak: "Não é só conteúdo, é entrega.",
     ctaText: "Melhorar meu conteúdo educacional",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
 
   // 🎭 Criativas e Experienciais
@@ -354,7 +370,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Personagens geram conexão emocional.",
     objectionBreak: "Sem identidade, o projeto perde força.",
     ctaText: "Criar personagem",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "voice-over",
@@ -370,7 +386,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz guia a experiência visual.",
     objectionBreak: "Imagem sem narrativa perde força.",
     ctaText: "Adicionar voz ao projeto",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "eventos-e-cerimonias",
@@ -386,7 +402,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Eventos precisam de condução clara.",
     objectionBreak: "Improviso pode comprometer experiência.",
     ctaText: "Profissionalizar evento",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "apps-e-assistentes-virtuais",
@@ -402,7 +418,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz é parte da experiência do usuário.",
     objectionBreak: "Tecnologia sem voz humanizada afasta usuários.",
     ctaText: "Criar experiência de voz",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "meditacoes-espiritualidade",
@@ -418,7 +434,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "A voz define o nível da experiência.",
     objectionBreak: "Sem condução adequada, a experiência perde efeito.",
     ctaText: "Criar conteúdo guiado",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
 
   // 💬 Relacionamento e Engajamento
@@ -436,7 +452,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Mensagens claras geram mais resposta.",
     objectionBreak: "Texto não substitui presença de voz.",
     ctaText: "Melhorar comunicação",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "atendimento-em-redes-sociais",
@@ -452,7 +468,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Relacionamento é diferencial competitivo.",
     objectionBreak: "Automação sem humanidade afasta clientes.",
     ctaText: "Humanizar atendimento",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "campanhas-de-impacto-social",
@@ -468,7 +484,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Mensagens sociais precisam ser sentidas.",
     objectionBreak: "Sem emoção, a mensagem não impacta.",
     ctaText: "Criar campanha",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "conteudo-motivacional",
@@ -484,7 +500,7 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Conteúdo emocional gera mais engajamento.",
     objectionBreak: "Sem emoção, não há conexão.",
     ctaText: "Criar conteúdo inspirador",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   },
   {
     id: "identidade-sonora-branding-de-voz",
@@ -500,6 +516,6 @@ export const voiceTypes: VoiceType[] = [
     whyInvest: "Marcas fortes são reconhecidas pelo som.",
     objectionBreak: "Sem identidade sonora, sua marca é esquecível.",
     ctaText: "Construir identidade de voz",
-    ctaLink: "/contato"
+    ctaLink: "/briefing"
   }
 ];

@@ -1,15 +1,38 @@
 "use client";
 
 import { services } from "@/data/content"
-import { Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles } from "lucide-react"
+import { Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles, ArrowRight } from "lucide-react"
 import { Reveal } from "@/components/ui/reveal"
 import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 import { useLanguage } from "@/context/LanguageContext"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
 
 const icons = [Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles];
 
+// Slugs mapping for each card index to source data IDs in voice-types.ts
+const cardSlugs = [
+  "locucao-para-propaganda",           // 0: Spots Comerciais
+  "vinhetas-de-impacto",              // 1: Vinhetas
+  "varejo",                           // 2: Chamadas para Rádio
+  "varejo",                           // 3: Carro de Som
+  "locucao-institucional",            // 4: Institucional
+  "voz-para-reels-shorts-tiktok",     // 5: Conteúdo Digital
+  "manifestos-de-marca",              // 6: Campanhas
+  "identidade-sonora-branding-de-voz" // 7: Branding Vocal
+];
+
 export default function ServicesSection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+
+  // Helper to get localized hub path
+  const getLocalizedHubPath = (slug?: string) => {
+    const hubBase = language === "pt" ? "/tipos-de-locucao" 
+                  : language === "en" ? "/en/voice-over-types" 
+                  : "/es/tipos-de-locucion";
+    
+    return slug ? `${hubBase}/${slug}` : hubBase;
+  };
 
   return (
     <section id="servicos" className="bg-black">
@@ -33,24 +56,52 @@ export default function ServicesSection() {
           <StaggerGroup className="grid md:grid-cols-2 lg:grid-cols-4 gap-px rounded-md overflow-hidden bg-white/5 border border-white/5">
             {t.sections.services.items.map((s: any, i: number) => {
               const Icon = icons[i] || Megaphone;
+              const slug = cardSlugs[i];
+              
               return (
-                <StaggerItem
-                  key={i}
-                  className="flex flex-col gap-5 p-10 bg-[#050505] hover:bg-white/5 transition-colors group cursor-default"
+                <Link 
+                  key={i} 
+                  href={getLocalizedHubPath(slug)}
+                  className="group block focus:outline-none focus:ring-1 focus:ring-[#e0c27a]/30"
                 >
-                  <div className="text-[#e0c27a] mb-2 group-hover:scale-110 transition-transform origin-left">
-                    <Icon size={20} />
-                  </div>
-                  <h3 className="font-display font-semibold text-lg tracking-wide text-white">
-                    {s.title}
-                  </h3>
-                  <p className="text-xs text-muted-foreground leading-relaxed">
-                    {s.desc}
-                  </p>
-                </StaggerItem>
+                  <StaggerItem
+                    className="flex flex-col h-full gap-5 p-10 bg-[#050505] hover:bg-white/[0.07] transition-all duration-300 cursor-pointer border border-transparent hover:border-[#e0c27a]/10"
+                  >
+                    <div className="text-[#e0c27a] mb-2 group-hover:scale-110 transition-transform origin-left duration-300">
+                      <Icon size={20} />
+                    </div>
+                    <h3 className="font-display font-semibold text-lg tracking-wide text-white group-hover:text-[#e0c27a] transition-colors">
+                      {s.title}
+                    </h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">
+                      {s.desc}
+                    </p>
+                    <div className="mt-auto pt-4 flex items-center gap-2 text-[#e0c27a]/0 group-hover:text-[#e0c27a]/60 transition-all duration-300 translate-x-[-10px] group-hover:translate-x-0">
+                      <span className="text-[0.6rem] uppercase tracking-widest font-bold">Explorar</span>
+                      <ArrowRight size={10} />
+                    </div>
+                  </StaggerItem>
+                </Link>
               );
             })}
           </StaggerGroup>
+
+          {/* Hub Entrance Block */}
+          <Reveal delay={0.2}>
+            <div className="mt-20 p-10 md:p-16 rounded-xl border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent text-center flex flex-col items-center">
+              <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+                {t.sections.services.hub.title}
+              </h3>
+              <p className="text-muted-foreground text-sm md:text-base max-w-xl mb-10 leading-relaxed">
+                {t.sections.services.hub.description}
+              </p>
+              <Button asChild variant="outline" className="border-[#e0c27a]/30 text-white hover:bg-[#e0c27a] hover:text-black transition-all px-8 h-12 rounded-sm uppercase tracking-widest text-xs font-bold">
+                <Link href={getLocalizedHubPath()}>
+                  {t.sections.services.hub.cta}
+                </Link>
+              </Button>
+            </div>
+          </Reveal>
         </div>
       </div>
     </section>

@@ -31,7 +31,7 @@ const headerItemVariants = {
 };
 
 export default function Header() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -41,12 +41,14 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const langPrefix = language === "en" ? "/en" : "";
+  
   const translatedNavLinks = [
-    { label: t.nav.home, href: "#inicio" },
-    { label: t.nav.demos, href: "#demos" },
-    { label: t.nav.services, href: "#servicos" },
-    { label: t.nav.process, href: "#processo" },
-    { label: t.nav.studio, href: "#estudio" },
+    { label: t.nav.home, href: `${langPrefix}/#inicio` },
+    { label: t.nav.demos, href: `${langPrefix}/#demos` },
+    { label: t.nav.services, href: `${langPrefix}/#servicos` },
+    { label: t.nav.process, href: `${langPrefix}/#processo` },
+    { label: t.nav.studio, href: `${langPrefix}/#estudio` },
   ];
 
   return (
@@ -63,7 +65,7 @@ export default function Header() {
         {/* Logo */}
         <motion.a
           variants={headerItemVariants}
-          href="#inicio"
+          href={`${langPrefix}/#inicio`}
           className="font-display font-bold text-xl md:text-2xl tracking-tight text-foreground transition-transform hover:scale-[1.02]"
           aria-label="Sanzony Voz - Página Inicial"
         >

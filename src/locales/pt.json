@@ -38,7 +38,7 @@
     "services": {
       "label": "Expertise",
       "title": "Soluções vocais para cada formato.",
-      "subtitle": "Cada tipo de projeto exige um approach vocal específico.",
+      "subtitle": "Da publicidade ao conteúdo digital, explore aplicações da voz para diferentes formatos e objetivos.",
       "items": [
         { "title": "Spots Comerciais", "desc": "Peças publicitárias com impacto e clareza para TV, rádio e digital." },
         { "title": "Vinhetas", "desc": "Assinaturas sonoras que fixam a identidade da marca no ouvido do público." },
@@ -48,7 +48,12 @@
         { "title": "Conteúdo Digital", "desc": "Locução adaptada para Reels, TikTok, YouTube e stories." },
         { "title": "Campanhas", "desc": "Direção vocal completa para campanhas integradas de grande alcance." },
         { "title": "Branding Vocal", "desc": "Criação de identidade sonora consistente para a sua marca." }
-      ]
+      ],
+      "hub": {
+        "title": "Explore todas as especialidades de locução",
+        "description": "Mais de 30 tipos de locução organizados por aplicação, formato e objetivo.",
+        "cta": "Ver todos os tipos de locução"
+      }
     },
     "process": {
       "label": "Metodologia",
@@ -219,7 +224,9 @@
       "authority_title": "Autoridade Vocal e Branding",
       "authority_desc": "A locução profissional vai além de uma voz bonita; trata-se de branding vocal estratégico. Seja para uma locução institucional que inspire confiança ou uma voz para comerciais que impulsione conversões, a escolha técnica do locutor impacta diretamente no seu ROI.",
       "scalability_title": "Escalabilidade de Conteúdo",
-      "scalability_desc": "Nossa estrutura de 30 tipos de locução cobre desde o digital dinâmico (VSL, Reels, TikTok) até o rádio e televisão tradicionais. Garantimos qualidade broadcast em todos os formatos, preservando a identidade da sua marca em todos os pontos de contato."
+      "scalability_desc": "Nossa estrutura de 30 tipos de locução cobre desde o digital dinâmico (VSL, Reels, TikTok) até o rádio e televisão tradicionais. Garantimos qualidade broadcast em todos os formatos, preservando a identidade da sua marca em todos os pontos de contato.",
+      "related_title": "Especialidades Relacionadas",
+      "explore_more": "Explorar outras aplicações da voz que complementam o seu projeto e fortalecem sua autoridade sonoro."
     },
     "items": {
       "locucao-institucional": {
@@ -270,6 +277,14 @@
         "objectionBreak": "Sem uma voz forte, sua oferta perde impacto.",
         "ctaText": "Quero aumentar minhas vendas"
       },
+      "locucao-para-propaganda": {
+        "title": "Locução para Propaganda",
+        "shortDescription": "Vozes de impacto para comerciais de TV, Rádio e Redes Sociais com padrão broadcast.",
+        "benefits": ["Vibração ideal para varejo e lançamentos", "Tons aspiracionais para marcas premium", "Alta persuasão Comercial", "Entrega em tempo recorde"],
+        "whyInvest": "Chame a atenção, desperte o desejo e converta com uma locução publicitária que vende.",
+        "objectionBreak": "Não é apenas uma voz bonita — é técnica de vendas aplicada ao áudio.",
+        "ctaText": "Solicitar Spot Agora"
+      },
       "radio-indoor": {
         "title": "Rádio Indoor",
         "shortDescription": "Comunicação estratégica dentro de ambientes comerciais.",
@@ -302,7 +317,7 @@
         "objectionBreak": "Sem identidade, seu conteúdo se perde.",
         "ctaText": "Criar vinheta profissional"
       },
-      "reels-shorts-tiktok": {
+      "voz-para-reels-shorts-tiktok": {
         "title": "Voz para Reels / Shorts / TikTok",
         "shortDescription": "Locução estratégica para vídeos curtos de alto impacto.",
         "benefits": ["Aumenta retenção", "Melhora performance", "Destaca conteúdo", "Aumenta engajamento"],

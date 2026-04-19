@@ -2,58 +2,50 @@ import type { Metadata } from "next";
 import Header from "@/components/sections/Header";
 import Footer from "@/components/sections/Footer";
 import { Reveal } from "@/components/ui/reveal";
-import { Megaphone, Tv, Smartphone, PlayCircle, Radio, BarChart3, Clock } from "lucide-react";
+import { Megaphone, Tv, Smartphone, PlayCircle, Radio, BarChart3, Clock, HelpCircle, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import SetLanguage from "@/components/i18n/SetLanguage";
 
 export const metadata: Metadata = {
   title: "Locução para Propaganda e Publicidade | Studio Sanzony Voz",
   description: "Vozes de impacto para comerciais de TV, Rádio e Redes Sociais. Locução vibrante e persuasiva para campanhas publicitárias de alto alcance.",
   alternates: {
-    canonical: "/locucao-para-propaganda",
+    canonical: "https://www.sanzonyvoz.com.br/locucao-para-propaganda",
+    languages: {
+      "pt-BR": "https://www.sanzonyvoz.com.br/locucao-para-propaganda",
+    },
   },
+  openGraph: {
+    title: "Locução para Propaganda: A Voz que Transforma Campanhas",
+    description: "Chame a atenção, desperte o desejo e converta com uma locução publicitária que vende.",
+    url: "https://www.sanzonyvoz.com.br/locucao-para-propaganda",
+    type: "article",
+  }
 };
 
 export default function LocucaoPropagandaPage() {
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.sanzonyvoz.com.br" },
-          { "@type": "ListItem", "position": 2, "name": "Locução para Propaganda", "item": "https://www.sanzonyvoz.com.br/locucao-para-propaganda" }
-        ]
-      },
-      {
-        "@type": "FAQPage",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Como escolher a voz certa para uma campanha publicitária?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "A escolha depende do público-alvo e do objetivo da campanha. Vozes vibrantes funcionam bem para varejo, enquanto tons suaves e aspiracionais são ideais para marcas de luxo ou tecnologia."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Qual o prazo de entrega para spots de rádio e TV?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Trabalhamos com o padrão broadcast de agilidade, entregando a maioria dos spots comerciais em até 24h úteis após o briefing."
-            }
-          }
-        ]
-      }
-    ]
-  };
+  const faqData = [
+    {
+      q: "Como escolher a voz certa para uma campanha publicitária?",
+      a: "A escolha depende do público-alvo e do objetivo da campanha. Vozes vibrantes funcionam bem para varejo, enquanto tons suaves e aspiracionais são ideais para marcas de luxo ou tecnologia."
+    },
+    {
+      q: "Qual o prazo de entrega para spots de rádio e TV?",
+      a: "Trabalhamos com o padrão broadcast de agilidade, entregando a maioria dos spots comerciais em até 24h úteis após o briefing."
+    },
+    {
+      q: "Vocês gravam trilhas ou fazem apenas a locução?",
+      a: "Focamos na locução e interpretação de elite. No entanto, entregamos o arquivo de voz limpo e masterizado, pronto para que seu produtor de áudio faça a mixagem final com a trilha."
+    },
+    {
+      q: "O estúdio é próprio ou terceirizado?",
+      a: "Sanzony possui estúdio próprio com tratamento acústico profissional e equipamentos de ponta, garantindo consistência técnica em todas as gravações."
+    }
+  ];
 
   return (
     <main className="min-h-screen bg-black">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <SetLanguage lang="pt" />
       <Header />
       
       {/* Hero Section */}
@@ -71,7 +63,7 @@ export default function LocucaoPropagandaPage() {
         </div>
       </section>
 
-      {/* Content Section 1: Versatilidade */}
+      {/* Content Section: Versatilidade */}
       <section className="py-24 border-t border-white/5">
         <div className="container-site">
           <div className="grid md:grid-cols-2 gap-16 items-center">
@@ -93,23 +85,24 @@ export default function LocucaoPropagandaPage() {
                 </div>
               </div>
             </Reveal>
-            <div className="relative aspect-video bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden">
+            <div className="relative aspect-video bg-white/5 rounded-2xl border border-white/10 flex items-center justify-center overflow-hidden shadow-2xl">
               <Megaphone size={80} className="text-[#e0c27a] opacity-10" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-gold/5 to-transparent" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* DEEP CONTENT: Context / Applications / Standards */}
+      {/* Strategic Pillars */}
       <section className="py-24 bg-[#050505] border-y border-white/5">
         <div className="container-site">
           <div className="grid md:grid-cols-3 gap-8">
             <Reveal delay={0.1}>
               <div className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl h-full flex flex-col">
                 <div className="text-gold mb-6"><PlayCircle size={24} /></div>
-                <h3 className="text-white font-display font-bold text-xl mb-4 text-left">Quando escolher?</h3>
+                <h3 className="text-white font-display font-bold text-xl mb-4 text-left">Gatilhos de Venda</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Essencial para campanhas que precisam de "Call to Action" imediato. Se o seu projeto busca um <Link href="/locucao-profissional" className="text-gold hover:underline">locutor profissional</Link> vibrante para impulsionar vendas ou lançamentos, este é o tier ideal.
+                  Essencial para campanhas que precisam de "Call to Action" imediato. Se o seu projeto busca um <Link href="/tipos-de-locucao/locucao-profissional" className="text-gold hover:underline">locutor profissional</Link> vibrante para impulsionar vendas, este é o tier ideal.
                 </p>
               </div>
             </Reveal>
@@ -118,16 +111,16 @@ export default function LocucaoPropagandaPage() {
                 <div className="text-gold mb-6"><BarChart3 size={24} /></div>
                 <h3 className="text-white font-display font-bold text-xl mb-4 text-left">Foco em Resultados</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Uma boa <Link href="/branding-vocal" className="text-gold hover:underline">identidade sonora</Link> na publicidade aumenta a lembrança de marca em até 40%. Nossa locução é pensada para maximizar esses indicadores de lembrança e conversão comercial.
+                  Uma boa <Link href="/tipos-de-locucao/identidade-sonora-branding-de-voz" className="text-gold hover:underline">identidade sonora</Link> na publicidade aumenta a lembrança de marca em até 40%. Nossa locução é pensada para maximizar esses indicadores.
                 </p>
               </div>
             </Reveal>
             <Reveal delay={0.3}>
               <div className="p-10 bg-white/[0.02] border border-white/5 rounded-3xl h-full flex flex-col">
                 <div className="text-gold mb-6"><Clock size={24} /></div>
-                <h3 className="text-white font-display font-bold text-xl mb-4 text-left">Rapidez Broadcast</h3>
+                <h3 className="text-white font-display font-bold text-xl mb-4 text-left">Padrão Broadcast</h3>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  O mercado publicitário não para. Oferecemos um workflow otimizado que garante agilidade total sem sacrificar o padrão de <Link href="/locucao-premium" className="text-gold hover:underline">locução premium</Link> exigido pelas grandes agências.
+                  O mercado publicitário não para. Oferecemos um workflow otimizado que garante agilidade total sem sacrificar o padrão de <Link href="/tipos-de-locucao/locucao-premium" className="text-gold hover:underline">locução premium</Link> exigido.
                 </p>
               </div>
             </Reveal>
@@ -135,14 +128,41 @@ export default function LocucaoPropagandaPage() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section className="py-24 border-b border-white/5">
+        <div className="container-site">
+          <Reveal>
+            <div className="mb-16 text-center">
+              <h2 className="font-display font-bold text-3xl md:text-5xl text-white mb-4">Ad FAQ</h2>
+              <p className="text-muted-foreground">Esclareça suas dúvidas sobre locução publicitária.</p>
+            </div>
+          </Reveal>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {faqData.map((item, i) => (
+              <Reveal key={i} delay={i * 0.1}>
+                <div className="p-8 rounded-2xl bg-white/[0.01] border border-white/5">
+                  <h3 className="text-white font-display font-bold text-lg mb-3 flex items-center gap-3">
+                    <HelpCircle size={18} className="text-gold shrink-0" />
+                    {item.q}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed pl-7">
+                    {item.a}
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Internal Navigation Mesh */}
-      <section className="py-16 border-b border-white/5">
+      <section className="py-16 border-b border-white/5 bg-black">
         <div className="container-site">
            <div className="flex flex-wrap justify-center gap-10 text-[0.65rem] uppercase tracking-widest text-muted-foreground font-medium">
-            <Link href="/" className="hover:text-gold transition-colors">Página Inicial</Link>
-            <Link href="/locucao-premium" className="hover:text-gold transition-colors">Premium</Link>
-            <Link href="/faq" className="hover:text-gold transition-colors">Suporte Técnico</Link>
-            <Link href="/en" className="hover:text-gold transition-colors">International Quotes</Link>
+            <Link href="/" className="hover:text-gold transition-colors">Home</Link>
+            <Link href="/tipos-de-locucao/locucao-para-propaganda" className="hover:text-gold transition-colors">Catálogo Publicidade</Link>
+            <Link href="/tipos-de-locucao/vinhetas-de-impacto" className="hover:text-gold transition-colors">Vinhetas</Link>
+            <Link href="/quanto-custa-locucao" className="hover:text-gold transition-colors">Quanto Custa?</Link>
            </div>
         </div>
       </section>
@@ -160,9 +180,9 @@ export default function LocucaoPropagandaPage() {
               <Link 
                 href="/briefing" 
                 className="inline-flex h-16 items-center justify-center px-10 bg-gold text-black font-display font-bold text-sm uppercase tracking-[0.2em] hover:brightness-110 active:scale-95 transition-all rounded-md shadow-[0_0_30px_rgba(224,194,122,0.2)]"
-                aria-label="Dar início ao briefing para contratar locução publicitária de alto impacto"
+                aria-label="Contratar locução para propaganda agora"
               >
-                Solicitar Spot Agora
+                Solicitar Spot Agora <ArrowRight size={16} className="ml-2" />
               </Link>
             </Reveal>
           </div>

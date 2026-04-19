@@ -38,7 +38,7 @@
     "services": {
       "label": "Expertise",
       "title": "Vocal solutions for every format.",
-      "subtitle": "Each type of project requires a specific vocal approach.",
+      "subtitle": "From advertising to digital content, explore voice applications for different formats and goals.",
       "items": [
         { "title": "Commercial Spots", "desc": "Advertising pieces with impact and clarity for TV, radio, and digital." },
         { "title": "Jingles", "desc": "Sound signatures that fix the brand identity in the audience's ear." },
@@ -48,7 +48,12 @@
         { "title": "Digital Content", "desc": "Voiceover adapted for Reels, TikTok, YouTube, and stories." },
         { "title": "Campaigns", "desc": "Complete vocal direction for integrated high-reach campaigns." },
         { "title": "Vocal Branding", "desc": "Creation of consistent sound identity for your brand." }
-      ]
+      ],
+      "hub": {
+        "title": "Explore all voiceover specialties",
+        "description": "More than 30 voiceover types organized by application, format, and objective.",
+        "cta": "See all voiceover types"
+      }
     },
     "process": {
       "label": "Methodology",
@@ -219,7 +224,9 @@
       "authority_title": "Vocal Authority and Branding",
       "authority_desc": "Professional voiceover goes beyond a beautiful voice; it's about strategic vocal branding. Whether for a corporate video that inspires trust or a commercial voice that drives conversions, the narrator's technical choice directly impacts your ROI.",
       "scalability_title": "Content Scalability",
-      "scalability_desc": "Our 30-type voiceover structure covers everything from dynamic digital (VSL, Reels, TikTok) to traditional radio and television. We guarantee broadcast quality across all formats, preserving your brand's identity at every touchpoint."
+      "scalability_desc": "Our 30-type voiceover structure covers everything from dynamic digital (VSL, Reels, TikTok) to traditional radio and television. We guarantee broadcast quality across all formats, preserving your brand's identity at every touchpoint.",
+      "related_title": "Related Specialties",
+      "explore_more": "Explore other voice applications that complement your project and strengthen your vocal authority."
     },
     "items": {
       "locucao-institucional": {
@@ -270,6 +277,14 @@
         "objectionBreak": "Without a strong voice, your offer loses impact.",
         "ctaText": "I want to increase my sales"
       },
+      "locucao-para-propaganda": {
+        "title": "Advertising Voiceover",
+        "shortDescription": "High-impact voices for TV, Radio, and Social Media commercials with broadcast standards.",
+        "benefits": ["Ideal vibration for retail and launches", "Aspirational tones for premium brands", "High commercial persuasion", "Record-time delivery"],
+        "whyInvest": "Grab attention, spark desire, and convert with advertising voiceover that sells.",
+        "objectionBreak": "It's not just a pretty voice — it's sales technique applied to audio.",
+        "ctaText": "Request Spot Now"
+      },
       "radio-indoor": {
         "title": "In-store Radio",
         "shortDescription": "Strategic communication within commercial environments.",
@@ -302,7 +317,7 @@
         "objectionBreak": "Without identity, your content gets lost.",
         "ctaText": "Create professional stinger"
       },
-      "reels-shorts-tiktok": {
+      "voz-para-reels-shorts-tiktok": {
         "title": "Voice for Reels / Shorts / TikTok",
         "shortDescription": "Strategic voiceover for high-impact short videos.",
         "benefits": ["Increases retention", "Improves performance", "Highlights content", "Increases engagement"],

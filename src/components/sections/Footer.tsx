@@ -3,15 +3,16 @@ import { useLanguage } from "@/context/LanguageContext"
 import Link from "next/link"
 
 export default function Footer() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const currentYear = new Date().getFullYear();
+  const langPrefix = language === "en" ? "/en" : "";
 
   const translatedFooterLinks = [
-    { label: t.nav.home, href: "#inicio" },
-    { label: t.nav.demos, href: "#demos" },
-    { label: t.nav.services, href: "#servicos" },
-    { label: t.nav.process, href: "#processo" },
-    { label: t.nav.studio, href: "#estudio" },
+    { label: t.nav.home, href: `${langPrefix}/#inicio` },
+    { label: t.nav.demos, href: `${langPrefix}/#demos` },
+    { label: t.nav.services, href: `${langPrefix}/#servicos` },
+    { label: t.nav.process, href: `${langPrefix}/#processo` },
+    { label: t.nav.studio, href: `${langPrefix}/#estudio` },
     { label: t.nav.briefing, href: "/briefing" },
     { label: "FAQ", href: "/faq" },
   ];
