@@ -38,7 +38,7 @@ export async function middleware(request: NextRequest) {
 
   // 4. Rate Limiting Logic for /login
   if (request.nextUrl.pathname.startsWith('/login') && request.method === 'POST') {
-    const ip = request.ip || 'anonymous';
+    const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || 'anonymous';
     const now = Date.now();
     const windowMs = 60 * 1000; // 1 minute
     const limit = 5;
