@@ -5,6 +5,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { DollarSign, Wallet, ArrowRight, CheckCircle2, FileText, Clock, HelpCircle } from "lucide-react";
 import Link from "next/link";
 import SetLanguage from "@/components/i18n/SetLanguage";
+import { ValueBreakdownChart } from "@/components/illustrations/ValueBreakdownChart";
 
 export const metadata: Metadata = {
   title: "Quanto Custa uma Locução Profissional em 2026? Tabela e Valores",
@@ -88,16 +89,9 @@ export default function QuantoCustaLocucaoPage() {
                 ))}
               </ul>
             </Reveal>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl text-center">
-                <DollarSign size={32} className="text-gold mx-auto mb-4 opacity-50" />
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">Transparência</span>
-              </div>
-              <div className="p-8 bg-white/[0.02] border border-white/5 rounded-2xl text-center">
-                <Wallet size={32} className="text-gold mx-auto mb-4 opacity-50" />
-                <span className="text-xs uppercase tracking-widest text-muted-foreground">Custo-Benefício</span>
-              </div>
-            </div>
+            <Reveal delay={0.2} blur={false}>
+              <ValueBreakdownChart />
+            </Reveal>
           </div>
         </div>
       </section>

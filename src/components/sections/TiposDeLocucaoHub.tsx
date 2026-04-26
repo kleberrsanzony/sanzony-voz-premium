@@ -5,6 +5,7 @@ import { VoiceTypeItem } from "@/components/sections/VoiceTypeItem";
 import { Accordion } from "@/components/ui/accordion";
 import { voiceTypes } from "@/data/voice-types";
 import { useLanguage } from "@/context/LanguageContext";
+import { VoiceJourneyDiagram } from "@/components/illustrations/VoiceJourneyDiagram";
 
 export default function TiposDeLocucaoHub() {
   const { t } = useLanguage();
@@ -62,6 +63,11 @@ export default function TiposDeLocucaoHub() {
           </p>
         </div>
       </section>
+
+      {/* Voice Journey Connector */}
+      <div className="container-site">
+        <VoiceJourneyDiagram />
+      </div>
 
       {/* Categories Section */}
       <section className="pb-32">

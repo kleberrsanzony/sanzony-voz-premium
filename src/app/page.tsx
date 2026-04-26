@@ -3,6 +3,7 @@ import Header from "@/components/sections/Header";
 import Hero from "@/components/sections/Hero";
 import DemoSection from "@/components/sections/DemoSection";
 import PositioningSection from "@/components/sections/PositioningSection";
+import ImpactSection from "@/components/sections/ImpactSection";
 import ServicesSection from "@/components/sections/ServicesSection";
 import ProcessSection from "@/components/sections/ProcessSection";
 import StudioSection from "@/components/sections/StudioSection";
@@ -25,6 +26,7 @@ export default function Home() {
       <DemoSection />
       <div className="section-divider" />
       <PositioningSection />
+      <ImpactSection />
       <div className="section-divider" />
       <ServicesSection />
       <div className="section-divider" />

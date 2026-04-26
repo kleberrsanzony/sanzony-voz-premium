@@ -36,11 +36,18 @@ const LoginPage = () => {
 
     const { error } = await supabase.auth.signInWithPassword({ email, password });
     if (error) {
-      toast({ title: "Erro ao entrar", description: error.message, variant: "destructive" });
+      // Anti-enumeration: unified error message
+      toast({ 
+        title: "Erro ao entrar", 
+        description: "E-mail ou senha incorretos", 
+        variant: "destructive" 
+      });
       setLoading(false);
       return;
     }
 
+    // Protection against session fixation: Supabase handles this by generating a new session on sign in.
+    
     router.push("/admin");
     setLoading(false);
   };

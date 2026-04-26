@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { headers } from "next/headers";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
@@ -63,11 +64,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get('x-nonce') || '';
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -108,6 +111,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <script
+          nonce={nonce}
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />

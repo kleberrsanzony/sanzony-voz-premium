@@ -7,6 +7,7 @@ import { StaggerGroup, StaggerItem } from "@/components/ui/stagger"
 import { useLanguage } from "@/context/LanguageContext"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { AbstractParticles } from "@/components/illustrations/AbstractParticles"
 
 const icons = [Megaphone, Radio, Volume2, Truck, Building2, MonitorPlay, Target, Sparkles];
 
@@ -88,8 +89,10 @@ export default function ServicesSection() {
 
           {/* Hub Entrance Block */}
           <Reveal delay={0.2}>
-            <div className="mt-20 p-10 md:p-16 rounded-xl border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent text-center flex flex-col items-center">
-              <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
+            <div className="relative mt-20 p-10 md:p-16 rounded-xl border border-white/5 bg-gradient-to-b from-white/[0.02] to-transparent text-center flex flex-col items-center overflow-hidden">
+              <AbstractParticles />
+              <div className="relative z-10">
+                <h3 className="font-display font-bold text-2xl md:text-3xl text-white mb-4">
                 {t.sections.services.hub.title}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base max-w-xl mb-10 leading-relaxed">
@@ -100,6 +103,7 @@ export default function ServicesSection() {
                   {t.sections.services.hub.cta}
                 </Link>
               </Button>
+              </div>
             </div>
           </Reveal>
         </div>
