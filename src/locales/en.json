@@ -9,12 +9,12 @@
   },
   "hero": {
     "label": "Premium Voiceover & Vocal Branding",
-    "line1": "Your brand doesn't",
-    "line2": "need just a voice.",
-    "line3": "It needs presence.",
-    "subtitle": "Premium voiceover for campaigns, brands, and projects that demand more than just sound.",
-    "cta_main": "Hear Demos",
-    "cta_sec": "Request Quote",
+    "line1": "Transform your brand",
+    "line2": "into sonic",
+    "line3": "presence.",
+    "subtitle": "Over 20 years giving voice to projects that demand excellence.",
+    "cta_main": "Request voiceover now",
+    "cta_sec": "Hear demos",
     "scroll": "Explore"
   },
   "sections": {
@@ -22,6 +22,19 @@
       "label": "Portfolio",
       "title": "Demos",
       "subtitle": "Explore versatility and technique across different voice-over styles."
+    },
+    "authority": {
+      "title": "Experience you can hear. Authority you can recognize.",
+      "desc": "With over 20 years of experience in professional voiceover, each project is handled with technical precision, vocal sensitivity, and broadcast quality standards."
+    },
+    "differentials": {
+      "items": [
+        "Over 20 years of experience in professional voiceover",
+        "Strategic vocal interpretation — it's not just reading text",
+        "Broadcast-level audio quality",
+        "Fast delivery with premium standards",
+        "Vocal direction based on real market experience"
+      ]
     },
     "positioning": {
       "label": "Voice Signature",
@@ -94,10 +107,10 @@
     },
     "cta": {
       "label": "Next Steps",
-      "title": "Ready to give voice",
-      "title_accent": "to your project?",
+      "title": "Give voice to your brand with someone who has",
+      "title_accent": "over 20 years of experience.",
       "subtitle": "Request a quote today. Send your script or briefing and discover how we can elevate your brand's perceived value.",
-      "button_briefing": "Hire & Send Brief",
+      "button_briefing": "Request voiceover now",
       "button_whatsapp": "Direct WhatsApp",
       "footer": "Fast responses / Guaranteed confidentiality"
     },

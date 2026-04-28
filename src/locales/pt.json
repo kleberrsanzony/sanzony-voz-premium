@@ -9,12 +9,12 @@
   },
   "hero": {
     "label": "Locução Premium & Branding Vocal",
-    "line1": "Sua marca não",
-    "line2": "precisa de uma voz.",
-    "line3": "Precisa de presença.",
-    "subtitle": "Locução premium para campanhas, marcas e projetos que exigem mais do que som.",
-    "cta_main": "Ouvir Demos",
-    "cta_sec": "Solicitar Orçamento",
+    "line1": "Transforme sua marca",
+    "line2": "em presença",
+    "line3": "sonora.",
+    "subtitle": "Mais de 20 anos dando voz a projetos que exigem excelência.",
+    "cta_main": "Solicitar locução agora",
+    "cta_sec": "Ouvir demos",
     "scroll": "Explorar"
   },
   "sections": {
@@ -22,6 +22,19 @@
       "label": "Portfólio",
       "title": "Demos",
       "subtitle": "Explore a versatilidade e a técnica em diferentes estilos de locução."
+    },
+    "authority": {
+      "title": "Experiência que se ouve. Autoridade que se reconhece.",
+      "desc": "Com mais de 20 anos de experiência em locução profissional, cada projeto é tratado com precisão técnica, sensibilidade vocal e padrão de qualidade broadcast."
+    },
+    "differentials": {
+      "items": [
+        "Mais de 20 anos de experiência em locução profissional",
+        "Interpretação vocal estratégica — não é só leitura de texto",
+        "Qualidade de áudio nível broadcast",
+        "Entrega rápida com padrão premium",
+        "Direção vocal baseada em experiência real de mercado"
+      ]
     },
     "positioning": {
       "label": "Assinatura Vocal",
@@ -94,10 +107,10 @@
     },
     "cta": {
       "label": "Próximos Passos",
-      "title": "Pronto para dar voz",
-      "title_accent": "ao seu projeto?",
+      "title": "Dê voz à sua marca com quem tem",
+      "title_accent": "mais de 20 anos de experiência.",
       "subtitle": "Solicite um orçamento hoje mesmo. Envie seu roteiro ou briefing e descubra como podemos elevar o valor percebido da sua marca.",
-      "button_briefing": "Iniciar Briefing Elite",
+      "button_briefing": "Solicitar locução agora",
       "button_whatsapp": "WhatsApp Direto",
       "footer": "Respostas rápidas / Confidencialidade garantida"
     },
