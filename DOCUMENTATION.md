@@ -59,6 +59,17 @@ Utilizamos uma arquitetura híbrida para máxima performance de SEO:
 - **Hash SHA-256**: Gerado para cada entrega de áudio, garantindo originalidade.
 - **Página de Verificação**: Rota `/verificar` e `/verificar/[id]` para auditoria pública de arquivos.
 
+### D. Blindagem de Segurança (Hardening)
+O projeto utiliza um sistema de blindagem multinível baseado no padrão OWASP Top 10:
+- **Middleware de Segurança**: Gerencia CSP dinâmica com Nonce, Rate Limiting (login), proteção CSRF e bloqueio de arquivos sensíveis.
+- **Supabase SSR**: Migração total para cookies `HttpOnly; Secure; SameSite=Strict` para gestão de sessão, eliminando vulnerabilidades de `localStorage`.
+- **Headers HSTS Preload**: Configuração de 2 anos de validade para inclusão na lista nativa dos navegadores.
+- **Headers de Infraestrutura**: Bloqueio de Clickjacking (`X-Frame-Options: DENY`) e MIME-sniffing.
+- **Anti-Enumeração**: Mensagens de erro de autenticação unificadas.
+
+> [!NOTE]
+> Para detalhes completos das implementações, consulte o [SECURITY_REPORT.md](./SECURITY_REPORT.md).
+
 ---
 
 ## 5. Guia de Manutenção e Edição

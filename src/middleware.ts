@@ -13,6 +13,17 @@ const SENSITIVE_FILES = [
 ];
 
 export async function middleware(request: NextRequest) {
+  // 0. Manual Apex to WWW Redirect for HSTS Preload Compliance
+  const host = request.headers.get('host');
+  if (host === 'sanzonyvoz.com.br') {
+    const url = request.nextUrl.clone();
+    url.hostname = 'www.sanzonyvoz.com.br';
+    const response = NextResponse.redirect(url, 308);
+    // Explicitly set the full HSTS header for the redirect response
+    response.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
+    return response;
+  }
+
   // 1. Block forbidden HTTP methods
   if (['TRACE', 'TRACK'].includes(request.method)) {
     return new NextResponse('Method Not Allowed', { status: 405 });
@@ -72,10 +83,11 @@ export async function middleware(request: NextRequest) {
   const cspHeader = `
     default-src 'self';
     script-src 'self' 'nonce-${nonce}' 'strict-dynamic' ${process.env.NODE_ENV === 'development' ? "'unsafe-eval'" : ''};
-    style-src 'self' 'nonce-${nonce}';
+    style-src 'self' 'unsafe-inline';
     img-src 'self' data: https:;
     font-src 'self';
     connect-src 'self' https://*.supabase.co wss://*.supabase.co;
+    media-src 'self' https://*.supabase.co;
     frame-ancestors 'none';
     base-uri 'self';
     form-action 'self';
@@ -87,7 +99,7 @@ export async function middleware(request: NextRequest) {
   supabaseResponse.headers.set('Content-Security-Policy', cspHeader);
   
   // Reinforced HSTS for Preload eligibility
-  supabaseResponse.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  supabaseResponse.headers.set('Strict-Transport-Security', 'max-age=63072000; includeSubDomains; preload');
 
   return supabaseResponse;
 }

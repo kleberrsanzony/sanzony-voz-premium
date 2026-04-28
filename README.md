@@ -8,18 +8,20 @@ Landing Page de alto padrão ("Cinema Dark") desenvolvida para a marca **Sanzony
 - **Experiência de Áudio**: Players customizados com visualização de ondas e controle de volume broadcast.
 - **Certificação Digital**: Sistema de autenticidade de áudio via hash SHA-256 e QR Code.
 - **Briefing Inteligente**: Formulário técnico integrado ao Supabase para captação de leads qualificados.
+- **Blindagem de Segurança**: Implementação rigorosa de headers (HSTS Preload, CSP com Nonce), Rate Limiting, CSRF e Supabase SSR.
 
 ## 🛠️ Tecnologias
 
 - **Framework:** Next.js 15+ (App Router)
 - **Estilização:** Tailwind CSS 4.0
 - **Animações:** Framer Motion 12+
-- **Backend/Auth:** Supabase
-- **Infra:** Vercel
+- **Backend/Auth:** Supabase (SSR Auth)
+- **Infra:** Vercel (HSTS Preload Ready)
 
 ## 🔗 Links Úteis
 
-- **Produção:** [https://sanzony-voz-premium.vercel.app](https://sanzony-voz-premium.vercel.app)
+- **Produção:** [https://www.sanzonyvoz.com.br](https://www.sanzonyvoz.com.br)
+- **Relatório de Segurança:** [SECURITY_REPORT.md](./SECURITY_REPORT.md)
 - **Admin:** [/admin](https://sanzony-voz-premium.vercel.app/admin) (Acesso restrito)
 - **Briefing:** [/briefing](https://sanzony-voz-premium.vercel.app/briefing)
 

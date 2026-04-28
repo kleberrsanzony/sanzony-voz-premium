@@ -88,11 +88,11 @@ curl -X POST https://seu-dominio.com/login
 ## 5. PRÓXIMOS PASSOS (MANUAL)
 
 1. **Migração para Supabase SSR [CONCLUÍDO]**: O sistema agora utiliza cookies seguros para gestão de sessão.
-2. **HSTS Preload**: Após realizar o **Deploy** das alterações atuais no Vercel, submeta o domínio em [hstspreload.org](https://hstspreload.org/).
+2. **HSTS Preload [CONCLUÍDO]**: Domínio submetido com sucesso em [hstspreload.org](https://hstspreload.org/).
 3. **Vercel Firewall / Deployment Protection**: No dashboard do Vercel, em **Settings -> Security**, verifique se as proteções padrão estão ativadas. Se possuir plano Pro, configure as regras de firewall adicionais.
-4. **2FA (MFA)**: Ative a autenticação de dois fatores no console do Supabase para a conta administrativa.
+4. **2FA (MFA) [CONCLUÍDO]**: Autenticação de dois fatores ativada no console do Supabase para a conta administrativa.
 
 ---
-**Status Final: BLINDAGEM ATIVA** 🔒
+**Status Final: BLINDAGEM COMPLETA E ATIVA** 🔒
 Implementado por: Antigravity AI (Senior Security Engineer)
-Data: 2026-04-26
+Data Final: 2026-04-27
