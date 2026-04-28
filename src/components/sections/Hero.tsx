@@ -61,12 +61,9 @@ export default function Hero() {
           setDemos(heroDemos);
           const uniqueCats = Array.from(new Set(heroDemos.map(d => d.category))).sort();
           setCategories(uniqueCats);
-        } else {
-          setDemos(staticDemos as any);
         }
       } catch (err) {
         console.error("Hero: Error fetching demos", err);
-        setDemos(staticDemos as any);
       } finally {
         setLoading(false);
       }
@@ -122,8 +119,27 @@ export default function Hero() {
           </div>
 
           {/* RIGHT — Interactive Demo Player (Client Component) */}
-          <motion.div variants={itemVariants} className="md:col-span-5 w-full">
-            <DemoPlayer heroCategories={categories} heroDemos={demos.length > 0 ? demos : staticDemos as any} />
+          <motion.div variants={itemVariants} className="md:col-span-5 w-full min-h-[300px]">
+            {loading ? (
+              <div className="glass-card flex flex-col gap-4 animate-pulse border-[#e0c27a]/10 h-[320px]">
+                <div className="flex gap-2 mb-6">
+                  <div className="w-20 h-8 bg-white/5 rounded-md"></div>
+                  <div className="w-20 h-8 bg-white/5 rounded-md"></div>
+                </div>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex items-center gap-4 py-2">
+                    <div className="w-10 h-10 rounded-full bg-white/5 flex-shrink-0"></div>
+                    <div className="flex-1 space-y-2">
+                      <div className="w-3/4 h-3 bg-white/5 rounded"></div>
+                      <div className="w-1/3 h-2 bg-white/5 rounded"></div>
+                    </div>
+                    <div className="w-8 h-3 bg-white/5 rounded"></div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <DemoPlayer heroCategories={categories} heroDemos={demos} />
+            )}
           </motion.div>
         </div>
 
